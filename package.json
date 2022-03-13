@@ -1,0 +1,15 @@
+{
+  "name": "types-kit",
+  "version": "0.0.0",
+  "description": "a types toolkit",
+  "keywords": [
+    "typescript",
+    "toolkit"
+  ],
+  "author": "Col0ring <1561999073@qq.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
