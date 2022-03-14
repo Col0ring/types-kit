@@ -6,6 +6,7 @@ import { StrictOmit } from './strict-omit'
 import { Simplify } from './simplify'
 import { IsEquals, If, IsExtends, And, Not } from '../control-flow'
 import { DeepKeys, Keys } from './value'
+import { IsNever } from '../basic'
 
 /**
  *
@@ -93,40 +94,55 @@ export type ReadonlyDeep<T> = {
     type newProps = ReadonlyDeepPick<Props, 'e' | 'a' | 'a.c.d'>
  * ```
  */
-export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = Simplify<
-  {
-    readonly [P in keyof T as If<
-      And<[IsExtends<P, Keys<T>>, IsExtends<P, K>]>,
-      P,
-      never
-    >]: T[P] extends object
-      ? ReadonlyDeepPick<
-          T[P],
-          // distributed condition type
-          K extends `${string}.${infer Tail}`
-            ? Extract<Tail, DeepKeys<T[P]>>
-            : never
-        >
-      : T[P]
-  } & {
-    [P in keyof T as If<
-      And<[IsExtends<P, Keys<T>>, Not<IsExtends<P, K>>]>,
-      P,
-      never
-    >]: T[P] extends object
-      ? ReadonlyDeepPick<
-          T[P],
-          // distributed condition type
-          K extends `${string}.${infer Tail}`
-            ? Extract<Tail, DeepKeys<T[P]>>
-            : never
-        >
-      : T[P]
-  }
->
+export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
+  Extract<K, Keys<T>>
+> extends true
+  ? // for array when not match the first level properties
+    {
+      [P in keyof T]: T[P] extends object
+        ? ReadonlyDeepPick<
+            T[P],
+            // distributed condition type
+            K extends `${string}.${infer Tail}`
+              ? Extract<Tail, DeepKeys<T[P]>>
+              : never
+          >
+        : T[P]
+    }
+  : Simplify<
+      {
+        readonly [P in keyof T as If<
+          And<[IsExtends<P, Keys<T>>, IsExtends<P, K>]>,
+          P,
+          never
+        >]: T[P] extends object
+          ? ReadonlyDeepPick<
+              T[P],
+              // distributed condition type
+              K extends `${string}.${infer Tail}`
+                ? Extract<Tail, DeepKeys<T[P]>>
+                : never
+            >
+          : T[P]
+      } & {
+        [P in keyof T as If<
+          And<[IsExtends<P, Keys<T>>, Not<IsExtends<P, K>>]>,
+          P,
+          never
+        >]: T[P] extends object
+          ? ReadonlyDeepPick<
+              T[P],
+              // distributed condition type
+              K extends `${string}.${infer Tail}`
+                ? Extract<Tail, DeepKeys<T[P]>>
+                : never
+            >
+          : T[P]
+      }
+    >
 
 // export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = Merge<
-//   StrictOmit<T, Extract<K, keyof T>>,
+//   StrictOmit<T, Extract<K, Keys<T>>>,
 //   Merge<
 //     // has 'a', but not has 'a.b'
 //     Readonly<Pick<T, Extract<K, keyof T>>>,
