@@ -4,6 +4,7 @@ import { Merge } from './merge'
 import { UnionToIntersection } from '../union'
 import { If, IsExtends, Or } from '../control-flow'
 import { Expect } from '../test-util'
+import { Keys } from './value'
 
 type InternalGetKeysDeep<T, P extends string = ''> = {
   [K in keyof T]-?: K extends string
@@ -111,6 +112,7 @@ type DP = GetDeepPath2<
             | {
                 d: 2
                 g: 3
+                h: 44
               }
             | 1
           e: 2
@@ -118,6 +120,23 @@ type DP = GetDeepPath2<
       | 3
   },
   'a.c.d' | 'a.c.g' | 'a.c'
+>
+
+type Result = Expect<
+  DP,
+  {
+    a?:
+      | {
+          c?:
+            | {
+                d: 2
+                g: 3
+                h: 44
+              }
+            | 1
+        }
+      | 3
+  }
 >
 
 type C = {
@@ -151,7 +170,7 @@ export type ReadonlyDeep<T> = {
 }
 
 export type ReadonlyDeepPick<T, K extends GetKeysDeep<T>> = Merge<
-  StrictOmit<T, Extract<K, keyof T>>,
+  StrictOmit<T, Extract<K, Keys<T>>>,
   Merge<
     // has 'a', but not has 'a.b'
     Readonly<Pick<T, Extract<K, keyof T>>>,
@@ -206,6 +225,19 @@ export type ReadonlyDeepPick<T, K extends GetKeysDeep<T>> = Merge<
         >
       : never
   >
+>
+
+type QA = ReadonlyDeepPick<
+  {
+    a: {
+      c: number
+      d: {
+        e: number
+      }
+    }
+    b: 2
+  },
+  'a'
 >
 
 /**

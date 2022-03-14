@@ -4,7 +4,7 @@
  * @example
  * ```ts
  * type Props = { a: 1, b: 2, c: 3 } & { d: 4 }
- * // Except: { a: 1, b: 2, c: 3, d: 4 }
+ * // Expect: { a: 1, b: 2, c: 3, d: 4 }
  * type SimplifiedProps = Simplify<Props>
  * ```
  */
