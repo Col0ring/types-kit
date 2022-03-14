@@ -1,6 +1,7 @@
 import { StrictOmit } from './strict-omit'
 import { Mutable } from './mutable'
 import { Simplify } from './simplify'
+import { Keys } from './value'
 
 /**
  *
@@ -16,6 +17,6 @@ import { Simplify } from './simplify'
  *    type newProps = MutablePick<Props, 'a' | 'b'>;
  * ```
  */
-export type MutablePick<T, K extends keyof T> = Simplify<
+export type MutablePick<T, K extends Keys<T>> = Simplify<
   StrictOmit<T, K> & Mutable<Pick<T, K>>
 >
