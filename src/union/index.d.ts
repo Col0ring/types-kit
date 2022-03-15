@@ -1,2 +1,2 @@
 export * from './strict-exclude'
-export * from './union-to-intersection'
+export * from './last-in-union'

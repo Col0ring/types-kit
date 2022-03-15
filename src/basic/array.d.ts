@@ -1,7 +1,7 @@
 import { IsExtends, Not } from '../control-flow'
 
 export type ArrayAndReadonlyArrayByPassArray<
-  T extends any[] | readonly any[] = any[]
+  T extends unknown[] | readonly unknown[] = unknown[]
 > = T | Readonly<T>
 
 export type ArrayAndReadonlyArrayByPassItem<T = any> = T[] | readonly T[]
@@ -23,10 +23,9 @@ export type ArrayTuple<
   : never
 
 // notice: distributed condition type
-export type IsTuple<T extends ArrayAndReadonlyArrayByPassArray> = IsExtends<
-  T,
-  Tuple
->
+export type IsTuple<T extends ArrayAndReadonlyArrayByPassArray> = T extends T
+  ? IsExtends<T, Tuple>
+  : never
 
 // notice: distributed condition type
 export type ArrayItem<T extends ArrayAndReadonlyArrayByPassItem> =

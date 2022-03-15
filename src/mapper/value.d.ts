@@ -1,4 +1,12 @@
-import { IsExtends } from '../control-flow'
+/**
+ * TupleKeys<[3, 4]> = 0 | 1.
+ */
+export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
+  any,
+  ...infer Tail
+]
+  ? TupleKeys<Tail> | Tail['length'] | `${Tail['length']}`
+  : never
 
 /**
  *
@@ -15,32 +23,33 @@ import { IsExtends } from '../control-flow'
  *  type PropKeys = Keys<Props>
  * ```
  */
-export type Keys<T> = IsExtends<T, readonly any[]> extends true
-  ? // any[] extends readonly any[], but readonly any[] not extends any[]
+export type Keys<T> = T extends readonly unknown[]
+  ? // unknown[] extends readonly unknown[], but readonly unknown[] not extends unknown[]
     keyof T extends infer K
-    ? K extends `${number}`
-      ? K
+    ? // we have to write this to avoid type errors
+      K extends `${number}`
+      ? TupleKeys<T>
       : never
     : never
   : keyof T
 
 type PathKey = string | number
 
-type InternalDeepKeys<T, P extends string = ''> = IsExtends<
-  T,
-  readonly any[]
-> extends true
+type InternalDeepKeys<T, P extends string = ''> = T extends readonly unknown[]
   ? keyof {
-      [K in keyof T as K extends `${number}`
+      [K in Keys<T> as K extends PathKey
         ? P extends ''
           ? T[K] extends infer V
             ? V extends object
-              ? K | InternalDeepKeys<V, `${K}`>
+              ? // we will get like 0 and '0', but only need to recurse once
+                K | (K extends number ? InternalDeepKeys<V, `${K}`> : never)
               : K
             : never
           : T[K] extends infer V
           ? V extends object
-            ? `${P}.${K}` | InternalDeepKeys<V, `${P}.${K}`>
+            ?
+                | `${P}.${K}`
+                | (K extends number ? InternalDeepKeys<V, `${P}.${K}`> : never)
             : `${P}.${K}`
           : never
         : never]: never

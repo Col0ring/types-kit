@@ -9,6 +9,9 @@
   "author": "Col0ring <1561999073@qq.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "tsc"
+  },
   "devDependencies": {
     "typescript": "^4.6.2"
   }

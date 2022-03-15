@@ -1,4 +1,6 @@
 export * from './mutable'
-export * from './mutable-pick'
 export * from './simplify'
 export * from './strict-omit'
+export * from './readonly'
+export * from './optional'
+export * from './value'

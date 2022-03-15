@@ -70,6 +70,7 @@ export type ReadonlyDeep<T> = {
 }
 
 /**
+ * 
  * @description Make some properties (includes deep properties) in T readonly (add readonly decorator)
  * @example
  * ```ts
@@ -141,6 +142,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
       }
     >
 
+// the second way, deprecated
 // export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = Merge<
 //   StrictOmit<T, Extract<K, Keys<T>>>,
 //   Merge<

@@ -19,8 +19,8 @@ import { IsReadonlyArray } from '../basic'
     type newProps = Merge<Foo, Bar>
     ```
  */
-export type Merge<A, B> = A extends readonly any[]
-  ? B extends readonly any[]
+export type Merge<A, B> = A extends readonly unknown[]
+  ? B extends readonly unknown[]
     ? MergeArray<A, B>
     : Simplify<
         StrictOmit<A, Extract<Keys<A>, Keys<B>>> & {
@@ -43,14 +43,17 @@ export type Merge<A, B> = A extends readonly any[]
     type MergedArr = MergeArray<Foo, Bar>
     ```
  */
-export type MergeArray<A extends readonly any[], B extends readonly any[]> = If<
+export type MergeArray<
+  A extends readonly unknown[],
+  B extends readonly unknown[]
+> = If<
   IsReadonlyArray<B>,
   readonly [...B, ...Slice<A, B['length']>],
   [...B, ...Slice<A, B['length']>]
 >
 
 type Slice<
-  Arr extends readonly any[],
+  Arr extends readonly unknown[],
   Start extends number = 0,
   End extends number = Arr['length']
 > = Iterate<Start, End, [], Arr, [], false>
@@ -62,9 +65,9 @@ type Slice<
 type Iterate<
   Start extends number,
   End extends number,
-  Head extends readonly any[],
-  Tail extends readonly any[],
-  Result extends readonly any[],
+  Head extends readonly unknown[],
+  Tail extends readonly unknown[],
+  Result extends readonly unknown[],
   InRange extends boolean
 > = Tail extends [infer X, ...infer XS]
   ? If<
@@ -82,8 +85,8 @@ type Iterate<
 
 // if Index is out of range
 type IndexMatches<
-  Head extends readonly any[],
-  Tail extends readonly any[],
+  Head extends readonly unknown[],
+  Tail extends readonly unknown[],
   Index extends number
 > = Head['length'] extends Index
   ? true
