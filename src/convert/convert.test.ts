@@ -1,8 +1,11 @@
+import { StringToNumber } from './string-to-number'
 import { TupleToObject } from './tuple-to-object'
 import { TupleToUnion } from './tuple-to-union'
 import { UnionToIntersection } from './union-to-intersection'
 import { UnionToTuple } from './union-to-tuple'
 import { Test, Expect, Group, ExpectMatch } from '../test-util'
+
+type TestStringToNumber = Expect<StringToNumber<'1'>, 1>
 
 type TestTupleToObject = Expect<
   TupleToObject<['a', 'b', 1]>,
@@ -36,6 +39,7 @@ type TestUnionToTuple = ExpectMatch<
 
 export type Result = Test<
   [
+    TestStringToNumber,
     TestTupleToObjectGroup,
     TestTupleToUnion,
     TestUnionToIntersection,
