@@ -1,11 +1,13 @@
 /**
  * TupleKeys<[3, 4]> = 0 | 1.
  */
-export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
+export type ArrayKeys<T extends readonly unknown[]> = T extends readonly [
   any,
   ...infer Tail
 ]
-  ? TupleKeys<Tail> | Tail['length'] | `${Tail['length']}`
+  ? ArrayKeys<Tail> | Tail['length'] | `${Tail['length']}`
+  : number extends T['length']
+  ? number
   : never
 
 /**
@@ -25,10 +27,9 @@ export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
  */
 export type Keys<T> = T extends readonly unknown[]
   ? // unknown[] extends readonly unknown[], but readonly unknown[] not extends unknown[]
-    keyof T extends infer K
-    ? // we have to write this to avoid type errors
-      K extends `${number}`
-      ? TupleKeys<T>
+    ArrayKeys<T> extends infer K
+    ? K extends keyof T
+      ? K
       : never
     : never
   : keyof T
@@ -41,7 +42,7 @@ type InternalDeepKeys<T, P extends string = ''> = T extends readonly unknown[]
         ? P extends ''
           ? T[K] extends infer V
             ? V extends object
-              ? // we will get like 0 and '0', but only need to recurse once
+              ? // we will get values like 0 and '0', but only need to recurse once
                 K | (K extends number ? InternalDeepKeys<V, `${K}`> : never)
               : K
             : never
@@ -171,13 +172,26 @@ export type DeepGet<
   T,
   K extends DeepKeys<T>
 > = K extends `${infer Head}.${infer Tail}`
-  ? Head extends keyof T
-    ? T[Head] extends infer V
+  ? Head extends `${Keys<T> extends infer P
+      ? P extends PathKey
+        ? P
+        : never
+      : never}`
+    ? T extends readonly unknown[]
+      ? T[Head extends `${number}` ? number : Head] extends infer V
+        ? V extends object
+          ? Tail extends DeepKeys<V>
+            ? DeepGet<V, Tail>
+            : never
+          : // if the value of the parent property is not an object, like a?.b, then the value of b will be undefined
+            undefined
+        : never
+      : T[Head] extends infer V
       ? V extends object
         ? Tail extends DeepKeys<V>
           ? DeepGet<V, Tail>
           : never
-        : // if the parent property is not an object，just like a?.b, the value of b is undefined
+        : // if the value of the parent property is not an object, like a?.b, then the value of b will be undefined
           undefined
       : never
     : never
@@ -203,25 +217,48 @@ export type DeepGet<
  *  type PropValues = DeepGetPath<Props, 'a.c' | 'a.d'>
  * ```
  */
-export type DeepGetPath<T, K extends DeepKeys<T>> = {
-  [P in keyof T as P extends K
-    ? P
-    : K extends `${infer Head}.${string}`
-    ? P extends Head
-      ? P
-      : never
-    : never]: P extends K
-    ? T[P]
-    : [Exclude<K, keyof T>] extends [`${infer Head}.${infer Tail}`]
-    ? P extends Head
-      ? T[P] extends infer V
-        ? V extends object
-          ? DeepGetPath<V, Extract<Tail, DeepKeys<V>>>
-          : V
+export type DeepGetPath<T, K extends DeepKeys<T>> = T extends readonly unknown[]
+  ? {
+      [P in K as P extends `${infer Head}.${any}`
+        ? // `${number}.xxx`
+          `${number}` extends Head
+          ? number
+          : Head
+        : P]: [P] extends [Keys<T>]
+        ? T[P]
+        : [P] extends [`${infer Head}.${infer Tail}`]
+        ? [Head] extends [`${Keys<T>}`]
+          ? T[Head extends Keys<T>
+              ? Head
+              : Head extends `${number}`
+              ? number
+              : never] extends infer V
+            ? V extends object
+              ? DeepGetPath<V, Extract<Tail, DeepKeys<V>>>
+              : V
+            : never
+          : Head
         : never
-      : never
-    : never
-}
+    }
+  : {
+      [P in keyof T as P extends K
+        ? P
+        : K extends `${infer Head}.${string}`
+        ? P extends Head
+          ? P
+          : never
+        : never]: P extends K
+        ? T[P]
+        : [Exclude<K, keyof T>] extends [`${infer Head}.${infer Tail}`]
+        ? P extends Head
+          ? T[P] extends infer V
+            ? V extends object
+              ? DeepGetPath<V, Extract<Tail, DeepKeys<V>>>
+              : V
+            : never
+          : never
+        : never
+    }
 
 /* 
   // the second way, but the editor prompt is worse

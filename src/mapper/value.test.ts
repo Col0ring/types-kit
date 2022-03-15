@@ -1,5 +1,5 @@
 import {
-  TupleKeys,
+  ArrayKeys,
   DeepKeys,
   Keys,
   Values,
@@ -10,7 +10,7 @@ import {
 } from './value'
 import { Expect, Group, Test } from '../test-util'
 
-type TestTupleKeys = Expect<TupleKeys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
+type TestTupleKeys = Expect<ArrayKeys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
 
 type TestKeys = Expect<
   Keys<{
@@ -145,6 +145,34 @@ type TestDeepGetPath = Expect<
   }
 >
 
+// index types can only be union types
+type TestDeepGetPath2 = Expect<
+  DeepGetPath<{ a: number; b: number }[], `${number}.a` | `${number}.b`>,
+  {
+    [x: number]:
+      | {
+          a: number
+        }
+      | {
+          b: number
+        }
+  }
+>
+
+type TestDeepGetPath3 = Expect<
+  DeepGetPath<{ a: number; b: number }[], `${0}.a` | `${0}.b`>,
+  {
+    0: {
+      a: number
+      b: number
+    }
+  }
+>
+
+type TestDeepGetPathGroup = Group<
+  [TestDeepGetPath, TestDeepGetPath2, TestDeepGetPath3]
+>
+
 export type Result = Test<
   [
     TestTupleKeys,
@@ -154,6 +182,6 @@ export type Result = Test<
     TestDeepValues,
     TestGet,
     TestDeppGet,
-    TestDeepGetPath
+    TestDeepGetPathGroup
   ]
 >
