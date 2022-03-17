@@ -30,4 +30,10 @@ export type IsFalsy<T> = IfExtends<
   >
 >
 
+export type IsObject<T> = IfExtends<
+  [T, object],
+  IfExtends<[IsAny<T>, true], false, true>,
+  false
+>
+
 export type IsTruthy<T> = IfExtends<[IsFalsy<T>, true], false, true>

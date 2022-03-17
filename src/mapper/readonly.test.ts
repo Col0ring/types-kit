@@ -4,7 +4,7 @@ import {
   ReadonlyPick,
   ReadonlyDeepPick
 } from './readonly'
-import { Expect, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-util'
 
 type TestReadonlyDeep = Expect<
   ReadonlyDeep<{
@@ -72,6 +72,20 @@ type TestReadonlyDeepPick = Expect<
   }
 >
 
+type TestReadonlyDeepPick2 = Expect<
+  ReadonlyDeepPick<[{ a: 1; b: 2 }, { a: 1; b: 2 }], '0.a' | '1.b'>,
+  [{ readonly a: 1; b: 2 }, { a: 1; readonly b: 2 }]
+>
+
+type TestReadonlyDeepPickGroup = Group<
+  [TestReadonlyDeepPick, TestReadonlyDeepPick2]
+>
+
 export type Result = Test<
-  [TestReadonlyKeys, TestReadonlyPick, TestReadonlyDeep, TestReadonlyDeepPick]
+  [
+    TestReadonlyKeys,
+    TestReadonlyPick,
+    TestReadonlyDeep,
+    TestReadonlyDeepPickGroup
+  ]
 >

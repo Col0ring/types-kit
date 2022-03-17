@@ -6,7 +6,7 @@ import { StrictOmit } from './strict-omit'
 import { Simplify } from './simplify'
 import { IsEquals, If, IsExtends, And, Not } from '../control-flow'
 import { DeepKeys, Keys } from './value'
-import { IsNever, IsTuple } from '../basic'
+import { IsNever, IsObject } from '../basic'
 
 /**
   *
@@ -96,96 +96,34 @@ export type ReadonlyDeep<T> = {
   * ```
   */
 
-export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = And<
-  [
-    IsNever<Extract<K, Keys<T>>>,
-    boolean extends (
-      K extends `${infer Head}.${any}`
-        ? `${number}` extends Head
-          ? true
-          : boolean // no `${number}.xxx`
-        : never
-    )
-      ? false
-      : true
-  ]
+export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
+  Extract<K, Keys<T>>
 > extends true
   ? // for tuple when not match the first level properties
     {
       [P in keyof T]: T[P] extends infer V
-        ? V extends object
-          ? ReadonlyDeepPick<
-              V,
-              // distributed condition type
-              K extends `${any}.${infer Tail}`
-                ? Extract<Tail, DeepKeys<V>>
-                : never
-            >
-          : V
+        ? V extends V
+          ? IsObject<V> extends true
+            ? ReadonlyDeepPick<
+                V,
+                // distributed condition type
+                K extends `${infer Head}.${infer Tail}`
+                  ? P extends Head
+                    ? Extract<
+                        Tail extends Tail
+                          ? `${P}.${Tail}` extends K
+                            ? Tail
+                            : never
+                          : never,
+                        DeepKeys<V>
+                      >
+                    : never
+                  : never
+              >
+            : V
+          : never
         : never
     }
-  : T extends readonly unknown[]
-  ? Simplify<
-      {
-        readonly [P in K as P extends Keys<T> ? P : never]: P extends Keys<T>
-          ? T[P] extends object
-            ? ReadonlyDeepPick<
-                T[P],
-                // distributed condition type
-                K extends `${infer Head}.${infer Tail}`
-                  ? `${P}` extends Head // Head equals Head will pass
-                    ? Extract<Tail, DeepKeys<T[P]>>
-                    : never
-                  : never
-              >
-            : T[P]
-          : never
-      } & {
-        [P in Exclude<Keys<T>, K> as `${P}` extends `${K extends Keys<T>
-          ? K
-          : never}`
-          ? never
-          : IsNever<Exclude<K, Keys<T>>> extends false
-          ? [Exclude<K, Keys<T>>] extends [`${infer Head}.${any}`]
-            ? `${number}` extends Head
-              ? never
-              : P
-            : P
-          : P]: number extends P
-          ? T[P]
-          : T[P] extends object
-          ? ReadonlyDeepPick<
-              T[P],
-              // distributed condition type
-              K extends `${P}.${infer Tail}`
-                ? Extract<Tail, DeepKeys<T[P]>>
-                : never
-            >
-          : T[P]
-      } & {
-        [P in K extends `${infer Head}.${any}`
-          ? `${number}` extends Head
-            ? number
-            : Head
-          : never as `${P}` extends `${K extends Keys<T> ? K : never}`
-          ? IsEquals<`${P}`, `${K extends Keys<T> ? K : never}`> extends true
-            ? never
-            : P
-          : P]: `${P}` extends `${Keys<T>}`
-          ? T[P extends Keys<T> ? P : number] extends object
-            ? ReadonlyDeepPick<
-                T[P extends Keys<T> ? P : number],
-                // distributed condition type
-                K extends `${infer Head}.${infer Tail}`
-                  ? `${P}` extends Head // Head equals Head will pass
-                    ? Extract<Tail, DeepKeys<T[P]>>
-                    : never
-                  : never
-              >
-            : T[P extends Keys<T> ? P : number]
-          : never
-      }
-    >
   : Simplify<
       {
         readonly [P in keyof T as If<
@@ -193,15 +131,26 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = And<
           P,
           never
         >]: T[P] extends infer V
-          ? V extends object
-            ? ReadonlyDeepPick<
-                V,
-                // distributed condition type
-                K extends `${any}.${infer Tail}`
-                  ? Extract<Tail, DeepKeys<V>>
-                  : never
-              >
-            : V
+          ? V extends V
+            ? IsObject<V> extends true
+              ? ReadonlyDeepPick<
+                  V,
+                  // distributed condition type
+                  K extends `${infer Head}.${infer Tail}`
+                    ? P extends Head
+                      ? Extract<
+                          Tail extends Tail
+                            ? `${P}.${Tail}` extends K
+                              ? Tail
+                              : never
+                            : never,
+                          DeepKeys<V>
+                        >
+                      : never
+                    : never
+                >
+              : V
+            : never
           : never
       } & {
         [P in keyof T as If<
@@ -209,15 +158,26 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = And<
           P,
           never
         >]: T[P] extends infer V
-          ? V extends object
-            ? ReadonlyDeepPick<
-                V,
-                // distributed condition type
-                K extends `${any}.${infer Tail}`
-                  ? Extract<Tail, DeepKeys<V>>
-                  : never
-              >
-            : V
+          ? V extends V
+            ? IsObject<V> extends true
+              ? ReadonlyDeepPick<
+                  V,
+                  // distributed condition type
+                  K extends `${infer Head}.${infer Tail}`
+                    ? P extends Head
+                      ? Extract<
+                          Tail extends Tail
+                            ? `${P}.${Tail}` extends K
+                              ? Tail
+                              : never
+                            : never,
+                          DeepKeys<V>
+                        >
+                      : never
+                    : never
+                >
+              : V
+            : never
           : never
       }
     >
