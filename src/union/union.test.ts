@@ -1,7 +1,7 @@
 import { LastInUnion } from './last-in-union'
 import { StrictExclude } from './strict-exclude'
 import { LiteralUnion } from './literal-union'
-import { Expect, FailTestResult, SuccessTestResult, Test } from '../test-util'
+import { Expect, FailTestResult, SuccessTestResult, Test } from '../test-utils'
 
 type LiteralStringType = LiteralUnion<'a' | 'b', string>
 type TestLiteralUnion = Expect<LiteralStringType, 'a' | 'b' | (string & {})>

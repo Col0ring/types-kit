@@ -1,5 +1,5 @@
 import { ValueOf, DeepValueOf, Get, DeepGet } from './value'
-import { Expect, Test } from '../test-util'
+import { Expect, Test } from '../test-utils'
 
 type TestValues = Expect<
   ValueOf<{

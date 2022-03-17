@@ -4,7 +4,7 @@ import {
   SetReadonly,
   setReadonlyDeep
 } from './readonly'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 
 type TestReadonlyDeep = Expect<
   ReadonlyDeep<{

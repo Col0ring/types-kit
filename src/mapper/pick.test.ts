@@ -1,5 +1,5 @@
 import { ConditionalPick, DeepPick } from './pick'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 
 type TestDeepPick = Expect<
   DeepPick<

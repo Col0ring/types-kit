@@ -1,5 +1,5 @@
 import { TupleKeys, DeepKeys, Keys, ConditionalKeys } from './key'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 
 type TestTupleKeys = Expect<TupleKeys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
 

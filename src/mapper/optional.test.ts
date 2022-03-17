@@ -1,5 +1,5 @@
 import { SetOptional, OptionalKeys, PartialDeep } from './optional'
-import { Expect, Test } from '../test-util'
+import { Expect, Test } from '../test-utils'
 
 export type TestSetOptional = Expect<
   SetOptional<

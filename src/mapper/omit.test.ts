@@ -1,5 +1,5 @@
 import { StrictOmit, ConditionalOmit } from './omit'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 
 type TestStrictOmit = Expect<
   StrictOmit<{ a: 1; b: 2; c: 3 }, 'a'>,

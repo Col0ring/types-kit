@@ -1,5 +1,5 @@
 import { RequiredKeys } from './required'
-import { Expect, Test } from '../test-util'
+import { Expect, Test } from '../test-utils'
 
 export type TestRequiredKeys = Expect<
   RequiredKeys<{

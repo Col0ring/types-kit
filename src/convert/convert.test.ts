@@ -4,7 +4,7 @@ import { TupleToUnion } from './tuple-to-union'
 import { UnionToIntersection } from './union-to-intersection'
 import { UnionToTuple } from './union-to-tuple'
 import { OtherToString } from './other-to-string'
-import { Test, Expect, Group, ExpectMatch } from '../test-util'
+import { Test, Expect, Group, ExpectMatch } from '../test-utils'
 
 type TestStringToNumber = Expect<StringToNumber<'1'>, 1>
 

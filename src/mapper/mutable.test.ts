@@ -5,7 +5,7 @@ import {
   MutableKeys,
   setMutableDeepPick
 } from './mutable'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 
 type TestMutable = Expect<
   Mutable<{
