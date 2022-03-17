@@ -1,5 +1,21 @@
-import { OptionalKeys } from './optional'
+import { SetOptional, OptionalKeys, PartialDeep } from './optional'
 import { Expect, Test } from '../test-util'
+
+export type TestSetOptional = Expect<
+  SetOptional<
+    {
+      a: number
+      b: number
+      c: number
+    },
+    'a' | 'b'
+  >,
+  {
+    a?: number
+    b?: number
+    c: number
+  }
+>
 
 export type TestOptionalKeys = Expect<
   OptionalKeys<{
@@ -10,4 +26,21 @@ export type TestOptionalKeys = Expect<
   'a' | 'c'
 >
 
-export type Result = Test<[TestOptionalKeys]>
+export type TestPartialDeep = Expect<
+  PartialDeep<{
+    a: {
+      d: number
+    }
+    b: number
+    c: number
+  }>,
+  {
+    a?: {
+      d?: number
+    }
+    b?: number
+    c?: number
+  }
+>
+
+export type Result = Test<[TestSetOptional, TestOptionalKeys, TestPartialDeep]>

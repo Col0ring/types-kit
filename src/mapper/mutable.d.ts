@@ -55,11 +55,6 @@ export type setMutable<T, K extends Keys<T>> = Simplify<
   * ```
   */
 export type MutableKeys<T> = Exclude<Keys<T>, ReadonlyKeys<T>>
-type C = MutableKeys<{
-  readonly a?: number
-  b?: number
-  readonly c: number
-}>
 
 /**
  *
