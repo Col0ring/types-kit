@@ -1,8 +1,8 @@
 import {
   ReadonlyDeep,
   ReadonlyKeys,
-  ReadonlyPick,
-  ReadonlyDeepPick
+  SetReadonly,
+  setReadonlyDeep
 } from './readonly'
 import { Expect, Group, Test } from '../test-util'
 
@@ -33,7 +33,7 @@ type TestReadonlyKeys = Expect<
 >
 
 type TestReadonlyPick = Expect<
-  ReadonlyPick<
+  SetReadonly<
     {
       a?: number
       b: number
@@ -49,7 +49,7 @@ type TestReadonlyPick = Expect<
 >
 
 type TestReadonlyDeepPick = Expect<
-  ReadonlyDeepPick<
+  setReadonlyDeep<
     {
       a: {
         b?: number
@@ -73,7 +73,7 @@ type TestReadonlyDeepPick = Expect<
 >
 
 type TestReadonlyDeepPick2 = Expect<
-  ReadonlyDeepPick<[{ a: 1; b: 2 }, { a: 1; b: 2 }], '0.a' | '1.b'>,
+  setReadonlyDeep<[{ a: 1; b: 2 }, { a: 1; b: 2 }], '0.a' | '1.b'>,
   [{ readonly a: 1; b: 2 }, { a: 1; readonly b: 2 }]
 >
 

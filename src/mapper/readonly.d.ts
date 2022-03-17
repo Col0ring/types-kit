@@ -2,10 +2,10 @@
  *  Readonly is build-in
  */
 
-import { StrictOmit } from './strict-omit'
+import { StrictOmit } from './omit'
 import { Simplify } from './simplify'
 import { IsEquals, If, IsExtends, And, Not } from '../control-flow'
-import { DeepKeys, Keys } from './value'
+import { DeepKeys, Keys } from './key'
 import { IsNever, IsObject } from '../basic'
 
 /**
@@ -19,10 +19,10 @@ import { IsNever, IsObject } from '../basic'
       c: number;
     };
    // Expect: { readonly a: number; readonly b: number; c: number; }
-   type newProps = ReadonlyPick<Props, 'a' | 'b'>;
+   type newProps = SetReadonly<Props, 'a' | 'b'>;
   * ```
   */
-export type ReadonlyPick<T, K extends Keys<T>> = Simplify<
+export type SetReadonly<T, K extends Keys<T>> = Simplify<
   StrictOmit<T, K> & Readonly<Pick<T, K>>
 >
 
@@ -35,12 +35,13 @@ export type ReadonlyPick<T, K extends Keys<T>> = Simplify<
      b: number
      readonly c: number
    }
-   // Expect
+   // Expect: 'a' | 'c'
    type Keys = ReadonlyKeys<Props>
   * ```
   */
 // we need to traverse keyof T but not Keys<T>, otherwise the result of IsEquals will not be as expected
 export type ReadonlyKeys<T> = {
+  // remove undefined key
   [K in keyof T]-?: If<
     IsEquals<{ [P in K]: T[P] }, { -readonly [P in K]: T[P] }>,
     never,
@@ -92,11 +93,10 @@ export type ReadonlyDeep<T> = {
      //   }
      //   readonly e: number
      // }
-     type newProps = ReadonlyDeepPick<Props, 'e' | 'a' | 'a.c.d'>
+     type newProps = setReadonlyDeep<Props, 'e' | 'a' | 'a.c.d'>
   * ```
   */
-
-export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
+export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
   Extract<K, Keys<T>>
 > extends true
   ? // for tuple when not match the first level properties
@@ -104,7 +104,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
       [P in keyof T]: T[P] extends infer V
         ? V extends V
           ? IsObject<V> extends true
-            ? ReadonlyDeepPick<
+            ? setReadonlyDeep<
                 V,
                 // distributed condition type
                 K extends `${infer Head}.${infer Tail}`
@@ -133,7 +133,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? ReadonlyDeepPick<
+              ? setReadonlyDeep<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`
@@ -160,7 +160,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? ReadonlyDeepPick<
+              ? setReadonlyDeep<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`
@@ -183,7 +183,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
     >
 
 // the second way, deprecated
-// export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = Merge<
+// export type setReadonlyDeep<T, K extends DeepKeys<T>> = Merge<
 //   StrictOmit<T, Extract<K, Keys<T>>>,
 //   Merge<
 //     // has 'a', but not has 'a.b'
@@ -198,7 +198,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
 //                     readonly [P in Head]?: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? ReadonlyDeepPick<V, Tail>
+//                           ? setReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -207,7 +207,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
 //                     [P in Head]?: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? ReadonlyDeepPick<V, Tail>
+//                           ? setReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -219,7 +219,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
 //                     readonly [P in Head]: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? ReadonlyDeepPick<V, Tail>
+//                           ? setReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -228,7 +228,7 @@ export type ReadonlyDeepPick<T, K extends DeepKeys<T>> = IsNever<
 //                     [P in Head]: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? ReadonlyDeepPick<V, Tail>
+//                           ? setReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never

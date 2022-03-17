@@ -1,6 +1,6 @@
-import { StrictOmit } from './strict-omit'
+import { StrictOmit } from './omit'
 import { Simplify } from './simplify'
-import { Keys } from './value'
+import { Keys } from './key'
 import { If, Or } from '../control-flow'
 import { IsReadonlyArray } from '../basic'
 

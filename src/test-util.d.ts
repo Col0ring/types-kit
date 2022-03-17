@@ -1,11 +1,11 @@
 import { IsEquals, IsExtends } from './control-flow'
 
-export type SuccessTest = {
+export type SuccessTestResult = {
   result: true
   first: any
   second: any
 }
-export type FailTest = {
+export type FailTestResult = {
   result: false
   first: any
   second: any
@@ -23,10 +23,10 @@ export type ExpectMatch<T, U> = {
   second: U
 }
 
-export type Test<T extends SuccessTest[]> = T extends SuccessTest[]
+export type Group<T extends SuccessTestResult[]> = T extends SuccessTestResult[]
+  ? SuccessTestResult
+  : FailTestResult
+
+export type Test<T extends SuccessTestResult[]> = T extends SuccessTestResult[]
   ? true
   : false
-
-export type Group<T extends SuccessTest[]> = T extends SuccessTest[]
-  ? SuccessTest
-  : FailTest

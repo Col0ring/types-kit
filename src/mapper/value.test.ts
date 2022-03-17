@@ -1,62 +1,8 @@
-import {
-  TupleKeys,
-  DeepKeys,
-  Keys,
-  Values,
-  DeepValues,
-  Get,
-  DeepGet,
-  DeepGetPath
-} from './value'
-import { Expect, Group, Test } from '../test-util'
-
-type TestTupleKeys = Expect<TupleKeys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
-
-type TestKeys = Expect<
-  Keys<{
-    readonly a?: number
-    b: number
-    readonly c: number
-  }>,
-  'a' | 'b' | 'c'
->
-
-type TestKeys2 = Expect<Keys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
-
-type TestKeysGroup = Group<[TestKeys, TestKeys2]>
-
-type TestDeepKeys = Expect<
-  DeepKeys<{
-    a?: {
-      readonly b?: number
-      c: {
-        d?: number
-      }
-    }
-    e: number
-  }>,
-  'a' | 'a.b' | 'a.c' | 'a.c.d' | 'e'
->
-
-type TestDeepKeys2 = Expect<
-  DeepKeys<
-    [
-      0,
-      {
-        readonly a: number
-        b?: {
-          c: number
-        }
-      }
-    ]
-  >,
-  0 | 1 | '0' | '1' | '1.a' | '1.b' | '1.b.c'
->
-
-type TestDeepKeysGroup = Group<[TestDeepKeys, TestDeepKeys2]>
+import { ValueOf, DeepValueOf, Get, DeepGet } from './value'
+import { Expect, Test } from '../test-util'
 
 type TestValues = Expect<
-  Values<{
+  ValueOf<{
     a?: number
     b: string
     c: boolean
@@ -65,7 +11,7 @@ type TestValues = Expect<
 >
 
 type TestDeepValues = Expect<
-  DeepValues<{
+  DeepValueOf<{
     a?: {
       d: () => void
     }
@@ -107,70 +53,4 @@ type TestDeppGet = Expect<
   (() => void) | string | undefined
 >
 
-type TestDeepGetPath = Expect<
-  DeepGetPath<
-    {
-      a?:
-        | {
-            c?:
-              | {
-                  d: number
-                  g: number
-                  h: number
-                }
-              | number
-            e: number
-          }
-        | number
-      b: {
-        readonly c: number
-      }
-    },
-    'a.c.d' | 'a.c.g' | 'b'
-  >,
-  {
-    a?:
-      | {
-          c?:
-            | {
-                d: number
-                g: number
-              }
-            | number
-        }
-      | number
-    b: {
-      readonly c: number
-    }
-  }
->
-
-type TestDeepGetPath2 = Expect<
-  DeepGetPath<
-    [{ a: number; b: number }, { a: number; b: number }],
-    `0.a` | `1.b`
-  >,
-  {
-    0: {
-      a: number
-    }
-    1: {
-      b: number
-    }
-  }
->
-
-type TestDeepGetPathGroup = Group<[TestDeepGetPath, TestDeepGetPath2]>
-
-export type Result = Test<
-  [
-    TestTupleKeys,
-    TestKeysGroup,
-    TestDeepKeysGroup,
-    TestValues,
-    TestDeepValues,
-    TestGet,
-    TestDeppGet,
-    TestDeepGetPathGroup
-  ]
->
+export type Result = Test<[TestValues, TestDeepValues, TestGet, TestDeppGet]>

@@ -1,4 +1,4 @@
-import { Keys } from './value'
+import { Keys } from './key'
 
 /**
  * @description Get optional property keys of T
