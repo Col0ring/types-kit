@@ -1,4 +1,11 @@
-import { ConditionalPick, DeepPick, RemoveIndexSignature } from './pick'
+import {
+  ConditionalPick,
+  DeepPick,
+  RemoveIndexSignature,
+  PickAtLeastOne,
+  PickExactlyOne,
+  PickAllOrNone
+} from './pick'
 import { Expect, Group, Test } from '../test-utils'
 
 type TestDeepPick = Expect<
@@ -104,6 +111,86 @@ type TestRemoveIndexSignature = Expect<
   }
 >
 
+type TestPickAtLeastOne = Expect<
+  PickAtLeastOne<
+    {
+      readonly a?: number
+      b?: number
+      c: number
+    },
+    'a' | 'b'
+  >,
+  {
+    c: number
+  } & (
+    | ({
+        readonly a: number
+      } & {
+        b?: number
+      })
+    | ({
+        readonly a?: number
+      } & {
+        b: number
+      })
+  )
+>
+
+type TestPickExactlyOne = Expect<
+  PickExactlyOne<
+    {
+      readonly a?: number
+      b?: number
+      c: number
+    },
+    'a' | 'b'
+  >,
+  {
+    c: number
+  } & (
+    | ({
+        readonly a: number
+      } & {
+        b?: never
+      })
+    | ({
+        readonly a?: never
+      } & {
+        b: number
+      })
+  )
+>
+
+type TestPickAllOrNone = Expect<
+  PickAllOrNone<
+    {
+      readonly a?: number
+      b?: number
+      c: number
+    },
+    'a' | 'b'
+  >,
+  {
+    c: number
+  } & (
+    | {
+        readonly a: number
+        b: number
+      }
+    | {
+        readonly a?: never
+        b?: never
+      }
+  )
+>
+
 export type Result = Test<
-  [TestDeepPickGroup, TestConditionalPickGroup, TestRemoveIndexSignature]
+  [
+    TestDeepPickGroup,
+    TestConditionalPickGroup,
+    TestRemoveIndexSignature,
+    TestPickAtLeastOne,
+    TestPickExactlyOne,
+    TestPickAllOrNone
+  ]
 >

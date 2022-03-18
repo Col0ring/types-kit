@@ -11,7 +11,7 @@
     {
       "tagName": "@description",
       "syntaxKind": "block",
-      "allowMultiple": false
+      "allowMultiple": true
     }
   ],
 

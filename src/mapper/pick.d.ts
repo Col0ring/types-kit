@@ -1,6 +1,8 @@
 import { IsObject } from '../basic'
 import { OtherToString } from '../convert'
+import { StrictExclude } from '../union'
 import { ConditionalKeys, DeepKeys, Keys } from './key'
+import { StrictOmit } from './omit'
 
 /**
  *
@@ -128,3 +130,88 @@ export type RemoveIndexSignature<T> = {
 //       : K
 //     : never]: T[K]
 // }
+
+/**
+ * @description Create a type that requires at least one of the given keys. The remaining keys are kept as is.
+ * @example
+ * ```ts
+    interface Responder {
+      text?: () => string;
+      json?: () => string;
+      secure?: boolean;
+    };
+    const responder: RequireAtLeastOne<Responder, 'text' | 'json'> = {
+      // set at least one property, 'text' or 'json', otherwise throw error
+      json: () => '{"message": "ok"}',
+      secure: true
+    };
+ * ```
+ */
+export type PickAtLeastOne<T, K extends Keys<T>> = StrictOmit<T, K> &
+  {
+    [P in K]: Required<Pick<T, P>> & Partial<Pick<T, StrictExclude<K, P>>>
+  }[K]
+
+/**
+ * @description Create a type that requires at least one of the given keys. The remaining keys are kept as is.
+ * @example
+ * ```ts
+    interface Responder {
+      text?: () => string;
+      json?: () => string;
+      secure?: boolean;
+    };
+    const responder1: PickExactlyOne<Responder, 'text' | 'json'> = {
+      json: () => '{"message": "ok"}',
+      secure: true
+    };
+    const responder2: PickExactlyOne<Responder, 'text' | 'json'> = {
+      text: () => '{"message": "ok"}',
+      secure: true
+    };
+    const responder2: PickExactlyOne<Responder, 'text' | 'json'> = {
+      text: () => '{"message": "ok"}', // throw error
+      json: () => '{"message": "ok"}',
+      secure: true
+    };
+ * ```
+ */
+export type PickExactlyOne<T, K extends Keys<T>> = StrictOmit<T, K> &
+  {
+    [P in K]: Required<Pick<T, P>> &
+      Partial<{
+        [Q in keyof T as Q extends Exclude<K, P> ? Q : never]: never
+      }>
+  }[K]
+
+/**
+ * @description Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is.
+ * @example
+ * ```ts
+    interface Responder {
+      text?: () => string;
+      json?: () => string;
+      secure?: boolean;
+    };
+
+    const responder1: RequireAllOrNone<Responder, 'text' | 'json'> = {
+      secure: true
+    };
+    const responder2: RequireAllOrNone<Responder, 'text' | 'json'> = {
+      text: () => '{"message": "hi"}',
+      json: () => '{"message": "ok"}',
+      secure: true
+    };
+    const responder2: RequireAllOrNone<Responder, 'text' | 'json'> = {
+      json: () => '{"message": "ok"}', // throw error
+      secure: true
+    };
+ * ```
+ */
+export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
+  (
+    | Required<Pick<T, K>>
+    | Partial<{
+        [P in keyof T as P extends K ? P : never]: never
+      }>
+  )
