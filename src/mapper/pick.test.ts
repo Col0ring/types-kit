@@ -69,6 +69,25 @@ type TestConditionalPick = Expect<
   }
 >
 
+type TestConditionalPick2 = Expect<
+  ConditionalPick<
+    {
+      a?: number
+      b: string
+      c: boolean
+    },
+    number | boolean,
+    true
+  >,
+  {
+    c: boolean
+  }
+>
+
+type TestConditionalPickGroup = Group<
+  [TestConditionalPick, TestConditionalPick2]
+>
+
 type TestRemoveIndexSignature = Expect<
   RemoveIndexSignature<{
     a?: number
@@ -86,5 +105,5 @@ type TestRemoveIndexSignature = Expect<
 >
 
 export type Result = Test<
-  [TestDeepPickGroup, TestConditionalPick, TestRemoveIndexSignature]
+  [TestDeepPickGroup, TestConditionalPickGroup, TestRemoveIndexSignature]
 >

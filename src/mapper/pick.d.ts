@@ -84,11 +84,13 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
  *
  *  // Expect: { a?: number, c: boolean }
  *  type NewProps = ConditionalPick<Props, number | boolean>
+ *  // Set exact true, expect: { c: boolean }
+ *  type NewProps = ConditionalPick<Props, number | boolean>
  * ```
  */
-export type ConditionalPick<T, Condition> = Pick<
+export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
   T,
-  ConditionalKeys<T, Condition>
+  ConditionalKeys<T, Condition, Exact>
 >
 
 /**

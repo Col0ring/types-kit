@@ -1,7 +1,12 @@
 import { IsObject } from '../basic'
 
 /**
- * TupleKeys<[3, 4]> = 0 | 1.
+ * @description Get keys of tuple T
+ * @example
+ * ```ts
+ * // Expect: 0 | 1 | '0' | '1'
+ * type Keys = TupleKeys<[3, 4]>
+ * ```
  */
 export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
   any,
@@ -92,10 +97,16 @@ export type DeepKeys<T> = InternalDeepKeys<T>
  *
  *  // Expect: 'b' | 'c'
  *  type PropKeys = ConditionalKeys<Props, string | boolean>
+ *  // Set exact true, expect: 'c'
+ *  type PropKeys2 = ConditionalKeys<Props, string | boolean, true>
  * ```
  */
-export type ConditionalKeys<T, Condition> = {
-  [K in Keys<T>]: T[K] extends infer V
+export type ConditionalKeys<T, Condition, Exact extends boolean = false> = {
+  [K in Keys<T>]: Exact extends true
+    ? T[K] extends Condition
+      ? K
+      : never
+    : T[K] extends infer V
     ? V extends Condition
       ? K
       : never

@@ -37,9 +37,12 @@ export type StrictOmit<T, K extends Keys<T>> = {
  *
  *  // Expect: { b: string }
  *  type NewProps = ConditionalPick<Props, number | boolean>
+*   // Set exact true, expect: { a?: number, b: string }
+ *  type NewProps = ConditionalPick<Props, number | boolean, true>
  * ```
  */
-export type ConditionalOmit<T, Condition> = StrictOmit<
+export type ConditionalOmit<
   T,
-  ConditionalKeys<T, Condition>
->
+  Condition,
+  Exact extends boolean = false
+> = StrictOmit<T, ConditionalKeys<T, Condition, Exact>>

@@ -30,4 +30,24 @@ type TestConditionalOmit = Expect<
   }
 >
 
-export type Result = Test<[TestStrictOmitGroup, TestConditionalOmit]>
+type TestConditionalOmit2 = Expect<
+  ConditionalOmit<
+    {
+      a?: number
+      b: string
+      c: boolean
+    },
+    number | boolean,
+    true
+  >,
+  {
+    a?: number
+    b: string
+  }
+>
+
+type TestConditionalOmitGroup = Group<
+  [TestConditionalOmit, TestConditionalOmit2]
+>
+
+export type Result = Test<[TestStrictOmitGroup, TestConditionalOmitGroup]>

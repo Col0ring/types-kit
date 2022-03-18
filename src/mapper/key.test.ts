@@ -53,9 +53,9 @@ type TestConditionKeys = Expect<
       b: string
       c: boolean
     },
-    string | boolean
+    number | boolean
   >,
-  'b' | 'c'
+  'a' | 'c'
 >
 
 type TestConditionKeys2 = Expect<
@@ -63,7 +63,23 @@ type TestConditionKeys2 = Expect<
   0 | 2 | '0' | '2'
 >
 
-type TestConditionKeysGroup = Group<[TestConditionKeys, TestConditionKeys2]>
+// set exact true
+type TestConditionKeys3 = Expect<
+  ConditionalKeys<
+    {
+      a?: number
+      b: string
+      c: boolean
+    },
+    number | boolean,
+    true
+  >,
+  'c'
+>
+
+type TestConditionKeysGroup = Group<
+  [TestConditionKeys, TestConditionKeys2, TestConditionKeys3]
+>
 
 export type Result = Test<
   [TestTupleKeys, TestKeysGroup, TestDeepKeysGroup, TestConditionKeysGroup]

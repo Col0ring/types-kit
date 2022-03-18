@@ -4,3 +4,6 @@ node_modules
 *.local
 yarn.lock
 package-lock.json
+dist
+temp
+docs

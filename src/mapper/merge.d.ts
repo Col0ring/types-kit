@@ -1,8 +1,28 @@
 import { StrictOmit } from './omit'
 import { Simplify } from './simplify'
 import { Keys } from './key'
-import { If, Or } from '../control-flow'
-import { IsReadonlyArray } from '../basic'
+import { If } from '../control-flow'
+import { IsObject, IsReadonlyArray } from '../basic'
+import { Slice } from '../array'
+
+/**
+ * @description Merge two arrays, values of the second array will override values of the array type.
+ * @example
+ * ```ts
+    type Foo = [1, 2, 3]
+    type Bar = [4, 5]
+    // Expect: [4, 5, 3]
+    type MergedTuple = MergeTuple<Foo, Bar>
+    ```
+ */
+export type MergeTuple<
+  A extends readonly unknown[],
+  B extends readonly unknown[]
+> = If<
+  IsReadonlyArray<B>,
+  readonly [...B, ...Slice<A, B['length']>],
+  [...B, ...Slice<A, B['length']>]
+>
 
 /**
  * @description Merge two types into a new type. Keys of the second type will override keys of the first type.
@@ -33,63 +53,26 @@ export type Merge<A, B> = A extends readonly unknown[]
       }
     >
 
+type Without<T, U> = {
+  [K in Exclude<Keys<T>, Keys<U>>]?: never
+}
+
 /**
- * @description Merge two arrays, values of the second array will override values of the array type.
+ * @description Create a type that has mutually exclusive keys.
  * @example
  * ```ts
-    type Foo = [1, 2, 3]
-    type Bar = [4, 5]
-    // Expect: [4, 5, 3]
-    type MergedTuple = MergeTuple<Foo, Bar>
-    ```
+    interface Props {
+      a: number
+    }
+    interface Props2 {
+      b: string
+    }
+    let foo: MergeExclusive<Props, Props2>;
+    foo = { a: 1 } // Works
+    foo = { b: 'foo' } // Works
+    foo = { a: 1, b: 'foo'} // Error
+ * ```
  */
-export type MergeTuple<
-  A extends readonly unknown[],
-  B extends readonly unknown[]
-> = If<
-  IsReadonlyArray<B>,
-  readonly [...B, ...Slice<A, B['length']>],
-  [...B, ...Slice<A, B['length']>]
->
-
-type Slice<
-  Arr extends readonly unknown[],
-  Start extends number = 0,
-  End extends number = Arr['length']
-> = Iterate<Start, End, [], Arr, [], false>
-
-// Head is the already-processed items
-// Tail is the yet-to-be-processed items
-// Result is the result so-far
-// InRange is whether we are currently past the start of the range
-type Iterate<
-  Start extends number,
-  End extends number,
-  Head extends readonly unknown[],
-  Tail extends readonly unknown[],
-  Result extends readonly unknown[],
-  InRange extends boolean
-> = Tail extends [infer X, ...infer XS]
-  ? If<
-      // if end is out of range
-      IndexMatches<Head, Tail, End>,
-      Result,
-      If<
-        // if start is out of range
-        Or<[InRange, IndexMatches<Head, Tail, Start>]>,
-        Iterate<Start, End, [...Head, X], XS, [...Result, X], true>,
-        Iterate<Start, End, [...Head, X], XS, Result, false>
-      >
-    >
-  : Result
-
-// if Index is out of range
-type IndexMatches<
-  Head extends readonly unknown[],
-  Tail extends readonly unknown[],
-  Index extends number
-> = Head['length'] extends Index
-  ? true
-  : `-${Tail['length']}` extends `${Index}`
-  ? true
-  : false
+export type MergeExclusive<T, U> = IsObject<T | U> extends true
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U

@@ -33,8 +33,8 @@ export type Mutable<T> = {
      readonly b: number;
      readonly c: number;
    };
-  // Expect: {  a: number;  b: number; readonly c: number; }
-  type NewProps = SetReadonly<Props, 'a' | 'b'>;
+   // Expect: {  a: number; b: number; readonly c: number; }
+   type NewProps = setMutable<Props, 'a' | 'b'>;
  * ```
  */
 export type setMutable<T, K extends Keys<T>> = Simplify<

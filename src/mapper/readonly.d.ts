@@ -18,8 +18,8 @@ import { IsNever, IsObject } from '../basic'
       b: number;
       c: number;
     };
-   // Expect: { readonly a: number; readonly b: number; c: number; }
-   type NewProps = SetReadonly<Props, 'a' | 'b'>;
+    // Expect: { readonly a: number; readonly b:   number; c: number; }
+    type NewProps = SetReadonly<Props, 'a' | 'b'>;
   * ```
   */
 export type SetReadonly<T, K extends Keys<T>> = Simplify<

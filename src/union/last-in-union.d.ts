@@ -7,8 +7,8 @@ import { UnionToIntersection } from '../convert/union-to-intersection'
  * ```ts
  * // Expect: 2
  * type Foo = LastInUnion<1 | 2>
- * ````
- * if it is necessary to output one type from overload, TS selects the last signature ((x: 2) => 0) in the overload.
+ * ```
+ * if it is necessary to output one type from overload, TS selects the last signature in the overload.
  */
 type LastInUnion<U> = UnionToIntersection<
   U extends unknown ? (x: U) => 0 : never
