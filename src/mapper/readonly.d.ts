@@ -93,10 +93,10 @@ export type ReadonlyDeep<T> = {
      //   }
      //   readonly e: number
      // }
-     type newProps = setReadonlyDeep<Props, 'e' | 'a' | 'a.c.d'>
+     type newProps = SetReadonlyDeep<Props, 'e' | 'a' | 'a.c.d'>
   * ```
   */
-export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
+export type SetReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
   Extract<K, Keys<T>>
 > extends true
   ? // for tuple when not match the first level properties
@@ -104,7 +104,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
       [P in keyof T]: T[P] extends infer V
         ? V extends V
           ? IsObject<V> extends true
-            ? setReadonlyDeep<
+            ? SetReadonlyDeep<
                 V,
                 // distributed condition type
                 K extends `${infer Head}.${infer Tail}`
@@ -133,7 +133,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? setReadonlyDeep<
+              ? SetReadonlyDeep<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`
@@ -160,7 +160,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? setReadonlyDeep<
+              ? SetReadonlyDeep<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`
@@ -183,7 +183,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
     >
 
 // the second way, deprecated
-// export type setReadonlyDeep<T, K extends DeepKeys<T>> = Merge<
+// export type SetReadonlyDeep<T, K extends DeepKeys<T>> = Merge<
 //   StrictOmit<T, Extract<K, Keys<T>>>,
 //   Merge<
 //     // has 'a', but not has 'a.b'
@@ -198,7 +198,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
 //                     readonly [P in Head]?: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? setReadonlyDeep<V, Tail>
+//                           ? SetReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -207,7 +207,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
 //                     [P in Head]?: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? setReadonlyDeep<V, Tail>
+//                           ? SetReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -219,7 +219,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
 //                     readonly [P in Head]: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? setReadonlyDeep<V, Tail>
+//                           ? SetReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never
@@ -228,7 +228,7 @@ export type setReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<
 //                     [P in Head]: T[P] extends infer V
 //                       ? V extends Record<PropertyKey, any>
 //                         ? Tail extends GetKeysDeep<V>
-//                           ? setReadonlyDeep<V, Tail>
+//                           ? SetReadonlyDeep<V, Tail>
 //                           : never
 //                         : V
 //                       : never

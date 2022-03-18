@@ -2,7 +2,7 @@ import {
   ReadonlyDeep,
   ReadonlyKeys,
   SetReadonly,
-  setReadonlyDeep
+  SetReadonlyDeep
 } from './readonly'
 import { Expect, Group, Test } from '../test-utils'
 
@@ -48,8 +48,8 @@ type TestReadonlyPick = Expect<
   }
 >
 
-type TestReadonlyDeepPick = Expect<
-  setReadonlyDeep<
+type TestSetReadonlyDeepPick = Expect<
+  SetReadonlyDeep<
     {
       a: {
         b?: number
@@ -72,13 +72,13 @@ type TestReadonlyDeepPick = Expect<
   }
 >
 
-type TestReadonlyDeepPick2 = Expect<
-  setReadonlyDeep<[{ a: 1; b: 2 }, { a: 1; b: 2 }], '0.a' | '1.b'>,
+type TestSetReadonlyDeep2 = Expect<
+  SetReadonlyDeep<[{ a: 1; b: 2 }, { a: 1; b: 2 }], '0.a' | '1.b'>,
   [{ readonly a: 1; b: 2 }, { a: 1; readonly b: 2 }]
 >
 
-type TestReadonlyDeepPickGroup = Group<
-  [TestReadonlyDeepPick, TestReadonlyDeepPick2]
+type TestSetReadonlyDeepGroup = Group<
+  [TestSetReadonlyDeepPick, TestSetReadonlyDeep2]
 >
 
 export type Result = Test<
@@ -86,6 +86,6 @@ export type Result = Test<
     TestReadonlyKeys,
     TestReadonlyPick,
     TestReadonlyDeep,
-    TestReadonlyDeepPickGroup
+    TestSetReadonlyDeepGroup
   ]
 >
