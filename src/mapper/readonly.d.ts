@@ -19,7 +19,7 @@ import { IsNever, IsObject } from '../basic'
       c: number;
     };
    // Expect: { readonly a: number; readonly b: number; c: number; }
-   type newProps = SetReadonly<Props, 'a' | 'b'>;
+   type NewProps = SetReadonly<Props, 'a' | 'b'>;
   * ```
   */
 export type SetReadonly<T, K extends Keys<T>> = Simplify<
@@ -62,7 +62,7 @@ export type ReadonlyKeys<T> = {
       c: number;
     };
    // Expect: { readonly a: { readonly d: number }; readonly b: number; readonly c: number; }
-   type newProps = ReadonlyDeep<Props>;
+   type NewProps = ReadonlyDeep<Props>;
   * ```
   */
 // here we use keyof T, which can allow us return a array at the end
@@ -93,7 +93,7 @@ export type ReadonlyDeep<T> = {
      //   }
      //   readonly e: number
      // }
-     type newProps = SetReadonlyDeep<Props, 'e' | 'a' | 'a.c.d'>
+     type NewProps = SetReadonlyDeep<Props, 'e' | 'a' | 'a.c.d'>
   * ```
   */
 export type SetReadonlyDeep<T, K extends DeepKeys<T>> = IsNever<

@@ -34,7 +34,7 @@ export type Mutable<T> = {
      readonly c: number;
    };
   // Expect: {  a: number;  b: number; readonly c: number; }
-  type newProps = SetReadonly<Props, 'a' | 'b'>;
+  type NewProps = SetReadonly<Props, 'a' | 'b'>;
  * ```
  */
 export type setMutable<T, K extends Keys<T>> = Simplify<
@@ -69,7 +69,7 @@ export type MutableKeys<T> = Exclude<Keys<T>, ReadonlyKeys<T>>
      readonly c: number;
    };
   // Expect: { a: { d: number }; b: number; c: number; }
-  type newProps = MutableDeep<Props>;
+  type NewProps = MutableDeep<Props>;
  * ```
  */
 // here we use keyof T, which can allow us return a array at the end
@@ -100,7 +100,7 @@ export type MutableDeep<T> = {
      //   }
      //   readonly e: number
      // }
-     type newProps = setMutableDeepPick<Props, 'a' | 'a.c'>
+     type NewProps = setMutableDeepPick<Props, 'a' | 'a.c'>
   * ```
   */
 export type setMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<

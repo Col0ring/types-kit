@@ -16,12 +16,12 @@ import { IsReadonlyArray } from '../basic'
         b: number;
     };
     // Expect: { a: number, b: number }
-    type newProps = Merge<Foo, Bar>
+    type NewProps = Merge<Foo, Bar>
     ```
  */
 export type Merge<A, B> = A extends readonly unknown[]
   ? B extends readonly unknown[]
-    ? MergeArray<A, B>
+    ? MergeTuple<A, B>
     : Simplify<
         StrictOmit<A, Extract<Keys<A>, Keys<B>>> & {
           [P in keyof B as P extends Keys<B> ? P : never]: B[P]
@@ -40,10 +40,10 @@ export type Merge<A, B> = A extends readonly unknown[]
     type Foo = [1, 2, 3]
     type Bar = [4, 5]
     // Expect: [4, 5, 3]
-    type MergedArr = MergeArray<Foo, Bar>
+    type MergedTuple = MergeTuple<Foo, Bar>
     ```
  */
-export type MergeArray<
+export type MergeTuple<
   A extends readonly unknown[],
   B extends readonly unknown[]
 > = If<

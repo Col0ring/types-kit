@@ -83,10 +83,46 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
     }
  *
  *  // Expect: { a?: number, c: boolean }
- *  type newProps = ConditionalPick<Props, number | boolean>
+ *  type NewProps = ConditionalPick<Props, number | boolean>
  * ```
  */
 export type ConditionalPick<T, Condition> = Pick<
   T,
   ConditionalKeys<T, Condition>
 >
+
+/**
+ * @description Create a type that only has explicitly defined properties, absent of any index signatures.
+ * @example
+ * ```ts
+ *  interface Props {
+      a?: number
+      readonly b: number
+      c: number
+      [x: number]: number
+      [x: string]: number | undefined
+      [x: symbol]: number
+    }
+    // Expect: { a?: number, readonly b: number, c: number }
+    type NewProps = RemoveIndexSignature<Props>
+ * ```
+ */
+export type RemoveIndexSignature<T> = {
+  [K in keyof T as K extends Keys<T>
+    ? {} extends Record<K, never>
+      ? never
+      : K
+    : never]: T[K]
+}
+
+// export type RemoveIndexSignature<T> = {
+//   [K in keyof T as K extends Keys<T>
+//     ? string extends K
+//       ? never
+//       : number extends K
+//       ? never
+//       : symbol extends K
+//       ? never
+//       : K
+//     : never]: T[K]
+// }

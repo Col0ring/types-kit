@@ -1,4 +1,4 @@
-import { ConditionalPick, DeepPick } from './pick'
+import { ConditionalPick, DeepPick, RemoveIndexSignature } from './pick'
 import { Expect, Group, Test } from '../test-utils'
 
 type TestDeepPick = Expect<
@@ -69,4 +69,22 @@ type TestConditionalPick = Expect<
   }
 >
 
-export type Result = Test<[TestDeepPickGroup, TestConditionalPick]>
+type TestRemoveIndexSignature = Expect<
+  RemoveIndexSignature<{
+    a?: number
+    readonly b: number
+    c: number
+    [x: number]: number
+    [x: string]: number | undefined
+    [x: symbol]: number
+  }>,
+  {
+    a?: number
+    readonly b: number
+    c: number
+  }
+>
+
+export type Result = Test<
+  [TestDeepPickGroup, TestConditionalPick, TestRemoveIndexSignature]
+>

@@ -15,7 +15,7 @@ import { Simplify } from './simplify'
       c: number;
     };
    // Expect: {  a?: number;  b?: number; c: number; }
-   type newProps = SetOptional<Props, 'a' | 'b'>;
+   type NewProps = SetOptional<Props, 'a' | 'b'>;
   * ```
   */
 export type SetOptional<T, K extends Keys<T>> = Simplify<
@@ -53,7 +53,7 @@ export type OptionalKeys<T> = {
       c: number;
     };
    // Expect: { a?: { d?: number }; b?: number; c?: number; }
-   type newProps = PartialDeep<Props>;
+   type NewProps = PartialDeep<Props>;
   * ```
   */
 // here we use keyof T, which can allow us return a array at the end
@@ -84,7 +84,7 @@ export type PartialDeep<T> = {
      //   }
      //    e?: number
      // }
-     type newProps = SetOptionalDeep<Props, 'e' | 'a' | 'a.c.d'>
+     type NewProps = SetOptionalDeep<Props, 'e' | 'a' | 'a.c.d'>
   * ```
   */
 export type SetOptionalDeep<T, K extends DeepKeys<T>> = IsNever<

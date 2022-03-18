@@ -16,7 +16,7 @@ import { Simplify } from './simplify'
       c?: number;
     };
    // Expect: {  a: number;  b: number; c?: number; }
-   type newProps = SetRequired<Props, 'a' | 'b'>;
+   type NewProps = SetRequired<Props, 'a' | 'b'>;
   * ```
   */
 export type SetRequired<T, K extends Keys<T>> = Simplify<
@@ -52,7 +52,7 @@ export type RequiredKeys<T> = Exclude<Keys<T>, OptionalKeys<T>>
       c?: number;
     };
    // Expect: { a: { d: number }; b: number; c: number; }
-   type newProps = RequiredDeep<Props>;
+   type NewProps = RequiredDeep<Props>;
   * ```
   */
 // here we use keyof T, which can allow us return a array at the end
@@ -83,7 +83,7 @@ export type RequiredDeep<T> = {
      //   }
      //    e: number
      // }
-     type newProps = SetRequiredDeep<Props, 'e' | 'a' | 'a.b' | 'a.c.d'>
+     type NewProps = SetRequiredDeep<Props, 'e' | 'a' | 'a.b' | 'a.c.d'>
   * ```
   */
 export type SetRequiredDeep<T, K extends DeepKeys<T>> = IsNever<
