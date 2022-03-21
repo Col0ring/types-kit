@@ -110,30 +110,6 @@ export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
   ConditionalKeys<T, Condition, Exact>
 >
 
-/**
- * @description Create a type that only has explicitly defined properties, absent of any index signatures.
- * @example
- * ```ts
- *  interface Props {
-      a?: number
-      readonly b: number
-      c: number
-      [x: number]: number
-      [x: string]: number | undefined
-      [x: symbol]: number
-    }
-    // Expect: { a?: number, readonly b: number, c: number }
-    type NewProps = RemoveIndexSignature<Props>
- * ```
- */
-export type RemoveIndexSignature<T> = {
-  [K in keyof T as K extends Keys<T>
-    ? {} extends Record<K, never>
-      ? never
-      : K
-    : never]: T[K]
-}
-
 // export type RemoveIndexSignature<T> = {
 //   [K in keyof T as K extends Keys<T>
 //     ? string extends K
@@ -245,21 +221,23 @@ type InternalDeepReplacePick<
   > extends [infer Res, infer V]
     ? Res extends true
       ? V
-      : V extends object
-      ? // get filter keys and values
-        InternalDeepReplacePickKeys<P, KeysArr, ValuesArr> extends [
-          infer ResultKeys,
-          infer ResultValues
-        ]
-        ? ResultKeys extends readonly unknown[]
-          ? ResultValues extends readonly unknown[]
-            ? IsEmptyTypeArray<ResultKeys> extends true
-              ? V
-              : InternalDeepReplacePick<V, ResultKeys, ResultValues>
+      : V extends V
+      ? IsObject<V> extends true
+        ? // get filter keys and values
+          InternalDeepReplacePickKeys<P, KeysArr, ValuesArr> extends [
+            infer ResultKeys,
+            infer ResultValues
+          ]
+          ? ResultKeys extends readonly unknown[]
+            ? ResultValues extends readonly unknown[]
+              ? IsEmptyTypeArray<ResultKeys> extends true
+                ? V
+                : InternalDeepReplacePick<V, ResultKeys, ResultValues>
+              : never
             : never
           : never
-        : never
-      : V
+        : V
+      : never
     : never
 }
 

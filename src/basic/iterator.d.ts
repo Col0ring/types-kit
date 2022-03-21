@@ -1,6 +1,6 @@
 import { Keys } from '../mapper'
 import { IsTuple } from './array'
-import { IsNever } from './value'
+import { IsNever, IsObject } from './value'
 
 /**
  * @description Get the value type of an Iterable / AsyncIterable
@@ -102,8 +102,10 @@ export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
   ? IsTuple<T> extends true
     ? ObjectEntry<T>
     : ArrayEntry<T>
-  : T extends object
-  ? ObjectEntry<T>
+  : IsObject<T> extends true
+  ? T extends object
+    ? ObjectEntry<T>
+    : never
   : never
 
 /**
@@ -113,7 +115,7 @@ export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
  * type Foo = [1, 2]
  * type Bar = { a: 1, b: 2 }
  *
- * // Expect: [0 | 1, 1 | 2][]
+ * // Expect: [0 | 1, 1 | 2]
  * type EntryType = Entries<Foo>
  * // Expect: ['a' | 'b', 1 | 2][]
  * type EntryType2 = Entries<Bar>

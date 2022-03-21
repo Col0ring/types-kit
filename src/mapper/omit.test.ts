@@ -1,4 +1,9 @@
-import { StrictOmit, ConditionalOmit } from './omit'
+import {
+  StrictOmit,
+  DeepOmit,
+  ConditionalOmit,
+  RemoveIndexSignature
+} from './omit'
 import { Expect, Group, Test } from '../test-utils'
 
 type TestStrictOmit = Expect<
@@ -15,6 +20,75 @@ type TestStrictOmit2 = Expect<
 >
 
 type TestStrictOmitGroup = Group<[TestStrictOmit, TestStrictOmit2]>
+
+type TestDeepOmit = Expect<
+  DeepOmit<
+    {
+      a?: {
+        readonly b: number
+        c?: number
+      }
+      e: number
+    },
+    'a.b' | 'e'
+  >,
+  {
+    a?: {
+      c?: number
+    }
+  }
+>
+
+type TestDeepOmit2 = Expect<
+  DeepOmit<
+    [
+      {
+        a?: {
+          readonly b: number
+          c?: number
+        }
+        e: number
+      },
+      number
+    ],
+    '0.a.b'
+  >,
+  [
+    {
+      a?: {
+        c?: number
+      }
+      e: number
+    },
+    number
+  ]
+>
+
+type TestDeepOmit3 = Expect<
+  DeepOmit<
+    [
+      {
+        a?: {
+          readonly b: number
+          c?: number
+        }
+        e: number
+      },
+      number
+    ],
+    '0.a.b' | 1
+  >,
+  {
+    0: {
+      a?: {
+        c?: number
+      }
+      e: number
+    }
+  }
+>
+
+type TestDeepOmitGroup = Group<[TestDeepOmit, TestDeepOmit2, TestDeepOmit3]>
 
 type TestConditionalOmit = Expect<
   ConditionalOmit<
@@ -50,4 +124,27 @@ type TestConditionalOmitGroup = Group<
   [TestConditionalOmit, TestConditionalOmit2]
 >
 
-export type Result = Test<[TestStrictOmitGroup, TestConditionalOmitGroup]>
+type TestRemoveIndexSignature = Expect<
+  RemoveIndexSignature<{
+    a?: number
+    readonly b: number
+    c: number
+    [x: number]: number
+    [x: string]: number | undefined
+    [x: symbol]: number
+  }>,
+  {
+    a?: number
+    readonly b: number
+    c: number
+  }
+>
+
+export type Result = Test<
+  [
+    TestStrictOmitGroup,
+    TestDeepOmitGroup,
+    TestConditionalOmitGroup,
+    TestRemoveIndexSignature
+  ]
+>

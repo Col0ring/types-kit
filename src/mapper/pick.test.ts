@@ -2,7 +2,6 @@ import {
   Simplify,
   ConditionalPick,
   DeepPick,
-  RemoveIndexSignature,
   PickAtLeastOne,
   PickExactlyOne,
   PickAllOrNone,
@@ -98,22 +97,6 @@ type TestConditionalPick2 = Expect<
 
 type TestConditionalPickGroup = Group<
   [TestConditionalPick, TestConditionalPick2]
->
-
-type TestRemoveIndexSignature = Expect<
-  RemoveIndexSignature<{
-    a?: number
-    readonly b: number
-    c: number
-    [x: number]: number
-    [x: string]: number | undefined
-    [x: symbol]: number
-  }>,
-  {
-    a?: number
-    readonly b: number
-    c: number
-  }
 >
 
 type TestPickAtLeastOne = Expect<
@@ -257,7 +240,6 @@ export type Result = Test<
     TestSimplify,
     TestDeepPickGroup,
     TestConditionalPickGroup,
-    TestRemoveIndexSignature,
     TestPickAtLeastOne,
     TestPickExactlyOne,
     TestPickAllOrNone,
