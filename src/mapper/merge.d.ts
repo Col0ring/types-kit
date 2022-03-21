@@ -1,5 +1,5 @@
 import { StrictOmit } from './omit'
-import { Simplify } from './simplify'
+import { Simplify } from './pick'
 import { Keys } from './key'
 import { If } from '../control-flow'
 import { IsObject, IsReadonlyArray } from '../basic'

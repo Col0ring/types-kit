@@ -3,7 +3,7 @@ import { And, If, IsExtends, Not } from '../control-flow'
 import { DeepKeys, Keys } from './key'
 import { StrictOmit } from './omit'
 import { OptionalKeys } from './optional'
-import { Simplify } from './simplify'
+import { Simplify } from './pick'
 
 /**
   *

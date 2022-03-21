@@ -3,7 +3,7 @@
  */
 
 import { StrictOmit } from './omit'
-import { Simplify } from './simplify'
+import { Simplify } from './pick'
 import { IsEquals, If, IsExtends, And, Not } from '../control-flow'
 import { DeepKeys, Keys } from './key'
 import { IsNever, IsObject } from '../basic'

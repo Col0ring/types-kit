@@ -1,4 +1,5 @@
 import {
+  Simplify,
   ConditionalPick,
   DeepPick,
   RemoveIndexSignature,
@@ -9,6 +10,8 @@ import {
   DeepReplacePick
 } from './pick'
 import { Expect, Group, Test } from '../test-utils'
+
+type TestSimplify = Expect<Simplify<{ a: 1 } & { b: 2 }>, { a: 1; b: 2 }>
 
 type TestDeepPick = Expect<
   DeepPick<
@@ -251,6 +254,7 @@ type TestDeepReplacePickGroup = Group<
 
 export type Result = Test<
   [
+    TestSimplify,
     TestDeepPickGroup,
     TestConditionalPickGroup,
     TestRemoveIndexSignature,

@@ -7,6 +7,20 @@ import { StrictOmit } from './omit'
 
 /**
  *
+ * @description Flatten the type output to improve type hints shown in editors
+ * @example
+ * ```ts
+ * type Props = { a: 1, b: 2, c: 3 } & { d: 4 }
+ * // Expect: { a: 1, b: 2, c: 3, d: 4 }
+ * type SimplifiedProps = Simplify<Props>
+ * ```
+ */
+export type Simplify<T> = {
+  [K in keyof T]: T[K]
+}
+
+/**
+ *
  * @description Get the deep value path from T
  * @example
  * ```ts

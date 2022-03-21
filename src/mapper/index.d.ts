@@ -1,5 +1,4 @@
 export * from './mutable'
-export * from './simplify'
 export * from './pick'
 export * from './omit'
 export * from './readonly'
