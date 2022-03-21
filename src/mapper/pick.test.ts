@@ -4,7 +4,9 @@ import {
   RemoveIndexSignature,
   PickAtLeastOne,
   PickExactlyOne,
-  PickAllOrNone
+  PickAllOrNone,
+  ReplacePick,
+  DeepReplacePick
 } from './pick'
 import { Expect, Group, Test } from '../test-utils'
 
@@ -184,6 +186,69 @@ type TestPickAllOrNone = Expect<
   )
 >
 
+type TestReplacePick = Expect<
+  ReplacePick<
+    {
+      readonly a?: {
+        d?: boolean
+      }
+      b?: number
+      c: number
+    },
+    ['a', 'c'],
+    [string, string]
+  >,
+  {
+    readonly a?: string
+    b?: number
+    c: string
+  }
+>
+
+type TestDeepReplacePick = Expect<
+  DeepReplacePick<
+    {
+      readonly a?: {
+        d?: boolean
+      }
+      b?: number
+      c: number
+    },
+    ['a.d'],
+    [string]
+  >,
+  {
+    readonly a?: {
+      d?: string
+    }
+    b?: number
+    c: number
+  }
+>
+
+type TestDeepReplacePick2 = Expect<
+  DeepReplacePick<
+    [
+      1,
+      {
+        readonly a?: number
+      }
+    ],
+    [0, '1.a'],
+    [2, string]
+  >,
+  [
+    2,
+    {
+      readonly a?: string
+    }
+  ]
+>
+
+type TestDeepReplacePickGroup = Group<
+  [TestDeepReplacePick, TestDeepReplacePick2]
+>
+
 export type Result = Test<
   [
     TestDeepPickGroup,
@@ -191,6 +256,8 @@ export type Result = Test<
     TestRemoveIndexSignature,
     TestPickAtLeastOne,
     TestPickExactlyOne,
-    TestPickAllOrNone
+    TestPickAllOrNone,
+    TestReplacePick,
+    TestDeepReplacePickGroup
   ]
 >

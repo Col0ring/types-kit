@@ -1,10 +1,10 @@
 import { If, Or } from '../control-flow'
 
 type Slice<
-  Arr extends readonly unknown[],
+  T extends readonly unknown[],
   Start extends number = 0,
-  End extends number = Arr['length']
-> = Iterate<Start, End, [], Arr, [], false>
+  End extends number = T['length']
+> = T extends T ? Iterate<Start, End, [], T, [], false> : never
 
 // Head is the already-processed items
 // Tail is the yet-to-be-processed items

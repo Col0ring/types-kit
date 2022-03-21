@@ -3,11 +3,9 @@ import {
   IsEmptyTypeArray,
   IsTuple
 } from '../basic'
+import { EqualTag, ExtendsTag } from '../utils'
 import { If, IfExtends } from './if'
 import { IsExtends, IsEquals } from './operator'
-
-export type EqualTag = 'equal'
-export type ExtendsTag = 'extends'
 
 // notice: distributed condition type
 export type Switch<

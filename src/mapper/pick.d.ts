@@ -1,4 +1,5 @@
-import { IsObject } from '../basic'
+import { Fill } from '../array'
+import { IsEmptyTypeArray, IsObject } from '../basic'
 import { OtherToString } from '../convert'
 import { StrictExclude } from '../union'
 import { ConditionalKeys, DeepKeys, Keys } from './key'
@@ -130,6 +131,146 @@ export type RemoveIndexSignature<T> = {
 //       : K
 //     : never]: T[K]
 // }
+
+type InternalReplacePickValue<
+  Key,
+  Current,
+  KeysArr extends readonly unknown[],
+  ValuesArr extends readonly unknown[]
+> = Key extends OtherToString<KeysArr[0]>
+  ? ValuesArr[0]
+  : KeysArr extends [KeysArr[0], ...infer RestKeys]
+  ? ValuesArr extends [ValuesArr[0], ...infer RestValues]
+    ? InternalReplacePickValue<Key, Current, RestKeys, RestValues>
+    : Current
+  : Current
+
+/**
+ * @description Create a type that replace the values in the corresponding keys.
+ * @example
+ * ```ts
+ * interface Props {
+      readonly a?: {
+        d?: boolean
+      }
+      b?: number
+      c: number
+   }
+   
+   // Expect: { readonly a?: number, b?: number, c: string }
+   // ['a.d','c'] means the keys to replace, [string, string] means the values to map 
+   type new Props = DeepReplacePick<Props, ['a','c'], [number, string]>
+ * ```
+ */
+export type ReplacePick<
+  T,
+  KeysArr extends readonly Keys<T>[],
+  ValuesArr extends Fill<KeysArr['length'], unknown>
+> = {
+  [P in keyof T]: InternalReplacePickValue<P, T[P], KeysArr, ValuesArr>
+}
+
+type InternalDeepReplacePickValue<
+  Key,
+  Current,
+  KeysArr extends readonly unknown[],
+  ValuesArr extends readonly unknown[]
+> = Key extends OtherToString<KeysArr[0]>
+  ? [true, ValuesArr[0]]
+  : KeysArr extends [KeysArr[0], ...infer RestKeys]
+  ? ValuesArr extends [ValuesArr[0], ...infer RestValues]
+    ? InternalDeepReplacePickValue<Key, Current, RestKeys, RestValues>
+    : [false, Current]
+  : [false, Current]
+
+type InternalDeepReplacePickKeys<
+  Key,
+  KeysArr extends readonly unknown[],
+  ValuesArr extends readonly unknown[],
+  ResultKeys extends readonly unknown[] = [],
+  ResultValues extends readonly unknown[] = []
+> = KeysArr extends [KeysArr[0], ...infer RestKeys]
+  ? ValuesArr extends [ValuesArr[0], ...infer RestValues]
+    ? KeysArr[0] extends `${infer Head}.${infer Tail}`
+      ? Key extends Head
+        ? InternalDeepReplacePickKeys<
+            Key,
+            RestKeys,
+            RestValues,
+            [...ResultKeys, Tail],
+            [...ResultValues, ValuesArr[0]]
+          >
+        : InternalDeepReplacePickKeys<
+            Key,
+            RestKeys,
+            RestValues,
+            ResultKeys,
+            ResultValues
+          >
+      : // no first level
+        InternalDeepReplacePickKeys<
+          Key,
+          RestKeys,
+          RestValues,
+          ResultKeys,
+          ResultValues
+        >
+    : [ResultKeys, ResultValues]
+  : [ResultKeys, ResultValues]
+
+type InternalDeepReplacePick<
+  T,
+  KeysArr extends readonly unknown[],
+  ValuesArr extends readonly unknown[]
+> = {
+  [P in keyof T]: InternalDeepReplacePickValue<
+    P,
+    T[P],
+    KeysArr,
+    ValuesArr
+  > extends [infer Res, infer V]
+    ? Res extends true
+      ? V
+      : V extends object
+      ? // get filter keys and values
+        InternalDeepReplacePickKeys<P, KeysArr, ValuesArr> extends [
+          infer ResultKeys,
+          infer ResultValues
+        ]
+        ? ResultKeys extends readonly unknown[]
+          ? ResultValues extends readonly unknown[]
+            ? IsEmptyTypeArray<ResultKeys> extends true
+              ? V
+              : InternalDeepReplacePick<V, ResultKeys, ResultValues>
+            : never
+          : never
+        : never
+      : V
+    : never
+}
+
+/**
+ * @description Create a type that replace the values in the corresponding deep keys.
+ * @example
+ * ```ts
+ * interface Props {
+      readonly a?: {
+        d?: boolean
+      }
+      b?: number
+      c: number
+   }
+   
+   // Expect: { readonly a?: { d?: string }, b?: number, c: string }
+   // ['a.d','c'] means the keys to replace, [string, string] means the values to map 
+   type new Props = DeepReplacePick<Props, ['a.d','c'], [string, string]>
+ * ```
+ */
+export type DeepReplacePick<
+  T,
+  KeysArr extends readonly DeepKeys<T>[],
+  ValuesArr extends Fill<KeysArr['length'], unknown>
+> = InternalDeepReplacePick<T, KeysArr, ValuesArr>
 
 /**
  * @description Create a type that requires at least one of the given keys. The remaining keys are kept as is.
