@@ -6,7 +6,8 @@ import {
   PickExactlyOne,
   PickAllOrNone,
   ReplacePick,
-  DeepReplacePick
+  DeepReplacePick,
+  DiffPick
 } from './pick'
 import { Expect, Group, Test } from '../test-utils'
 
@@ -235,6 +236,23 @@ type TestDeepReplacePickGroup = Group<
   [TestDeepReplacePick, TestDeepReplacePick2]
 >
 
+type TestDiffPick = Expect<
+  DiffPick<
+    {
+      a?: number
+      readonly b: number
+      c: number
+    },
+    {
+      a: number
+    }
+  >,
+  {
+    readonly b: number
+    c: number
+  }
+>
+
 export type Result = Test<
   [
     TestSimplify,
@@ -244,6 +262,7 @@ export type Result = Test<
     TestPickExactlyOne,
     TestPickAllOrNone,
     TestReplacePick,
-    TestDeepReplacePickGroup
+    TestDeepReplacePickGroup,
+    TestDiffPick
   ]
 >

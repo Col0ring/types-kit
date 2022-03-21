@@ -2,6 +2,7 @@ import { LastInUnion } from './last-in-union'
 import { StrictExclude } from './strict-exclude'
 import { LiteralUnion } from './literal-union'
 import { Expect, FailTestResult, SuccessTestResult, Test } from '../test-utils'
+import { Diff } from './diff'
 
 type LiteralStringType = LiteralUnion<'a' | 'b', string>
 type TestLiteralUnion = Expect<LiteralStringType, 'a' | 'b' | (string & {})>
@@ -23,6 +24,8 @@ type TestLastInUnion = LastInUnion<'3' | '1' | '2'> extends infer V
 
 type TestStrictExclude = Expect<StrictExclude<'1' | '2' | '3', '3'>, '1' | '2'>
 
+type TestDiff = Expect<Diff<'1' | '2', '1' | '3'>, '2' | '3'>
+
 export type Result = Test<
-  [TestLiteralUnion, TestLastInUnion, TestStrictExclude]
+  [TestLiteralUnion, TestLastInUnion, TestStrictExclude, TestDiff]
 >

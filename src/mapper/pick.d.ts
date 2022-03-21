@@ -348,3 +348,19 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
         [P in keyof T as P extends K ? P : never]: never
       }>
   )
+
+/**
+ * @description From T remove properties that exist in U
+ * @example
+ * ```ts
+ * interface Props {
+ *    a: number
+ *    b: number
+ *    c: number
+ * }
+ *
+ * // Expect: { b: number, c: number }
+ * type NewProps = DiffPick<Props, { a: number }>
+ * ```
+ */
+export type DiffPick<T, U> = Pick<T, Exclude<Keys<T>, Keys<U>>>
