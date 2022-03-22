@@ -1,5 +1,11 @@
-import { Expect, Test } from '../test-utils'
-import { MergeTuple, Merge, MergeExclusive } from './merge'
+import { Expect, Group, Test } from '../test-utils'
+import {
+  MergeTuple,
+  Merge,
+  DeepMergeTuple,
+  DeepMerge,
+  MergeExclusive
+} from './merge'
 
 type TestMergeTuple = Expect<
   MergeTuple<[1, 2, 3], readonly [4, 5]>,
@@ -21,6 +27,86 @@ type TestMerge = Expect<
     b?: 3
   }
 >
+
+type TestDeepMergeTuple = Expect<
+  DeepMergeTuple<
+    [
+      {
+        a: {
+          readonly b: {
+            c: 2
+            d: 1
+          }
+        }
+      },
+      2
+    ],
+    [
+      {
+        a?: {
+          readonly b: {
+            d: 4
+          }
+          e: 3
+        }
+      },
+      1,
+      3
+    ]
+  >,
+  [
+    {
+      a?: {
+        readonly b: {
+          c: 2
+          d: 4
+        }
+        e: 3
+      }
+    },
+    1,
+    3
+  ]
+>
+
+type TestDeepMerge = Expect<
+  DeepMerge<
+    {
+      a: {
+        readonly b: {
+          c: 2
+          d: 1
+        }
+      }
+    },
+    {
+      a?:
+        | {
+            b: {
+              readonly d: 3
+            }
+          }
+        | number
+    }
+  >,
+  {
+    a?:
+      | {
+          b: {
+            c: 2
+            readonly d: 3
+          }
+        }
+      | number
+  }
+>
+
+type TestDeepMerge2 = Expect<
+  DeepMerge<[{ a: 1 }, 2, 3], [{ b: 2 }, 5]>,
+  [{ a: 1; b: 2 }, 5, 3]
+>
+
+type TestDeppMergeGroup = Group<[TestDeepMerge, TestDeepMerge2]>
 
 type TestMergeExclusive = Expect<
   MergeExclusive<
@@ -47,4 +133,12 @@ type TestMergeExclusive = Expect<
     })
 >
 
-export type Result = Test<[TestMergeTuple, TestMerge, TestMergeExclusive]>
+export type Result = Test<
+  [
+    TestMergeTuple,
+    TestMerge,
+    TestMergeExclusive,
+    TestDeepMergeTuple,
+    TestDeppMergeGroup
+  ]
+>
