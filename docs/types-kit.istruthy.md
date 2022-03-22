@@ -11,3 +11,11 @@ export type IsTruthy<T> = IfExtends<[IsFalsy<T>, true], false, true>
 ```
 <b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsFalsy](./types-kit.isfalsy.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsTruthy<true>
+```
+

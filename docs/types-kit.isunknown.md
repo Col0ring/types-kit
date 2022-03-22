@@ -15,3 +15,11 @@ export type IsUnknown<T> = IfExtends<
 ```
 <b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsUnknown<unknown>
+```
+

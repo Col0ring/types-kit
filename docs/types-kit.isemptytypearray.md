@@ -13,3 +13,11 @@ export type IsEmptyTypeArray<T extends readonly unknown[]> = T extends T
 ```
 <b>References:</b> [IsExtends](./types-kit.isextends.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsEmptyTypeArray<[]>
+```
+

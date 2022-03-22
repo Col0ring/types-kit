@@ -19,3 +19,13 @@ export type IsFalsy<T> = IfExtends<
 ```
 <b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [FalsyWithoutUnknown](./types-kit.falsywithoutunknown.md)<!-- -->, [IsAny](./types-kit.isany.md)<!-- -->, [IsUnknown](./types-kit.isunknown.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsFalsy<never>
+// Expect: false
+type Foo = IsFalsy<true>
+```
+

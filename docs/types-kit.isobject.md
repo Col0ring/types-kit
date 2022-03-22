@@ -8,10 +8,18 @@
 
 ```typescript
 export type IsObject<T> = IfExtends<
-  [T, object],
-  IfExtends<[IsAny<T>, true], false, true>,
-  false
+  [T, never],
+  false,
+  IfExtends<[T, object], IfExtends<[IsAny<T>, true], false, true>, false>
 >
 ```
 <b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
+
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsObject<{ foo: 'foo' }>
+```
 

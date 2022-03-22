@@ -13,3 +13,11 @@ export type IsReadonlyArray<T extends readonly unknown[]> = T extends T
 ```
 <b>References:</b> [Not](./types-kit.not.md)<!-- -->, [IsExtends](./types-kit.isextends.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsReadonlyArray<readonly [1, 2, 3]>
+```
+

@@ -13,3 +13,11 @@ export type IsTuple<T extends readonly unknown[]> = T extends T
 ```
 <b>References:</b> [IsExtends](./types-kit.isextends.md)<!-- -->, [Tuple](./types-kit.tuple.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsTuple<[1, 2, 3]>
+```
+

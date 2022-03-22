@@ -13,3 +13,12 @@ export type Tuple<T = unknown, R = T> =
   | readonly [T, ...R[]]
   | readonly [...R[], T]
 ```
+
+## Example
+
+
+```ts
+// Expect: [1, ...number[]] | [...number[], 1] | readonly [1, ...number[]] | readonly [...number[], 1]
+type Foo = Tuple<1, number>
+```
+

@@ -16,3 +16,11 @@ export type FlattedArrayItem<T extends readonly unknown[]> =
 ```
 <b>References:</b> [FlattedArrayItem](./types-kit.flattedarrayitem.md)
 
+## Example
+
+
+```ts
+// Expect: number
+type Foo = FlattedArrayItem<number[][][]>
+```
+

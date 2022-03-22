@@ -13,3 +13,12 @@ export type ArrayItem<T extends readonly unknown[]> = T extends ReadonlyArray<
   ? Item
   : never
 ```
+
+## Example
+
+
+```ts
+// Expect: number
+type Foo = ArrayItem<number[]>
+```
+

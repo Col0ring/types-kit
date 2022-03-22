@@ -11,3 +11,11 @@ export type IsNever<T> = IsExtends<T, never>
 ```
 <b>References:</b> [IsExtends](./types-kit.isextends.md)
 
+## Example
+
+
+```ts
+// Expect: true
+type Foo = IsNever<never>
+```
+
