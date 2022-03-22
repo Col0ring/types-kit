@@ -1,4 +1,12 @@
 import { IfExtends, IsExtends } from '../control-flow'
+export type Primitive =
+  | null
+  | undefined
+  | string
+  | number
+  | boolean
+  | symbol
+  | bigint
 
 export type Falsy = 0 | false | '' | undefined | null | void | never | unknown
 export type FalsyWithoutUnknown =
@@ -9,6 +17,12 @@ export type FalsyWithoutUnknown =
   | null
   | void
   | never
+
+export type IsPrimitive<T> = IfExtends<
+  [T, never],
+  false,
+  IfExtends<[T, Primitive], IfExtends<[IsAny<T>, true], false, true>, false>
+>
 
 export type IsAny<T> = IsExtends<number, 0 & T>
 
