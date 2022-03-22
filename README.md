@@ -1,6 +1,12 @@
 # Types-Kit
 a types toolkit.
 
+## Usage
+```sh
+npm install types-kit -D
+#or 
+yarn add types-Kit -D
+```
 ## API
 [Docs](./docs/index.md)
 

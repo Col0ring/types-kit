@@ -1,12 +1,17 @@
 {
   "name": "types-kit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "types": "./dist/index.d.ts",
   "description": "a types toolkit",
   "keywords": [
     "typescript",
     "toolkit"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Col0ring/types-kit.git"
+  },
+  "homepage": "https://github.com/Col0ring/types-kit",
   "author": "Col0ring <1561999073@qq.com>",
   "license": "MIT",
   "private": false,
@@ -16,6 +21,9 @@
     "build": "api-extractor run && npm run docs",
     "test": "tsc",
     "docs": "api-documenter markdown -i temp -o docs"
+  },
+  "peerDependencies": {
+    "typescript": "^4.5.0"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.15.4",

@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+*.log
+*.local
+yarn.lock
+package-lock.json
+temp
+docs
+
