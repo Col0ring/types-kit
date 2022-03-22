@@ -1,4 +1,4 @@
-import { Expect, Test } from '../test-util'
+import { Expect, Test } from '../test-utils'
 import { MergeTuple, Merge, MergeExclusive } from './merge'
 
 type TestMergeTuple = Expect<

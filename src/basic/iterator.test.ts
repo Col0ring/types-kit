@@ -7,7 +7,7 @@ import {
   Entry,
   Entries
 } from './iterator'
-import { Expect, Group, Test } from '../test-util'
+import { Expect, Group, Test } from '../test-utils'
 function* IterableValueFoo() {
   yield 1
   yield 2
