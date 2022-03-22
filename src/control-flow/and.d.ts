@@ -1,17 +1,21 @@
-import {
-  ArrayAndReadonlyArrayByPassArray,
-  ArrayItem,
-  IsEmptyTypeArray,
-  IsTruthy,
-  IsTuple
-} from '../basic'
+import { ArrayItem, IsEmptyTypeArray, IsTruthy, IsTuple } from '../basic'
 import { If } from './if'
 import { Or } from './or'
 
+/**
+ * @description And operator for types.
+ * @example
+ * ```ts
+ *  // Expect: false
+ *  type Foo = And<[1, 2, false]>
+ *  // Expect: true
+ *  type Bar = And<[true, 1, 'str']>
+ * ```
+ */
 // notice: distributed condition type
-export type And<A extends ArrayAndReadonlyArrayByPassArray> = If<
+export type And<A extends readonly unknown[]> = If<
   IsTuple<A>,
-  A extends ArrayAndReadonlyArrayByPassArray<[infer Current, ...infer Rest]>
+  A extends readonly [infer Current, ...infer Rest]
     ? If<
         Current,
         If<
@@ -21,7 +25,7 @@ export type And<A extends ArrayAndReadonlyArrayByPassArray> = If<
         >,
         false
       >
-    : A extends ArrayAndReadonlyArrayByPassArray<[...infer Rest, infer Current]>
+    : A extends readonly [...infer Rest, infer Current]
     ? If<
         Current,
         If<

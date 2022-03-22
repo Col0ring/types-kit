@@ -1,23 +1,25 @@
-import {
-  ArrayAndReadonlyArrayByPassArray,
-  IsEmptyTypeArray,
-  IsTuple
-} from '../basic'
+import { IsEmptyTypeArray, IsTuple } from '../basic'
 import { EqualTag, ExtendsTag } from '../utils'
 import { If, IfExtends } from './if'
 import { IsExtends, IsEquals } from './operator'
 
+/**
+ * @description Switch for types.
+ * @example
+ * ```ts
+ *  // Expect: boolean
+ *  type Foo = Switch<1, [[0, string], [1, boolean], [2, number], null]>
+ *  // Expect: null
+ *  type Bar = Switch<undefined, [[0, string], [1, boolean], [2, number], null]>
+ * ```
+ */
 // notice: distributed condition type
 export type Switch<
   T,
-  A extends ArrayAndReadonlyArrayByPassArray<
-    // if/else if/else
-    [...Cases: [Case: any, Result: any][], DefaultResult: any]
-  >,
+  A extends readonly // if/else if/else
+  [...Cases: [Case: unknown, Result: unknown][], DefaultResult: unknown],
   Type extends EqualTag | ExtendsTag = ExtendsTag
-> = A extends ArrayAndReadonlyArrayByPassArray<
-  [...infer CaseExpressions, infer DefaultResult]
->
+> = A extends readonly [...infer CaseExpressions, infer DefaultResult]
   ? If<
       IsTuple<CaseExpressions>,
       CaseExpressions extends [
@@ -29,14 +31,14 @@ export type Switch<
             If<
               IsEquals<T, CurrentCase>,
               CurrentResult,
-              OtherCases extends [Case: any, Result: any][]
+              OtherCases extends [Case: unknown, Result: unknown][]
                 ? Switch<T, [...OtherCases, DefaultResult]>
                 : DefaultResult
             >,
             If<
               IsExtends<T, CurrentCase>,
               CurrentResult,
-              OtherCases extends [Case: any, Result: any][]
+              OtherCases extends [Case: unknown, Result: unknown][]
                 ? Switch<T, [...OtherCases, DefaultResult]>
                 : DefaultResult
             >

@@ -1,26 +1,54 @@
-import { ArrayAndReadonlyArrayByPassArray, IsTuple, IsTruthy } from '../basic'
+import { IsTuple, IsTruthy } from '../basic'
 
-export type IfExtends<Condition extends [any, any], Case1, Case2> = [
+/**
+ * @description If Condition[0] extends Condition[1], return Case1, else return Case2
+ * @example
+ * ```ts
+ *  // Expect: 1
+ *  type Foo = IfExtends<[true, boolean], 1, 2>
+ * ```
+ */
+export type IfExtends<Condition extends [unknown, unknown], Case1, Case2> = [
   Condition[0]
 ] extends [Condition[1]]
   ? Case1
   : Case2
 
+/**
+ * @description If for types.
+ * @example
+ * ```ts
+ *  // Expect: 1
+ *  type Foo = If<true, 1, 2>
+ * ```
+ */
 export type If<Condition, Case1, Case2> = IfExtends<
   [IsTruthy<Condition>, true],
   Case1,
   Case2
 >
 
+/**
+ * @description If/Else if for types.
+ * @example
+ * ```ts
+ *  // Expect: 6
+ *  type Foo =  IfElseIf<[[0, 1], [null, 2], [1, 6], 7]>
+ * ```
+ */
 // notice: distributed condition type
 export type IfElseIf<
-  A extends ArrayAndReadonlyArrayByPassArray<
-    // if/else if/else
-    [[Condition: any, Result: any], ...[Condition: any, Result: any][], any]
-  >
-> = A extends ArrayAndReadonlyArrayByPassArray<
-  [infer IfExpression, ...infer ElseIfExpressions, infer ElseResult]
->
+  A extends readonly // if/else if/else
+  [
+    [Condition: unknown, Result: unknown],
+    ...[Condition: unknown, Result: unknown][],
+    unknown
+  ]
+> = A extends readonly [
+  infer IfExpression,
+  ...infer ElseIfExpressions,
+  infer ElseResult
+]
   ? IfExpression extends [infer IfCondition, infer IfResult]
     ? If<
         IfCondition,
@@ -31,7 +59,10 @@ export type IfElseIf<
             [infer ElseIfCondition, infer ElseIfResult],
             ...infer OtherElseIfExpressions
           ]
-            ? OtherElseIfExpressions extends [Condition: any, Result: any][]
+            ? OtherElseIfExpressions extends [
+                Condition: unknown,
+                Result: unknown
+              ][]
               ? IfElseIf<
                   [
                     [ElseIfCondition, ElseIfResult],

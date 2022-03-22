@@ -53,6 +53,8 @@ export type Merge<A, B> = A extends readonly unknown[]
       }
     >
 
+export type DeepMerge<A, B> = A
+
 type Without<T, U> = {
   [K in Exclude<Keys<T>, Keys<U>>]?: never
 }

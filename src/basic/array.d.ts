@@ -1,12 +1,6 @@
 import { IsExtends, Not } from '../control-flow'
 
-export type ArrayAndReadonlyArrayByPassArray<
-  T extends unknown[] | readonly unknown[] = unknown[]
-> = T | Readonly<T>
-
-export type ArrayAndReadonlyArrayByPassItem<T = any> = T[] | readonly T[]
-
-export type Tuple<T = any, R = T> =
+export type Tuple<T = unknown, R = T> =
   | [T, ...R[]]
   | [...R[], T]
   | readonly [T, ...R[]]
