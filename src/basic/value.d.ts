@@ -1,4 +1,7 @@
 import { IfExtends, IsExtends } from '../control-flow'
+/**
+ * @description Matches any primitive value.
+ */
 export type Primitive =
   | null
   | undefined
@@ -8,22 +11,34 @@ export type Primitive =
   | symbol
   | bigint
 
+/**
+ * @description Matches any falsy value.
+ */
 export type Falsy = 0 | false | '' | undefined | null | void | never | unknown
-export type FalsyWithoutUnknown =
-  | 0
-  | false
-  | ''
-  | undefined
-  | null
-  | void
-  | never
+type FalsyWithoutUnknown = 0 | false | '' | undefined | null | void | never
 
+/**
+ * @description If T is a primitive value, return true, otherwise, return false.
+ * @example
+ * ```ts
+ * // Expect: true
+ * type Foo = IsPrimitive<boolean>
+ * ```
+ */
 export type IsPrimitive<T> = IfExtends<
   [T, never],
   false,
   IfExtends<[T, Primitive], IfExtends<[IsAny<T>, true], false, true>, false>
 >
 
+/**
+ * @description  If T is any, return true, otherwise, return false.
+ * @example
+ * ```ts
+ * // Expect: true
+ * type Foo = IsAny<any>
+ * ```
+ */
 export type IsAny<T> = IsExtends<number, 0 & T>
 
 export type IsUnknown<T> = IfExtends<

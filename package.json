@@ -13,7 +13,7 @@
   "scripts": {
     "clean": "rimraf {dist,temp,docs}",
     "prebuild": "npm run clean",
-    "build": "api-extractor run",
+    "build": "api-extractor run && npm run docs",
     "test": "tsc",
     "docs": "api-documenter markdown -i temp -o docs"
   },

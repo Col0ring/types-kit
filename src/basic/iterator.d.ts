@@ -45,6 +45,7 @@ export type ArrayEntry<T extends readonly unknown[]> = [number, T[number]]
  *
  * // Expect: [number, string]
  * type EntryType = MapEntry<Foo>
+ * ```
  */
 export type MapEntry<T extends ReadonlyMap<unknown, unknown>> =
   T extends ReadonlyMap<infer K, infer V> ? [K, V] : never
@@ -56,6 +57,7 @@ export type MapEntry<T extends ReadonlyMap<unknown, unknown>> =
  *
  * // Expect: ['a' | 'b', 1 | 2]
  * type EntryType = ObjectEntry<Foo>
+ * ```
  */
 export type ObjectEntry<T extends object> = [
   Keys<T> extends infer K
@@ -75,6 +77,7 @@ export type ObjectEntry<T extends object> = [
  *
  * // Expect: [number, number]
  * type EntryType = SetEntry<Foo>
+ * ```
  */
 export type SetEntry<T extends ReadonlySet<unknown>> = T extends ReadonlySet<
   infer U
@@ -93,6 +96,7 @@ export type SetEntry<T extends ReadonlySet<unknown>> = T extends ReadonlySet<
  * type EntryType = Entry<Foo>
  * // Expect: ['a' | 'b', 1 | 2]
  * type EntryType2 = Entry<Bar>
+ * ```
  */
 export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
   ? MapEntry<T>
@@ -119,6 +123,7 @@ export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
  * type EntryType = Entries<Foo>
  * // Expect: ['a' | 'b', 1 | 2][]
  * type EntryType2 = Entries<Bar>
+ * ```
  */
 export type Entries<T> = Entry<T> extends infer E
   ? IsNever<E> extends true
