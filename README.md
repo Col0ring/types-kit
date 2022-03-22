@@ -5,7 +5,7 @@ a types toolkit.
 ```sh
 npm install types-kit -D
 #or 
-yarn add types-Kit -D
+yarn add types-kit -D
 ```
 ## API
 [Docs](./docs/index.md)
