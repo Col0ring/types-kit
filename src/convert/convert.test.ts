@@ -4,6 +4,7 @@ import { TupleToUnion } from './tuple-to-union'
 import { UnionToIntersection } from './union-to-intersection'
 import { UnionToTuple } from './union-to-tuple'
 import { OtherToString } from './other-to-string'
+import { UrlQueryToObject, UrlParamsToUnion } from './url-to-other'
 import { Test, Expect, Group, ExpectMatch } from '../test-utils'
 
 type TestStringToNumber = Expect<StringToNumber<'1'>, 1>
@@ -38,7 +39,22 @@ type TestUnionToTuple = ExpectMatch<
   ['1', '2'] | ['2', '1']
 >
 
-type TestOtherToString = ExpectMatch<OtherToString<1>, '1'>
+type TestOtherToString = Expect<OtherToString<1>, '1'>
+
+type TestUrlQueryToObject = Expect<
+  UrlQueryToObject<'/foo/bar?a=1&b=2&a=3&c'>,
+  {
+    a: ['1', '3']
+    b: '2'
+    c: undefined
+  }
+>
+
+type TestUrlParamsToUnion = Expect<
+  UrlParamsToUnion<'/foo/bar/:a/:b/baz?a=1&b=2&a=3&c'>,
+  'a' | 'b'
+>
+
 export type Result = Test<
   [
     TestStringToNumber,
@@ -46,6 +62,8 @@ export type Result = Test<
     TestTupleToUnion,
     TestUnionToIntersection,
     TestUnionToTuple,
-    TestOtherToString
+    TestOtherToString,
+    TestUrlQueryToObject,
+    TestUrlParamsToUnion
   ]
 >
