@@ -7,11 +7,37 @@
 <b>Signature:</b>
 
 ```typescript
-type Slice<
-  T extends readonly unknown[],
+export type Slice<
+  Arr extends readonly unknown[],
   Start extends number = 0,
-  End extends number = T['length']
-> = T extends T ? Iterate<Start, End, [], T, [], false> : never
+  End extends number = Arr['length']
+> = Arr extends Arr
+  ? true extends IsTuple<Arr>
+    ? true extends IsReadonlyArray<Arr>
+      ? Readonly<
+          InternalSlice<
+            Arr,
+            InternalNormalizeSliceIndex<Arr, Start>,
+            InternalNormalizeSliceIndex<Arr, End>
+          >
+        >
+      : InternalSlice<
+          Arr,
+          InternalNormalizeSliceIndex<Arr, Start>,
+          InternalNormalizeSliceIndex<Arr, End>
+        >
+    : Arr
+  : never
 ```
-<b>References:</b> [Iterate](./types-kit.iterate.md)
+<b>References:</b> [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [InternalSlice](./types-kit.internalslice.md)<!-- -->, [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md)
+
+## Example
+
+
+```ts
+// Expect: [0, 1]
+type Foo = Slice<[0, 1, 2, 3], 0, 2>
+// Expect: [2]
+type Bar = Slice<[0, 1, 2, 3], 2, -1>
+```
 

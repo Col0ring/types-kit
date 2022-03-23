@@ -11,3 +11,11 @@ export type Fill<L extends number, V> = L extends L ? InternalFill<L, V> : never
 ```
 <b>References:</b> [InternalFill](./types-kit.internalfill.md)
 
+## Example
+
+
+```ts
+// Expect: [number, number, number]
+type Foo = Fill<3, number>
+```
+

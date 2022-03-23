@@ -16,27 +16,69 @@ export type Filter<
   ? If<
       IsTuple<T>,
       T extends readonly [infer Current, ...infer Rest]
-        ? [
-            ...IfExtends<
-              [Type, EqualTag],
-              IfExtends<[IsEquals<V, Current>, Extends], [Current], []>,
-              IfExtends<[IsExtends<V, Current>, Extends], [Current], []>
-            >,
-            ...Filter<Rest, V, Extends, Type>
-          ]
+        ? IsReadonlyArray<T> extends true
+          ? readonly [
+              ...IfExtends<
+                [Type, EqualTag],
+                IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
+                IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
+              >,
+              ...Filter<Rest, V, Extends, Type>
+            ]
+          : [
+              ...IfExtends<
+                [Type, EqualTag],
+                IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
+                IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
+              >,
+              ...Filter<Rest, V, Extends, Type>
+            ]
         : T extends readonly [...infer Rest, infer Current]
-        ? [
-            ...Filter<Rest, V, Extends, Type>,
-            ...IfExtends<
-              [Type, EqualTag],
-              IfExtends<[IsEquals<V, Current>, Extends], [Current], []>,
-              IfExtends<[IsExtends<V, Current>, Extends], [Current], []>
-            >
-          ]
+        ? IsReadonlyArray<T> extends true
+          ? readonly [
+              ...Filter<Rest, V, Extends, Type>,
+              ...IfExtends<
+                [Type, EqualTag],
+                IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
+                IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
+              >
+            ]
+          : [
+              ...Filter<Rest, V, Extends, Type>,
+              ...IfExtends<
+                [Type, EqualTag],
+                IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
+                IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
+              >
+            ]
         : never,
-      IfExtends<[IsExtends<ArrayItem<T>, V>, Extends], T, []>
+      IfExtends<
+        [Type, EqualTag],
+        IfExtends<
+          [IsEquals<ArrayItem<T>, V>, Extends],
+          T,
+          IsReadonlyArray<T> extends true ? readonly [] : []
+        >,
+        IfExtends<
+          [IsExtends<ArrayItem<T>, V>, Extends],
+          T,
+          IsReadonlyArray<T> extends true ? readonly [] : []
+        >
+      >
     >
   : never
 ```
-<b>References:</b> [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Filter](./types-kit.filter.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+<b>References:</b> [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Filter](./types-kit.filter.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+
+## Example
+
+
+```ts
+// Expect: [1, 1]
+type Foo = Filter<[1, 1, string], number>
+// Expect: [string]
+type Bar = Filter<[1, 1, string], number, false>
+// Expect: [1, 1, string]
+type Baz = Filter<[1, 1, string, number], number, false, 'equal'>
+```
 

@@ -1,7 +1,17 @@
-import { IsEquals } from '../control-flow'
+import { IsEquals, IsExtends } from '../control-flow'
 import { ArrayItem, IsTuple } from '../basic'
 import { EqualTag, ExtendsTag } from '../utils'
 
+/**
+ * @description If V is a member of T, return true, else return false
+ * @example
+ * ```ts
+ * // Expect: true
+ * type Foo = Includes<[1, string, boolean], number>
+ * // Expect: false
+ * type Bar = Includes<[1, string, boolean], number, 'equal'>
+ * ```
+ */
 // notice: distributed condition type
 export type Includes<
   T extends readonly unknown[],
@@ -9,22 +19,24 @@ export type Includes<
   Type extends EqualTag | ExtendsTag = ExtendsTag
 > = T extends T
   ? true extends IsTuple<T>
-    ? T extends [infer Current, ...infer Rest]
+    ? T extends readonly [infer Current, ...infer Rest]
       ? [Type] extends [EqualTag]
-        ? true extends IsEquals<V, Current>
+        ? true extends IsEquals<Current, V>
           ? true
           : Includes<Rest, V, Type>
-        : [V] extends [Current]
+        : true extends IsExtends<Current, V>
         ? true
         : Includes<Rest, V, Type>
-      : T extends [...infer Rest, infer Current]
+      : T extends readonly [...infer Rest, infer Current]
       ? [Type] extends [EqualTag]
-        ? true extends IsEquals<V, Current>
+        ? true extends IsEquals<Current, V>
           ? true
           : Includes<Rest, V, Type>
-        : [V] extends [Current]
+        : true extends IsExtends<Current, V>
         ? true
         : Includes<Rest, V, Type>
       : never
-    : IsEquals<ArrayItem<T>, V>
+    : [Type] extends [EqualTag]
+    ? IsEquals<ArrayItem<T>, V>
+    : IsExtends<ArrayItem<T>, V>
   : never
