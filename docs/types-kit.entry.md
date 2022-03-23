@@ -4,6 +4,8 @@
 
 ## Entry type
 
+return the type of that collection's entry.
+
 <b>Signature:</b>
 
 ```typescript

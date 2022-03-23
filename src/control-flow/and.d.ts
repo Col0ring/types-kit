@@ -3,7 +3,7 @@ import { If } from './if'
 import { Or } from './or'
 
 /**
- * @description And operator for types.
+ * And operator for types.
  * @example
  * ```ts
  *  // Expect: false

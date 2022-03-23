@@ -4,6 +4,8 @@
 
 ## TupleToObject type
 
+Convert a tuple to an object, it can pass in a tag to modify the key value
+
 <b>Signature:</b>
 
 ```typescript

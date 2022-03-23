@@ -4,6 +4,8 @@
 
 ## DeepGet type
 
+Get the deep specified value from T
+
 <b>Signature:</b>
 
 ```typescript

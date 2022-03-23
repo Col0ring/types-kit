@@ -1,5 +1,5 @@
 /**
- * @description if A extends B (no distributed condition type), return true, else return false
+ * if A extends B (no distributed condition type), return true, else return false
  * @example
  * ```ts
  *  // Expect: true
@@ -10,7 +10,7 @@ export type IsExtends<A, B> = [A] extends [B] ? true : false
 
 /**
  * @see https://github.com/microsoft/TypeScript/issues/27024#issuecomment-421529650
- * @description if A equals B, return true, else return false
+ * if A equals B, return true, else return false
  * @example
  * ```ts
  *  // Expect: false

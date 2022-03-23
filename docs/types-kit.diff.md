@@ -4,6 +4,8 @@
 
 ## Diff type
 
+Set difference of union and intersection of given union types A and B
+
 <b>Signature:</b>
 
 ```typescript

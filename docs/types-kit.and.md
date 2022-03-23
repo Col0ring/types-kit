@@ -4,6 +4,8 @@
 
 ## And type
 
+And operator for types.
+
 <b>Signature:</b>
 
 ```typescript

@@ -6,7 +6,7 @@ import {
 } from '../basic'
 
 /**
- * @description Create an array that includes the flatten array type.
+ * Create an array that includes the flatten array type.
  * @example
  * ```ts
  * // Expect: [1, 2, 3, 4]

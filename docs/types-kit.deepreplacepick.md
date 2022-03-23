@@ -4,6 +4,8 @@
 
 ## DeepReplacePick type
 
+Create a type that replace the values in the corresponding deep keys.
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## PickAtLeastOne type
 
+Create a type that requires at least one of the given keys. The remaining keys are kept as is.
+
 <b>Signature:</b>
 
 ```typescript

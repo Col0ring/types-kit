@@ -4,6 +4,8 @@
 
 ## ValueOf type
 
+Get values of T
+
 <b>Signature:</b>
 
 ```typescript

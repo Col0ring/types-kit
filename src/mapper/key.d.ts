@@ -1,7 +1,7 @@
 import { IsObject } from '../basic'
 
 /**
- * @description Get keys of tuple T
+ * Get keys of tuple T
  * @example
  * ```ts
  * // Expect: 0 | 1 | '0' | '1'
@@ -17,7 +17,7 @@ export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
 
 /**
  *
- * @description Get keys of T
+ * Get keys of T
  * @example
  * ```ts
  *  interface Props {
@@ -66,7 +66,7 @@ type InternalDeepKeys<T, P extends string = ''> = keyof {
 
 /**
  *
- * @description Get deep keys of T
+ * Get deep keys of T
  * @example
  * ```ts
  *  interface Props {
@@ -86,7 +86,7 @@ type InternalDeepKeys<T, P extends string = ''> = keyof {
 export type DeepKeys<T> = InternalDeepKeys<T>
 
 /**
- * @description Get keys by Condition (value)
+ * Get keys by Condition (value)
  * @example
  * ```ts
  *  interface Props {

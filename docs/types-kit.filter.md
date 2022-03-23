@@ -4,6 +4,8 @@
 
 ## Filter type
 
+Create an array that filters / keeps out items of the given type V from T.
+
 <b>Signature:</b>
 
 ```typescript

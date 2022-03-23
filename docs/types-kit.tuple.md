@@ -4,6 +4,8 @@
 
 ## Tuple type
 
+Create a tuple.
+
 <b>Signature:</b>
 
 ```typescript

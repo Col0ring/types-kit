@@ -10,7 +10,7 @@ import { IsNever, IsObject } from '../basic'
 
 /**
   *
-  * @description Make some properties in T readonly (add readonly decorator)
+  * Make some properties in T readonly (add readonly decorator)
   * @example
   * ```ts
   * interface Props {
@@ -27,7 +27,7 @@ export type SetReadonly<T, K extends Keys<T>> = Simplify<
 >
 
 /**
-  * @description Get readonly property keys of T
+  * Get readonly property keys of T
   * @example
   * ```ts
   * interface Props {
@@ -51,7 +51,7 @@ export type ReadonlyKeys<T> = {
 
 /**
   *
-  * @description Make all properties (includes deep properties) in T readonly (add readonly decorator)
+  * Make all properties (includes deep properties) in T readonly (add readonly decorator)
   * @example
   * ```ts
   * interface Props {
@@ -72,7 +72,7 @@ export type ReadonlyDeep<T> = {
 
 /**
   * 
-  * @description Make some properties (includes deep properties) in T readonly (add readonly decorator)
+  * Make some properties (includes deep properties) in T readonly (add readonly decorator)
   * @example
   * ```ts
   * interface Props {

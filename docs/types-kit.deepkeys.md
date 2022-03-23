@@ -4,6 +4,8 @@
 
 ## DeepKeys type
 
+Get deep keys of T
+
 <b>Signature:</b>
 
 ```typescript

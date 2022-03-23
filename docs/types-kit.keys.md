@@ -4,6 +4,8 @@
 
 ## Keys type
 
+Get keys of T
+
 <b>Signature:</b>
 
 ```typescript

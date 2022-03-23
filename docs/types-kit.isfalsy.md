@@ -4,6 +4,8 @@
 
 ## IsFalsy type
 
+If T is a falsy value, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

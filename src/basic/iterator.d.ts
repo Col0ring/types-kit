@@ -3,7 +3,7 @@ import { IsTuple } from './array'
 import { IsNever, IsObject } from './value'
 
 /**
- * @description Get the value type of an Iterable / AsyncIterable
+ * Get the value type of an Iterable / AsyncIterable
  * @example
  * ```ts
  * function* IterableValueFoo() {
@@ -27,7 +27,7 @@ export type IterableValue<T> = T extends Iterable<infer U>
   : never
 
 /**
- * @description return the type of that array's entry.
+ * return the type of that array's entry.
  * @example
  * ```ts
  * type Foo = [1, 2]
@@ -38,7 +38,7 @@ export type IterableValue<T> = T extends Iterable<infer U>
  */
 export type ArrayEntry<T extends readonly unknown[]> = [number, T[number]]
 /**
- * @description return the type of that map's entry.
+ * return the type of that map's entry.
  * @example
  * ```ts
  * type Foo = Map<number, string>
@@ -50,7 +50,7 @@ export type ArrayEntry<T extends readonly unknown[]> = [number, T[number]]
 export type MapEntry<T extends ReadonlyMap<unknown, unknown>> =
   T extends ReadonlyMap<infer K, infer V> ? [K, V] : never
 /**
- * @description return the type of that object's entry.
+ * return the type of that object's entry.
  * @example
  * ```ts
  * type Foo = { a:1, b:2 }
@@ -70,7 +70,7 @@ export type ObjectEntry<T extends object> = [
   T[Keys<T>]
 ]
 /**
- * @description return the type of that set's entry.
+ * return the type of that set's entry.
  * @example
  * ```ts
  * type Foo = Set<number>
@@ -86,7 +86,7 @@ export type SetEntry<T extends ReadonlySet<unknown>> = T extends ReadonlySet<
   : never
 
 /**
- * @description return the type of that collection's entry.
+ * return the type of that collection's entry.
  * @example
  * ```ts
  * type Foo = [1, 2]
@@ -113,7 +113,7 @@ export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
   : never
 
 /**
- * @description return the type of that collection's entries.
+ * return the type of that collection's entries.
  * @example
  * ```ts
  * type Foo = [1, 2]

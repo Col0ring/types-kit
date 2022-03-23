@@ -4,6 +4,8 @@
 
 ## IsNever type
 
+If T is never, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

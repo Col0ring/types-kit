@@ -4,6 +4,8 @@
 
 ## ArrayEntry type
 
+return the type of that array's entry.
+
 <b>Signature:</b>
 
 ```typescript

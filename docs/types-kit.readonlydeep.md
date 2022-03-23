@@ -4,6 +4,8 @@
 
 ## ReadonlyDeep type
 
+Make all properties (includes deep properties) in T readonly (add readonly decorator)
+
 <b>Signature:</b>
 
 ```typescript

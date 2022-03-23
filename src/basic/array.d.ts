@@ -1,7 +1,7 @@
 import { IsExtends, Not } from '../control-flow'
 
 /**
- * @description Create a tuple.
+ * Create a tuple.
  * @example
  * ```ts
  * // Expect: [1, ...number[]] | [...number[], 1] | readonly [1, ...number[]] | readonly [...number[], 1]
@@ -15,7 +15,7 @@ export type Tuple<T = unknown, R = T> =
   | readonly [...R[], T]
 
 /**
- * @description  If T is a tuple, return true, else return false.
+ *  If T is a tuple, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -28,7 +28,7 @@ export type IsTuple<T extends readonly unknown[]> = T extends T
   : never
 
 /**
- * @description  Get the item type from an array
+ *  Get the item type from an array
  * @example
  * ```ts
  * // Expect: number
@@ -43,7 +43,7 @@ export type ArrayItem<T extends readonly unknown[]> = T extends ReadonlyArray<
   : never
 
 /**
- * @description  Get the flatted item type from an array
+ *  Get the flatted item type from an array
  * @example
  * ```ts
  * // Expect: number
@@ -59,7 +59,7 @@ export type FlattedArrayItem<T extends readonly unknown[]> =
     : never
 
 /**
- * @description  If T is a empty array, return true, else return false.
+ *  If T is a empty array, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -72,7 +72,7 @@ export type IsEmptyTypeArray<T extends readonly unknown[]> = T extends T
   : never
 
 /**
- * @description  If T is a readonly array, return true, else return false.
+ *  If T is a readonly array, return true, else return false.
  * @example
  * ```ts
  * // Expect: true

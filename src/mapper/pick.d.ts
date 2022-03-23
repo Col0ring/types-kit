@@ -7,7 +7,7 @@ import { StrictOmit } from './omit'
 
 /**
  *
- * @description Flatten the type output to improve type hints shown in editors
+ * Flatten the type output to improve type hints shown in editors
  * @example
  * ```ts
  * type Props = { a: 1, b: 2, c: 3 } & { d: 4 }
@@ -21,7 +21,7 @@ export type Simplify<T> = {
 
 /**
  *
- * @description Get the deep value path from T
+ * Get the deep value path from T
  * @example
  * ```ts
  *  interface Props {
@@ -90,7 +90,7 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
 */
 
 /**
- * @description Pick by Condition (value)
+ * Pick by Condition (value)
  * @example
  * ```ts
  *  interface Props {
@@ -136,7 +136,7 @@ type InternalReplacePickValue<
   : Current
 
 /**
- * @description Create a type that replace the values in the corresponding keys.
+ * Create a type that replace the values in the corresponding keys.
  * @example
  * ```ts
  * interface Props {
@@ -242,7 +242,7 @@ type InternalDeepReplacePick<
 }
 
 /**
- * @description Create a type that replace the values in the corresponding deep keys.
+ * Create a type that replace the values in the corresponding deep keys.
  * @example
  * ```ts
  * interface Props {
@@ -265,7 +265,7 @@ export type DeepReplacePick<
 > = InternalDeepReplacePick<T, KeysArr, ValuesArr>
 
 /**
- * @description Create a type that requires at least one of the given keys. The remaining keys are kept as is.
+ * Create a type that requires at least one of the given keys. The remaining keys are kept as is.
  * @example
  * ```ts
     interface Responder {
@@ -286,7 +286,7 @@ export type PickAtLeastOne<T, K extends Keys<T>> = StrictOmit<T, K> &
   }[K]
 
 /**
- * @description Create a type that requires at least one of the given keys. The remaining keys are kept as is.
+ * Create a type that requires at least one of the given keys. The remaining keys are kept as is.
  * @example
  * ```ts
     interface Responder {
@@ -318,7 +318,7 @@ export type PickExactlyOne<T, K extends Keys<T>> = StrictOmit<T, K> &
   }[K]
 
 /**
- * @description Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is.
+ * Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is.
  * @example
  * ```ts
     interface Responder {
@@ -350,7 +350,7 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
   )
 
 /**
- * @description From T remove properties that exist in U
+ * From T remove properties that exist in U
  * @example
  * ```ts
  * interface Props {

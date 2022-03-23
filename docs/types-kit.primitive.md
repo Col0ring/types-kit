@@ -4,6 +4,8 @@
 
 ## Primitive type
 
+Matches any primitive value.
+
 <b>Signature:</b>
 
 ```typescript

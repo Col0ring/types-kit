@@ -4,7 +4,7 @@ import { If, IfExtends } from './if'
 import { IsExtends, IsEquals } from './operator'
 
 /**
- * @description Switch for types.
+ * Switch for types.
  * @example
  * ```ts
  *  // Expect: boolean

@@ -4,6 +4,8 @@
 
 ## ObjectEntry type
 
+return the type of that object's entry.
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## Get type
 
+Get the specified value from T
+
 <b>Signature:</b>
 
 ```typescript

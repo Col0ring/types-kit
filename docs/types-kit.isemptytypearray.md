@@ -4,6 +4,8 @@
 
 ## IsEmptyTypeArray type
 
+If T is a empty array, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

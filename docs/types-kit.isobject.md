@@ -4,6 +4,8 @@
 
 ## IsObject type
 
+If T is object, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

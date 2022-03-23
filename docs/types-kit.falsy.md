@@ -4,6 +4,8 @@
 
 ## Falsy type
 
+Matches any falsy value.
+
 <b>Signature:</b>
 
 ```typescript

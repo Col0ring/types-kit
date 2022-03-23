@@ -4,6 +4,8 @@
 
 ## IsTruthy type
 
+If T is a truthy value, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

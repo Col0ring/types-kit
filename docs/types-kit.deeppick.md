@@ -4,6 +4,8 @@
 
 ## DeepPick type
 
+Get the deep value path from T
+
 <b>Signature:</b>
 
 ```typescript

@@ -5,7 +5,7 @@ import { ConditionalKeys, DeepKeys, Keys } from './key'
 
 /**
  *
- * @description Strict version of Omit
+ * Strict version of Omit
  * @example
  * ```ts
  * interface Props = { a: 1, b: 2, c: 3 }
@@ -28,7 +28,7 @@ export type StrictOmit<T, K extends Keys<T>> = {
 
 /**
  *
- * @description Remove the deep value path from T
+ * Remove the deep value path from T
  * @example
  * ```ts
  *  interface Props {
@@ -101,7 +101,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
     }
 
 /**
- * @description Omit by Condition (value)
+ * Omit by Condition (value)
  * @example
  * ```ts
  *  interface Props {
@@ -123,7 +123,7 @@ export type ConditionalOmit<
 > = StrictOmit<T, ConditionalKeys<T, Condition, Exact>>
 
 /**
- * @description Create a type that only has explicitly defined properties, absent of any index signatures.
+ * Create a type that only has explicitly defined properties, absent of any index signatures.
  * @example
  * ```ts
  *  interface Props {

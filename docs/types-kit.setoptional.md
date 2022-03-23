@@ -4,6 +4,8 @@
 
 ## SetOptional type
 
+Make some properties in T optional
+
 <b>Signature:</b>
 
 ```typescript

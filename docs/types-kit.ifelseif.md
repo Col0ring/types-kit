@@ -4,6 +4,8 @@
 
 ## IfElseIf type
 
+If/Else if for types.
+
 <b>Signature:</b>
 
 ```typescript

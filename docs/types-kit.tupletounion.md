@@ -4,6 +4,8 @@
 
 ## TupleToUnion type
 
+Convert a tuple to union type
+
 <b>Signature:</b>
 
 ```typescript

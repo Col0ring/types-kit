@@ -4,6 +4,8 @@
 
 ## DeepValueOf type
 
+Get deep values of T
+
 <b>Signature:</b>
 
 ```typescript

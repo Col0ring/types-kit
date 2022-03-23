@@ -4,6 +4,8 @@
 
 ## SetEntry type
 
+return the type of that set's entry.
+
 <b>Signature:</b>
 
 ```typescript

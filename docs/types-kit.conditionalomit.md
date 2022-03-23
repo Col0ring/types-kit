@@ -4,6 +4,8 @@
 
 ## ConditionalOmit type
 
+Omit by Condition (value)
+
 <b>Signature:</b>
 
 ```typescript

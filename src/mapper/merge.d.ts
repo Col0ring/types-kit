@@ -6,7 +6,7 @@ import { IsObject, IsReadonlyArray } from '../basic'
 import { Slice } from '../array'
 
 /**
- * @description Merge two tuples, values of the second array will override values of the array type.
+ * Merge two tuples, values of the second array will override values of the array type.
  * @example
  * ```ts
     type Foo = [1, 2, 3]
@@ -24,7 +24,7 @@ export type MergeTuple<
   [...B, ...Slice<A, B['length']>]
 >
 /**
- * @description Merge two types into a new type. Keys of the second type will override keys of the first type.
+ * Merge two types into a new type. Keys of the second type will override keys of the first type.
  * @example
  * ```ts
     interface Foo {
@@ -74,7 +74,7 @@ type InternalDeepMergeTupleValue<
   : Result
 
 /**
- * @description Merge two tuples, values of the second array will assign values of the array type.
+ * Merge two tuples, values of the second array will assign values of the array type.
  * @example
  * ```ts
     type Foo = [{ a: 1 }, 2, 3]
@@ -93,7 +93,7 @@ export type DeepMergeTuple<
 >
 
 /**
- * @description Merge two types into a new type. Keys of the second type will assign keys of the first type.
+ * Merge two types into a new type. Keys of the second type will assign keys of the first type.
  * @example
  * ```ts
     interface Foo {
@@ -143,7 +143,7 @@ type Without<T, U> = {
 }
 
 /**
- * @description Create a type that has mutually exclusive keys.
+ * Create a type that has mutually exclusive keys.
  * @example
  * ```ts
     interface Props {

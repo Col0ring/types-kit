@@ -4,6 +4,8 @@
 
 ## Switch type
 
+Switch for types.
+
 <b>Signature:</b>
 
 ```typescript

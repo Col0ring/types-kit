@@ -4,6 +4,8 @@
 
 ## Not type
 
+Not operator for types.
+
 <b>Signature:</b>
 
 ```typescript

@@ -42,7 +42,7 @@ type InternalUrlQueryToObject<
   : InternalAddUrlQueryValueToResult<Result, T, undefined>
 
 /**
- * @description Parser the querystring of a url into an object type
+ * Parser the querystring of a url into an object type
  * @example
  * ```ts
  * // Expect: { a: ['1', '3'], b: '2', c: undefined }
@@ -62,7 +62,7 @@ type InternalUrlParamsToUnion<T extends string> =
     : never
 
 /**
- * @description Parser the params of a url into a union type
+ * Parser the params of a url into a union type
  * @example
  * ```ts
  * // Expect: 'a' | 'b'

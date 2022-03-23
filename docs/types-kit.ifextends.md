@@ -4,6 +4,8 @@
 
 ## IfExtends type
 
+If Condition\[0\] extends Condition\[1\], return Case1, else return Case2
+
 <b>Signature:</b>
 
 ```typescript

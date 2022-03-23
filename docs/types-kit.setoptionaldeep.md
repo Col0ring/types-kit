@@ -4,6 +4,8 @@
 
 ## SetOptionalDeep type
 
+Make some properties (includes deep properties) in T optional
+
 <b>Signature:</b>
 
 ```typescript

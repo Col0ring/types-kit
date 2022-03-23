@@ -4,6 +4,8 @@
 
 ## Reverse type
 
+Reverses an array
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## PickAllOrNone type
 
+Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is.
+
 <b>Signature:</b>
 
 ```typescript

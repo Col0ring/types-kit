@@ -4,6 +4,8 @@
 
 ## If type
 
+If for types.
+
 <b>Signature:</b>
 
 ```typescript

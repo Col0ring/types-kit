@@ -4,6 +4,8 @@
 
 ## DiffPick type
 
+From T remove properties that exist in U
+
 <b>Signature:</b>
 
 ```typescript

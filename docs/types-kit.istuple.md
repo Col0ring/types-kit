@@ -4,6 +4,8 @@
 
 ## IsTuple type
 
+If T is a tuple, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

@@ -1,5 +1,5 @@
 /**
- * @description Convert union type to Intersection type
+ * Convert union type to Intersection type
  * @example
  * ```ts
  * // Expect: { a: number } & { b: number }

@@ -2,7 +2,7 @@ import { ArrayItem, IsTuple, IsTruthy } from '../basic'
 import { If } from './if'
 
 /**
- * @description Or operator for types.
+ * Or operator for types.
  * @example
  * ```ts
  *  // Expect: true

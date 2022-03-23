@@ -4,6 +4,8 @@
 
 ## MapEntry type
 
+return the type of that map's entry.
+
 <b>Signature:</b>
 
 ```typescript

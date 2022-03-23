@@ -4,6 +4,8 @@
 
 ## TupleKeys type
 
+Get keys of tuple T
+
 <b>Signature:</b>
 
 ```typescript

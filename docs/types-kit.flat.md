@@ -4,6 +4,8 @@
 
 ## Flat type
 
+Create an array that includes the flatten array type.
+
 <b>Signature:</b>
 
 ```typescript

@@ -8,37 +8,37 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [And](./types-kit.and.md) |  |
-|  [ArrayEntry](./types-kit.arrayentry.md) |  |
-|  [ArrayItem](./types-kit.arrayitem.md) |  |
-|  [Class](./types-kit.class.md) |  |
-|  [ConditionalKeys](./types-kit.conditionalkeys.md) |  |
-|  [ConditionalOmit](./types-kit.conditionalomit.md) |  |
-|  [ConditionalPick](./types-kit.conditionalpick.md) |  |
-|  [Constructor](./types-kit.constructor.md) |  |
-|  [DeepGet](./types-kit.deepget.md) |  |
-|  [DeepKeys](./types-kit.deepkeys.md) |  |
-|  [DeepOmit](./types-kit.deepomit.md) |  |
-|  [DeepPick](./types-kit.deeppick.md) |  |
-|  [DeepReplacePick](./types-kit.deepreplacepick.md) |  |
-|  [DeepValueOf](./types-kit.deepvalueof.md) |  |
-|  [Diff](./types-kit.diff.md) |  |
-|  [DiffPick](./types-kit.diffpick.md) |  |
-|  [Entries](./types-kit.entries.md) |  |
-|  [Entry](./types-kit.entry.md) |  |
+|  [And](./types-kit.and.md) | And operator for types. |
+|  [ArrayEntry](./types-kit.arrayentry.md) | return the type of that array's entry. |
+|  [ArrayItem](./types-kit.arrayitem.md) | Get the item type from an array |
+|  [Class](./types-kit.class.md) | Create a class type. |
+|  [ConditionalKeys](./types-kit.conditionalkeys.md) | Get keys by Condition (value) |
+|  [ConditionalOmit](./types-kit.conditionalomit.md) | Omit by Condition (value) |
+|  [ConditionalPick](./types-kit.conditionalpick.md) | Pick by Condition (value) |
+|  [Constructor](./types-kit.constructor.md) | Create a constructor type. |
+|  [DeepGet](./types-kit.deepget.md) | Get the deep specified value from T |
+|  [DeepKeys](./types-kit.deepkeys.md) | Get deep keys of T |
+|  [DeepOmit](./types-kit.deepomit.md) | Remove the deep value path from T |
+|  [DeepPick](./types-kit.deeppick.md) | Get the deep value path from T |
+|  [DeepReplacePick](./types-kit.deepreplacepick.md) | Create a type that replace the values in the corresponding deep keys. |
+|  [DeepValueOf](./types-kit.deepvalueof.md) | Get deep values of T |
+|  [Diff](./types-kit.diff.md) | Set difference of union and intersection of given union types A and B |
+|  [DiffPick](./types-kit.diffpick.md) | From T remove properties that exist in U |
+|  [Entries](./types-kit.entries.md) | return the type of that collection's entries. |
+|  [Entry](./types-kit.entry.md) | return the type of that collection's entry. |
 |  [EqualTag](./types-kit.equaltag.md) |  |
 |  [ExtendsTag](./types-kit.extendstag.md) |  |
-|  [Falsy](./types-kit.falsy.md) |  |
+|  [Falsy](./types-kit.falsy.md) | Matches any falsy value. |
 |  [FalsyWithoutUnknown](./types-kit.falsywithoutunknown.md) |  |
-|  [Fill](./types-kit.fill.md) |  |
-|  [Filter](./types-kit.filter.md) |  |
-|  [Flat](./types-kit.flat.md) |  |
-|  [FlattedArrayItem](./types-kit.flattedarrayitem.md) |  |
-|  [Get](./types-kit.get.md) |  |
-|  [If](./types-kit.if.md) |  |
-|  [IfElseIf](./types-kit.ifelseif.md) |  |
-|  [IfExtends](./types-kit.ifextends.md) |  |
-|  [Includes](./types-kit.includes.md) |  |
+|  [Fill](./types-kit.fill.md) | Create a tuple filled with V, and the length of the tuple is L |
+|  [Filter](./types-kit.filter.md) | Create an array that filters / keeps out items of the given type V from T. |
+|  [Flat](./types-kit.flat.md) | Create an array that includes the flatten array type. |
+|  [FlattedArrayItem](./types-kit.flattedarrayitem.md) | Get the flatted item type from an array |
+|  [Get](./types-kit.get.md) | Get the specified value from T |
+|  [If](./types-kit.if.md) | If for types. |
+|  [IfElseIf](./types-kit.ifelseif.md) | If/Else if for types. |
+|  [IfExtends](./types-kit.ifextends.md) | If Condition\[0\] extends Condition\[1\], return Case1, else return Case2 |
+|  [Includes](./types-kit.includes.md) | If V is a member of T, return true, else return false |
 |  [InternalDeepKeys](./types-kit.internaldeepkeys.md) |  |
 |  [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md) |  |
 |  [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md) |  |
@@ -47,59 +47,59 @@
 |  [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md) |  |
 |  [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md) |  |
 |  [InternalSlice](./types-kit.internalslice.md) |  |
-|  [IsAny](./types-kit.isany.md) |  |
-|  [IsEmptyTypeArray](./types-kit.isemptytypearray.md) |  |
+|  [IsAny](./types-kit.isany.md) | If T is any, return true, else return false. |
+|  [IsEmptyTypeArray](./types-kit.isemptytypearray.md) | If T is a empty array, return true, else return false. |
 |  [IsEquals](./types-kit.isequals.md) |  |
-|  [IsExtends](./types-kit.isextends.md) |  |
-|  [IsFalsy](./types-kit.isfalsy.md) |  |
-|  [IsNever](./types-kit.isnever.md) |  |
-|  [IsObject](./types-kit.isobject.md) |  |
-|  [IsPrimitive](./types-kit.isprimitive.md) |  |
-|  [IsReadonlyArray](./types-kit.isreadonlyarray.md) |  |
-|  [IsTruthy](./types-kit.istruthy.md) |  |
-|  [IsTuple](./types-kit.istuple.md) |  |
-|  [IsUnknown](./types-kit.isunknown.md) |  |
-|  [IterableValue](./types-kit.iterablevalue.md) |  |
-|  [Keys](./types-kit.keys.md) |  |
-|  [LastInUnion](./types-kit.lastinunion.md) |  |
-|  [LiteralUnion](./types-kit.literalunion.md) |  |
-|  [MapEntry](./types-kit.mapentry.md) |  |
-|  [Mutable](./types-kit.mutable.md) |  |
-|  [MutableDeep](./types-kit.mutabledeep.md) |  |
-|  [MutableKeys](./types-kit.mutablekeys.md) |  |
-|  [Not](./types-kit.not.md) |  |
-|  [ObjectEntry](./types-kit.objectentry.md) |  |
-|  [OptionalKeys](./types-kit.optionalkeys.md) |  |
-|  [Or](./types-kit.or.md) |  |
+|  [IsExtends](./types-kit.isextends.md) | if A extends B (no distributed condition type), return true, else return false |
+|  [IsFalsy](./types-kit.isfalsy.md) | If T is a falsy value, return true, else return false. |
+|  [IsNever](./types-kit.isnever.md) | If T is never, return true, else return false. |
+|  [IsObject](./types-kit.isobject.md) | If T is object, return true, else return false. |
+|  [IsPrimitive](./types-kit.isprimitive.md) | If T is a primitive value, return true, else return false. |
+|  [IsReadonlyArray](./types-kit.isreadonlyarray.md) | If T is a readonly array, return true, else return false. |
+|  [IsTruthy](./types-kit.istruthy.md) | If T is a truthy value, return true, else return false. |
+|  [IsTuple](./types-kit.istuple.md) | If T is a tuple, return true, else return false. |
+|  [IsUnknown](./types-kit.isunknown.md) | If T is unknown, return true, else return false. |
+|  [IterableValue](./types-kit.iterablevalue.md) | Get the value type of an Iterable / AsyncIterable |
+|  [Keys](./types-kit.keys.md) | Get keys of T |
+|  [LastInUnion](./types-kit.lastinunion.md) | Get the last type in a union type (important!: the result is random when you are using tsc, the correct type can only be obtained through the editor environment) |
+|  [LiteralUnion](./types-kit.literalunion.md) | Allows creating a union type by combining primitive types and literal types without sacrificing auto-completion in IDEs for the literal type part of the union. |
+|  [MapEntry](./types-kit.mapentry.md) | return the type of that map's entry. |
+|  [Mutable](./types-kit.mutable.md) | Make all properties in T mutable (remove readonly decorator) |
+|  [MutableDeep](./types-kit.mutabledeep.md) | Make all properties (includes deep properties) in T mutable (remove readonly decorator) |
+|  [MutableKeys](./types-kit.mutablekeys.md) | Get mutable property keys of T |
+|  [Not](./types-kit.not.md) | Not operator for types. |
+|  [ObjectEntry](./types-kit.objectentry.md) | return the type of that object's entry. |
+|  [OptionalKeys](./types-kit.optionalkeys.md) | Get optional property keys of T |
+|  [Or](./types-kit.or.md) | Or operator for types. |
 |  [OtherToString](./types-kit.othertostring.md) |  |
-|  [PartialDeep](./types-kit.partialdeep.md) |  |
+|  [PartialDeep](./types-kit.partialdeep.md) | Make all properties (includes deep properties) in T optional |
 |  [PathKey](./types-kit.pathkey.md) |  |
-|  [PickAllOrNone](./types-kit.pickallornone.md) |  |
-|  [PickAtLeastOne](./types-kit.pickatleastone.md) |  |
-|  [PickExactlyOne](./types-kit.pickexactlyone.md) |  |
-|  [Primitive](./types-kit.primitive.md) |  |
-|  [ReadonlyDeep](./types-kit.readonlydeep.md) |  |
-|  [ReadonlyKeys](./types-kit.readonlykeys.md) |  |
-|  [RemoveIndexSignature](./types-kit.removeindexsignature.md) |  |
-|  [ReplacePick](./types-kit.replacepick.md) |  |
-|  [Reverse](./types-kit.reverse.md) |  |
-|  [SetEntry](./types-kit.setentry.md) |  |
-|  [setMutable](./types-kit.setmutable.md) |  |
-|  [setMutableDeepPick](./types-kit.setmutabledeeppick.md) |  |
-|  [SetOptional](./types-kit.setoptional.md) |  |
-|  [SetOptionalDeep](./types-kit.setoptionaldeep.md) |  |
-|  [SetReadonly](./types-kit.setreadonly.md) |  |
-|  [SetReadonlyDeep](./types-kit.setreadonlydeep.md) |  |
-|  [Simplify](./types-kit.simplify.md) |  |
-|  [Slice](./types-kit.slice.md) |  |
-|  [StrictExclude](./types-kit.strictexclude.md) |  |
-|  [StrictOmit](./types-kit.strictomit.md) |  |
-|  [Switch](./types-kit.switch.md) |  |
-|  [Tuple](./types-kit.tuple.md) |  |
-|  [TupleKeys](./types-kit.tuplekeys.md) |  |
-|  [TupleToObject](./types-kit.tupletoobject.md) |  |
-|  [TupleToUnion](./types-kit.tupletounion.md) |  |
-|  [UnionToIntersection](./types-kit.uniontointersection.md) |  |
+|  [PickAllOrNone](./types-kit.pickallornone.md) | Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is. |
+|  [PickAtLeastOne](./types-kit.pickatleastone.md) | Create a type that requires at least one of the given keys. The remaining keys are kept as is. |
+|  [PickExactlyOne](./types-kit.pickexactlyone.md) | Create a type that requires at least one of the given keys. The remaining keys are kept as is. |
+|  [Primitive](./types-kit.primitive.md) | Matches any primitive value. |
+|  [ReadonlyDeep](./types-kit.readonlydeep.md) | Make all properties (includes deep properties) in T readonly (add readonly decorator) |
+|  [ReadonlyKeys](./types-kit.readonlykeys.md) | Get readonly property keys of T |
+|  [RemoveIndexSignature](./types-kit.removeindexsignature.md) | Create a type that only has explicitly defined properties, absent of any index signatures. |
+|  [ReplacePick](./types-kit.replacepick.md) | Create a type that replace the values in the corresponding keys. |
+|  [Reverse](./types-kit.reverse.md) | Reverses an array |
+|  [SetEntry](./types-kit.setentry.md) | return the type of that set's entry. |
+|  [setMutable](./types-kit.setmutable.md) | Make some properties in T mutable (remove readonly decorator) |
+|  [setMutableDeepPick](./types-kit.setmutabledeeppick.md) | Make some properties (includes deep properties) in T readonly (add readonly decorator) |
+|  [SetOptional](./types-kit.setoptional.md) | Make some properties in T optional |
+|  [SetOptionalDeep](./types-kit.setoptionaldeep.md) | Make some properties (includes deep properties) in T optional |
+|  [SetReadonly](./types-kit.setreadonly.md) | Make some properties in T readonly (add readonly decorator) |
+|  [SetReadonlyDeep](./types-kit.setreadonlydeep.md) | Make some properties (includes deep properties) in T readonly (add readonly decorator) |
+|  [Simplify](./types-kit.simplify.md) | Flatten the type output to improve type hints shown in editors |
+|  [Slice](./types-kit.slice.md) | Create a subarray of Arr from index Start to End. Indexes with negative numbers will be counted from reversely. |
+|  [StrictExclude](./types-kit.strictexclude.md) | Strict version of Exclude |
+|  [StrictOmit](./types-kit.strictomit.md) | Strict version of Omit |
+|  [Switch](./types-kit.switch.md) | Switch for types. |
+|  [Tuple](./types-kit.tuple.md) | Create a tuple. |
+|  [TupleKeys](./types-kit.tuplekeys.md) | Get keys of tuple T |
+|  [TupleToObject](./types-kit.tupletoobject.md) | Convert a tuple to an object, it can pass in a tag to modify the key value |
+|  [TupleToUnion](./types-kit.tupletounion.md) | Convert a tuple to union type |
+|  [UnionToIntersection](./types-kit.uniontointersection.md) | Convert union type to Intersection type |
 |  [UnionToTuple](./types-kit.uniontotuple.md) |  |
-|  [ValueOf](./types-kit.valueof.md) |  |
+|  [ValueOf](./types-kit.valueof.md) | Get values of T |
 

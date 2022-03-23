@@ -4,6 +4,8 @@
 
 ## MutableKeys type
 
+Get mutable property keys of T
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## ReadonlyKeys type
 
+Get readonly property keys of T
+
 <b>Signature:</b>
 
 ```typescript

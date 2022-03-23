@@ -4,6 +4,8 @@
 
 ## IsAny type
 
+If T is any, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

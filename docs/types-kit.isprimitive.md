@@ -4,6 +4,8 @@
 
 ## IsPrimitive type
 
+If T is a primitive value, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

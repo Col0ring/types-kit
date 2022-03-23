@@ -4,6 +4,8 @@
 
 ## Slice type
 
+Create a subarray of Arr from index Start to End. Indexes with negative numbers will be counted from reversely.
+
 <b>Signature:</b>
 
 ```typescript

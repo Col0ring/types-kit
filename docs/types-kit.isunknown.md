@@ -4,6 +4,8 @@
 
 ## IsUnknown type
 
+If T is unknown, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

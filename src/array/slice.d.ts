@@ -39,7 +39,7 @@ type InternalSlice<
     R
 
 /**
- * @description Create a subarray of Arr from index Start to End. Indexes with negative numbers will be counted from reversely.
+ * Create a subarray of Arr from index Start to End. Indexes with negative numbers will be counted from reversely.
  * @example
  * ```ts
  * // Expect: [0, 1]

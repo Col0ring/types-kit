@@ -3,7 +3,7 @@ import { EqualTag, ExtendsTag } from '../utils'
 import { ArrayItem, IsReadonlyArray, IsTuple } from '../basic'
 
 /**
- * @description Create an array that filters / keeps out items of the given type V from T.
+ * Create an array that filters / keeps out items of the given type V from T.
  * @example
  * ```ts
  * // Expect: [1, 1]

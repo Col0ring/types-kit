@@ -7,7 +7,7 @@ import { DeepKeys, Keys } from './key'
 
 /**
  *
- * @description Make all properties in T mutable (remove readonly decorator)
+ * Make all properties in T mutable (remove readonly decorator)
  * @example
  * ```ts
  *    interface Props {
@@ -25,7 +25,7 @@ export type Mutable<T> = {
 
 /**
  *
- * @description Make some properties in T mutable (remove readonly decorator)
+ * Make some properties in T mutable (remove readonly decorator)
  * @example
  * ```ts
  * interface Props {
@@ -42,7 +42,7 @@ export type setMutable<T, K extends Keys<T>> = Simplify<
 >
 
 /**
-  * @description Get mutable property keys of T
+  * Get mutable property keys of T
   * @example
   * ```ts
   * interface Props {
@@ -58,7 +58,7 @@ export type MutableKeys<T> = Exclude<Keys<T>, ReadonlyKeys<T>>
 
 /**
  *
- * @description Make all properties (includes deep properties) in T mutable (remove readonly decorator)
+ * Make all properties (includes deep properties) in T mutable (remove readonly decorator)
  * @example
  * ```ts
  * interface Props {
@@ -79,7 +79,7 @@ export type MutableDeep<T> = {
 
 /**
   * 
-  * @description Make some properties (includes deep properties) in T readonly (add readonly decorator)
+  * Make some properties (includes deep properties) in T readonly (add readonly decorator)
   * @example
   * ```ts
   * interface Props {

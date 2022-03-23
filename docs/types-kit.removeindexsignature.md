@@ -4,6 +4,8 @@
 
 ## RemoveIndexSignature type
 
+Create a type that only has explicitly defined properties, absent of any index signatures.
+
 <b>Signature:</b>
 
 ```typescript

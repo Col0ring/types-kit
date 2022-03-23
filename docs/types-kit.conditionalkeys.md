@@ -4,6 +4,8 @@
 
 ## ConditionalKeys type
 
+Get keys by Condition (value)
+
 <b>Signature:</b>
 
 ```typescript

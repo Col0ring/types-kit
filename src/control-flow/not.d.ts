@@ -2,7 +2,7 @@ import { IsFalsy } from '../basic'
 import { If } from './if'
 
 /**
- * @description Not operator for types.
+ * Not operator for types.
  * @example
  * ```ts
  *  // Expect: false

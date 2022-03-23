@@ -1,7 +1,7 @@
 import { Switch } from '../control-flow'
 
 /**
- * @description Convert a tuple to an object, it can pass in a tag to modify the key value
+ * Convert a tuple to an object, it can pass in a tag to modify the key value
  * @example
  * ```ts
  * // Expect: { a: 'a'; b: 'b' }

@@ -4,6 +4,8 @@
 
 ## Constructor type
 
+Create a constructor type.
+
 <b>Signature:</b>
 
 ```typescript

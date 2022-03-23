@@ -5,7 +5,7 @@ type InternalFill<
 > = Res['length'] extends L ? Res : InternalFill<L, V, [...Res, V]>
 
 /**
- * @description Create a tuple filled with V, and the length of the tuple is L
+ * Create a tuple filled with V, and the length of the tuple is L
  * @example
  * ```ts
  * // Expect: [number, number, number]

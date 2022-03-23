@@ -1,7 +1,7 @@
 import { IsTuple, IsTruthy } from '../basic'
 
 /**
- * @description If Condition[0] extends Condition[1], return Case1, else return Case2
+ * If Condition[0] extends Condition[1], return Case1, else return Case2
  * @example
  * ```ts
  *  // Expect: 1
@@ -15,7 +15,7 @@ export type IfExtends<Condition extends [unknown, unknown], Case1, Case2> = [
   : Case2
 
 /**
- * @description If for types.
+ * If for types.
  * @example
  * ```ts
  *  // Expect: 1
@@ -29,7 +29,7 @@ export type If<Condition, Case1, Case2> = IfExtends<
 >
 
 /**
- * @description If/Else if for types.
+ * If/Else if for types.
  * @example
  * ```ts
  *  // Expect: 6

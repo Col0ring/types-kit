@@ -4,6 +4,8 @@
 
 ## IsReadonlyArray type
 
+If T is a readonly array, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

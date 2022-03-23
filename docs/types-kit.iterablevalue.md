@@ -4,6 +4,8 @@
 
 ## IterableValue type
 
+Get the value type of an Iterable / AsyncIterable
+
 <b>Signature:</b>
 
 ```typescript

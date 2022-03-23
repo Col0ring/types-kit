@@ -4,6 +4,8 @@
 
 ## setMutable type
 
+Make some properties in T mutable (remove readonly decorator)
+
 <b>Signature:</b>
 
 ```typescript

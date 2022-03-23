@@ -4,6 +4,8 @@
 
 ## ReplacePick type
 
+Create a type that replace the values in the corresponding keys.
+
 <b>Signature:</b>
 
 ```typescript

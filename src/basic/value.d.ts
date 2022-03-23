@@ -1,6 +1,6 @@
 import { IfExtends, IsExtends } from '../control-flow'
 /**
- * @description Matches any primitive value.
+ * Matches any primitive value.
  */
 export type Primitive =
   | null
@@ -12,13 +12,13 @@ export type Primitive =
   | bigint
 
 /**
- * @description Matches any falsy value.
+ * Matches any falsy value.
  */
 export type Falsy = 0 | false | '' | undefined | null | void | never | unknown
 type FalsyWithoutUnknown = 0 | false | '' | undefined | null | void | never
 
 /**
- * @description If T is a primitive value, return true, else return false.
+ * If T is a primitive value, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -32,7 +32,7 @@ export type IsPrimitive<T> = IfExtends<
 >
 
 /**
- * @description  If T is any, return true, else return false.
+ *  If T is any, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -42,7 +42,7 @@ export type IsPrimitive<T> = IfExtends<
 export type IsAny<T> = IsExtends<number, 0 & T>
 
 /**
- * @description  If T is unknown, return true, else return false.
+ *  If T is unknown, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -56,7 +56,7 @@ export type IsUnknown<T> = IfExtends<
 >
 
 /**
- * @description  If T is never, return true, else return false.
+ *  If T is never, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -66,7 +66,7 @@ export type IsUnknown<T> = IfExtends<
 export type IsNever<T> = IsExtends<T, never>
 
 /**
- * @description  If T is a falsy value, return true, else return false.
+ *  If T is a falsy value, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -86,7 +86,7 @@ export type IsFalsy<T> = IfExtends<
 >
 
 /**
- * @description  If T is object, return true, else return false.
+ *  If T is object, return true, else return false.
  * @example
  * ```ts
  * // Expect: true
@@ -99,7 +99,7 @@ export type IsObject<T> = IfExtends<
   IfExtends<[T, object], IfExtends<[IsAny<T>, true], false, true>, false>
 >
 /**
- * @description  If T is a truthy value, return true, else return false.
+ *  If T is a truthy value, return true, else return false.
  * @example
  * ```ts
  * // Expect: true

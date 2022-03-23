@@ -4,6 +4,8 @@
 
 ## IsExtends type
 
+if A extends B (no distributed condition type), return true, else return false
+
 <b>Signature:</b>
 
 ```typescript

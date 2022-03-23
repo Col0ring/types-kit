@@ -4,6 +4,8 @@
 
 ## Class type
 
+Create a class type.
+
 <b>Signature:</b>
 
 ```typescript

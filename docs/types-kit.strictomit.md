@@ -4,6 +4,8 @@
 
 ## StrictOmit type
 
+Strict version of Omit
+
 <b>Signature:</b>
 
 ```typescript
