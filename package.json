@@ -1,6 +1,6 @@
 {
   "name": "types-kit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "types": "./dist/index.d.ts",
   "description": "a types toolkit",
   "keywords": [

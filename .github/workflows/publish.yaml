@@ -1,8 +1,7 @@
 name: Node.js Package
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [main]
 jobs:
   public-to-npm:
     runs-on: ubuntu-latest
@@ -23,3 +22,20 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Create Release
+      - name: Read package.json
+        uses: tyankatsu0105/read-package-version-actions@v1
+        with:
+          path: '.'
+        id: package-version
+      - name: Create Release Tag
+        id: release_tag
+        uses: yyx990803/release-tag@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.package-version.outputs.version }}
+          release_name: Release v${{ steps.package-version.outputs.version }}
+          prerelease: false
+
