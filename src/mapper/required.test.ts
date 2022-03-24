@@ -2,7 +2,7 @@ import {
   RequiredDeep,
   RequiredKeys,
   SetRequired,
-  SetRequiredDeep
+  SetRequiredDeep,
 } from './required'
 import { Expect, Group, Test } from '../test-utils'
 

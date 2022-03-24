@@ -4,7 +4,7 @@ import {
   Merge,
   DeepMergeTuple,
   DeepMerge,
-  MergeExclusive
+  MergeExclusive,
 } from './merge'
 
 type TestMergeTuple = Expect<

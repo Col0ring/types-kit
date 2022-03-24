@@ -7,7 +7,7 @@ import {
   PickAllOrNone,
   ReplacePick,
   DeepReplacePick,
-  DiffPick
+  DiffPick,
 } from './pick'
 import { Expect, Group, Test } from '../test-utils'
 

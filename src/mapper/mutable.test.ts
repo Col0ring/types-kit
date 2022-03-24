@@ -3,7 +3,7 @@ import {
   setMutable,
   MutableDeep,
   MutableKeys,
-  setMutableDeepPick
+  setMutableDeepPick,
 } from './mutable'
 import { Expect, Group, Test } from '../test-utils'
 

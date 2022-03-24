@@ -2,7 +2,7 @@ import {
   StrictOmit,
   DeepOmit,
   ConditionalOmit,
-  RemoveIndexSignature
+  RemoveIndexSignature,
 } from './omit'
 import { Expect, Group, Test } from '../test-utils'
 

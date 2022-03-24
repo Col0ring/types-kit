@@ -4,7 +4,7 @@ import {
   IsEmptyTypeArray,
   IsReadonlyArray,
   ArrayItem,
-  FlattedArrayItem
+  FlattedArrayItem,
 } from './array'
 import { Expect, Group, Test } from '../test-utils'
 

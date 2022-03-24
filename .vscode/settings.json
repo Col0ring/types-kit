@@ -18,6 +18,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "prettier.configPath": "prettier.config.js",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -46,6 +47,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

@@ -2,7 +2,7 @@ import {
   SetOptional,
   OptionalKeys,
   PartialDeep,
-  SetOptionalDeep
+  SetOptionalDeep,
 } from './optional'
 import { Expect, Group, Test } from '../test-utils'
 

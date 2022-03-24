@@ -2,7 +2,7 @@ import {
   FlattedArrayItem,
   IsEmptyTypeArray,
   IsReadonlyArray,
-  IsTuple
+  IsTuple,
 } from '../basic'
 
 /**

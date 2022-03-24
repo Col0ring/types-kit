@@ -5,7 +5,7 @@ import {
   IsNever,
   IsFalsy,
   IsObject,
-  IsTruthy
+  IsTruthy,
 } from './value'
 import { Expect, Group, Test } from '../test-utils'
 

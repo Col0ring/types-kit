@@ -5,7 +5,7 @@ import {
   MapEntry,
   ObjectEntry,
   Entry,
-  Entries
+  Entries,
 } from './iterator'
 import { Expect, Group, Test } from '../test-utils'
 function* IterableValueFoo() {

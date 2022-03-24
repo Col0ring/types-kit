@@ -2,7 +2,7 @@ import {
   ReadonlyDeep,
   ReadonlyKeys,
   SetReadonly,
-  SetReadonlyDeep
+  SetReadonlyDeep,
 } from './readonly'
 import { Expect, Group, Test } from '../test-utils'
 
