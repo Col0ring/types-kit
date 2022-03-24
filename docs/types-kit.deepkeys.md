@@ -4,7 +4,7 @@
 
 ## DeepKeys type
 
-Get deep keys of T
+Get deep keys of T.
 
 <b>Signature:</b>
 

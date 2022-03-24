@@ -4,7 +4,7 @@
 
 ## SetOptional type
 
-Make some properties in T optional
+Make some properties in T optional.
 
 <b>Signature:</b>
 

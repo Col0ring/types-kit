@@ -1,5 +1,5 @@
 /**
- * Convert a tuple to union type
+ * Convert a tuple to union type.
  * @example
  * ```ts
  * // Expect: string | number

@@ -2,7 +2,7 @@ import { If } from '../control-flow'
 import { IsReadonlyArray, IsTuple } from '../basic'
 
 /**
- * Reverses an array
+ * Reverses an array.
  * @example
  * ```ts
  * // Expect: [3, 2, 1]

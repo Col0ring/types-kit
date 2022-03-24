@@ -3,7 +3,7 @@ import { ArrayItem, IsTuple } from '../basic'
 import { EqualTag, ExtendsTag } from '../utils'
 
 /**
- * If V is a member of T, return true, else return false
+ * If V is a member of T, return true, else return false.
  * @example
  * ```ts
  * // Expect: true

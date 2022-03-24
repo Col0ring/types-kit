@@ -4,7 +4,7 @@
 
 ## ConditionalPick type
 
-Pick by Condition (value)
+Pick by Condition (value).
 
 <b>Signature:</b>
 

@@ -3,7 +3,7 @@ import { DeepKeys, Keys } from './key'
 
 /**
  *
- * Get values of T
+ * Get values of T.
  * @example
  * ```ts
  *  interface Props {
@@ -20,7 +20,7 @@ export type ValueOf<T> = T[Keys<T>]
 
 /**
  *
- * Get deep values of T
+ * Get deep values of T.
  * @example
  * ```ts
  *  interface Props {
@@ -47,7 +47,7 @@ export type DeepValueOf<T> = {
 
 /**
  *
- * Get the specified value from T
+ * Get the specified value from T.
  * @example
  * ```ts
  *  interface Props {
@@ -64,7 +64,7 @@ export type Get<T, K extends Keys<T>> = T[K]
 
 /**
  *
- * Get the deep specified value from T
+ * Get the deep specified value from T.
  * @example
  * ```ts
  *  interface Props {

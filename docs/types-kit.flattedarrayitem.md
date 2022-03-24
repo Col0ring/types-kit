@@ -4,7 +4,7 @@
 
 ## FlattedArrayItem type
 
-Get the flatted item type from an array
+Get the flatted item type from an array.
 
 <b>Signature:</b>
 

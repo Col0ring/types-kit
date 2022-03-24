@@ -4,7 +4,7 @@
 
 ## DeepGet type
 
-Get the deep specified value from T
+Get the deep specified value from T.
 
 <b>Signature:</b>
 

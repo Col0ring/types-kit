@@ -4,7 +4,7 @@
 
 ## Fill type
 
-Create a tuple filled with V, and the length of the tuple is L
+Create a tuple filled with V, and the length of the tuple is L.
 
 <b>Signature:</b>
 

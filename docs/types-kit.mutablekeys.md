@@ -4,7 +4,7 @@
 
 ## MutableKeys type
 
-Get mutable property keys of T
+Get mutable property keys of T.
 
 <b>Signature:</b>
 

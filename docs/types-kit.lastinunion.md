@@ -4,7 +4,7 @@
 
 ## LastInUnion type
 
-Get the last type in a union type (important!: the result is random when you are using tsc, the correct type can only be obtained through the editor environment)
+Get the last type in a union type (important!: the result is random when you are using tsc, the correct type can only be obtained through the editor environment).
 
 <b>Signature:</b>
 

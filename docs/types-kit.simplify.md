@@ -4,7 +4,7 @@
 
 ## Simplify type
 
-Flatten the type output to improve type hints shown in editors
+Flatten the type output to improve type hints shown in editors.
 
 <b>Signature:</b>
 

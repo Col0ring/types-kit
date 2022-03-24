@@ -3,7 +3,7 @@ import { IsTuple } from './array'
 import { IsNever, IsObject } from './value'
 
 /**
- * Get the value type of an Iterable / AsyncIterable
+ * Get the value type of an Iterable / AsyncIterable.
  * @example
  * ```ts
  * function* IterableValueFoo() {

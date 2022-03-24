@@ -4,7 +4,7 @@
 
 ## ConditionalOmit type
 
-Omit by Condition (value)
+Omit by Condition (value).
 
 <b>Signature:</b>
 

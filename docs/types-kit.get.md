@@ -4,7 +4,7 @@
 
 ## Get type
 
-Get the specified value from T
+Get the specified value from T.
 
 <b>Signature:</b>
 

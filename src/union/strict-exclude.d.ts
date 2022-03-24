@@ -1,6 +1,6 @@
 /**
  *
- * Strict version of Exclude
+ * Strict version of Exclude.
  * @example
  * ```ts
  * type Foo = 'a' | 'b' | 'c'

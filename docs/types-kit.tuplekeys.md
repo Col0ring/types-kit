@@ -4,7 +4,7 @@
 
 ## TupleKeys type
 
-Get keys of tuple T
+Get keys of tuple T.
 
 <b>Signature:</b>
 

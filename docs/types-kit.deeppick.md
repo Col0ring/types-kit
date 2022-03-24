@@ -4,7 +4,7 @@
 
 ## DeepPick type
 
-Get the deep value path from T
+Get the deep value path from T.
 
 <b>Signature:</b>
 

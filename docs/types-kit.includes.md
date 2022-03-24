@@ -4,7 +4,7 @@
 
 ## Includes type
 
-If V is a member of T, return true, else return false
+If V is a member of T, return true, else return false.
 
 <b>Signature:</b>
 

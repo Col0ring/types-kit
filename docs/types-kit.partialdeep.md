@@ -4,7 +4,7 @@
 
 ## PartialDeep type
 
-Make all properties (includes deep properties) in T optional
+Make all properties (includes deep properties) in T optional.
 
 <b>Signature:</b>
 

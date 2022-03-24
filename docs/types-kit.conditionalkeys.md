@@ -4,7 +4,7 @@
 
 ## ConditionalKeys type
 
-Get keys by Condition (value)
+Get keys by Condition (value).
 
 <b>Signature:</b>
 

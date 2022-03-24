@@ -4,7 +4,7 @@
 
 ## Keys type
 
-Get keys of T
+Get keys of T.
 
 <b>Signature:</b>
 

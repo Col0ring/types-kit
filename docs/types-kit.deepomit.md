@@ -4,7 +4,7 @@
 
 ## DeepOmit type
 
-Remove the deep value path from T
+Remove the deep value path from T.
 
 <b>Signature:</b>
 

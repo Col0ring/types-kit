@@ -9,11 +9,12 @@ import { Slice } from '../array'
  * Merge two tuples, values of the second array will override values of the array type.
  * @example
  * ```ts
-    type Foo = [1, 2, 3]
-    type Bar = [4, 5]
-    // Expect: [4, 5, 3]
-    type MergedTuple = MergeTuple<Foo, Bar>
-    ```
+ * type Foo = [1, 2, 3]
+ *  type Bar = [4, 5]
+ *  // Expect: [4, 5, 3]
+ *  type MergedTuple = MergeTuple<Foo, Bar>
+ * ```
+ *
  */
 export type MergeTuple<
   A extends readonly unknown[],
@@ -23,20 +24,23 @@ export type MergeTuple<
   readonly [...B, ...Slice<A, B['length']>],
   [...B, ...Slice<A, B['length']>]
 >
+
 /**
  * Merge two types into a new type. Keys of the second type will override keys of the first type.
  * @example
  * ```ts
-    interface Foo {
-        a: number;
-        b: string;
-    };
-    interface Bar {
-        b: number;
-    };
-    // Expect: { a: number, b: number }
-    type NewProps = Merge<Foo, Bar>
-    ```
+ * interface Foo {
+ *     a: number;
+ *     b: string;
+ * };
+ * interface Bar {
+ *   b: number;
+ * };
+ * // Expect: { a: number, b: number }
+ * type NewProps = Merge<Foo, Bar>
+ * ```
+ *
+ *
  */
 export type Merge<A, B> = A extends readonly unknown[]
   ? B extends readonly unknown[]
@@ -81,7 +85,7 @@ type InternalDeepMergeTupleValue<
     type Bar = [{ b: 2 }, 5]
     // Expect: [{ a: 1, b: 2 }, 5, 3]
     type MergedTuple = DeepMergeTuple<Foo, Bar>
-    ```
+ * ```
  */
 export type DeepMergeTuple<
   A extends readonly unknown[],
@@ -110,7 +114,7 @@ export type DeepMergeTuple<
     };
     // Expect: { a: { c: number, d: string }, b: string }
     type NewProps = DeepMerge<Foo, Bar>
-    ```
+ * ```
  */
 export type DeepMerge<A, B> = A extends readonly unknown[]
   ? B extends readonly unknown[]

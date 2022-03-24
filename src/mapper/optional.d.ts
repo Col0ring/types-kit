@@ -6,7 +6,7 @@ import { Simplify } from './pick'
 
 /**
   *
-  * Make some properties in T optional
+  * Make some properties in T optional.
   * @example
   * ```ts
   * interface Props {
@@ -23,7 +23,7 @@ export type SetOptional<T, K extends Keys<T>> = Simplify<
 >
 
 /**
- * Get optional property keys of T
+ * Get optional property keys of T.
  * @example
  * ```ts
  * interface Props {
@@ -42,7 +42,7 @@ export type OptionalKeys<T> = {
 
 /**
   *
-  * Make all properties (includes deep properties) in T optional
+  * Make all properties (includes deep properties) in T optional.
   * @example
   * ```ts
   * interface Props {
@@ -63,7 +63,7 @@ export type PartialDeep<T> = {
 
 /**
   * 
-  * Make some properties (includes deep properties) in T optional
+  * Make some properties (includes deep properties) in T optional.
   * @example
   * ```ts
   * interface Props {

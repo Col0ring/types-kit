@@ -4,7 +4,7 @@
 
 ## StrictOmit type
 
-Strict version of Omit
+Strict version of Omit.
 
 <b>Signature:</b>
 

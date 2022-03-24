@@ -4,7 +4,7 @@
 
 ## IterableValue type
 
-Get the value type of an Iterable / AsyncIterable
+Get the value type of an Iterable / AsyncIterable.
 
 <b>Signature:</b>
 

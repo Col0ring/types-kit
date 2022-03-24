@@ -28,7 +28,7 @@ export type IsTuple<T extends readonly unknown[]> = T extends T
   : never
 
 /**
- *  Get the item type from an array
+ *  Get the item type from an array.
  * @example
  * ```ts
  * // Expect: number
@@ -43,7 +43,7 @@ export type ArrayItem<T extends readonly unknown[]> = T extends ReadonlyArray<
   : never
 
 /**
- *  Get the flatted item type from an array
+ *  Get the flatted item type from an array.
  * @example
  * ```ts
  * // Expect: number

@@ -1,8 +1,9 @@
 import { LastInUnion } from '../union'
 
 /**
+ *
+ * Convert union type to a tuple.
  * @see https://github.com/type-challenges/type-challenges/issues/737
- * Convert union type to a tuple
  * @example
  * ```ts
  * // Expect: ['3', '1', '2']

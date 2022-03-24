@@ -1,7 +1,7 @@
 import { StrictExclude } from './strict-exclude'
 
 /**
- * Set difference of union and intersection of given union types A and B
+ * Set difference of union and intersection of given union types A and B.
  * @example
  * ```ts
  * // Expect: '2' | '3'

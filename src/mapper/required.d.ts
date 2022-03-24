@@ -7,7 +7,7 @@ import { Simplify } from './pick'
 
 /**
   *
-  * Make some properties in T required
+  * Make some properties in T required.
   * @example
   * ```ts
   * interface Props {
@@ -24,7 +24,7 @@ export type SetRequired<T, K extends Keys<T>> = Simplify<
 >
 
 /**
- * Get required property keys of T
+ * Get required property keys of T.
  * @example
  * ```ts
  * interface Props {
@@ -41,7 +41,7 @@ export type RequiredKeys<T> = Exclude<Keys<T>, OptionalKeys<T>>
 
 /**
   *
-  * Make all properties (includes deep properties) in T required
+  * Make all properties (includes deep properties) in T required.
   * @example
   * ```ts
   * interface Props {
@@ -62,7 +62,7 @@ export type RequiredDeep<T> = {
 
 /**
   * 
-  * Make some properties (includes deep properties) in T required
+  * Make some properties (includes deep properties) in T required.
   * @example
   * ```ts
   * interface Props {

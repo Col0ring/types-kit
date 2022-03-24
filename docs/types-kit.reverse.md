@@ -4,7 +4,7 @@
 
 ## Reverse type
 
-Reverses an array
+Reverses an array.
 
 <b>Signature:</b>
 

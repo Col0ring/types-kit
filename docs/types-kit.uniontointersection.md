@@ -4,7 +4,7 @@
 
 ## UnionToIntersection type
 
-Convert union type to Intersection type
+Convert union type to Intersection type.
 
 <b>Signature:</b>
 

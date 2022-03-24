@@ -4,6 +4,8 @@
 
 ## IsEquals type
 
+if A equals B, return true, else return false.
+
 <b>Signature:</b>
 
 ```typescript

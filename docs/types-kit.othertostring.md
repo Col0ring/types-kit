@@ -4,6 +4,8 @@
 
 ## OtherToString type
 
+Stringify other types
+
 <b>Signature:</b>
 
 ```typescript
@@ -17,3 +19,12 @@ export type OtherToString<T> = T extends
   ? `${T}`
   : never
 ```
+
+## Example
+
+
+```ts
+// Expect: '1'
+type Foo = OtherToString<1>
+```
+

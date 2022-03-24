@@ -4,7 +4,7 @@
 
 ## MutableDeep type
 
-Make all properties (includes deep properties) in T mutable (remove readonly decorator)
+Make all properties (includes deep properties) in T mutable (remove readonly decorator) .
 
 <b>Signature:</b>
 

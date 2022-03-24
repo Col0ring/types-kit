@@ -4,7 +4,7 @@
 
 ## SetReadonly type
 
-Make some properties in T readonly (add readonly decorator)
+Make some properties in T readonly (add readonly decorator).
 
 <b>Signature:</b>
 

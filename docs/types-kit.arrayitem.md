@@ -4,7 +4,7 @@
 
 ## ArrayItem type
 
-Get the item type from an array
+Get the item type from an array.
 
 <b>Signature:</b>
 

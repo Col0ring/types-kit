@@ -7,7 +7,7 @@ import { StrictOmit } from './omit'
 
 /**
  *
- * Flatten the type output to improve type hints shown in editors
+ * Flatten the type output to improve type hints shown in editors.
  * @example
  * ```ts
  * type Props = { a: 1, b: 2, c: 3 } & { d: 4 }
@@ -21,7 +21,7 @@ export type Simplify<T> = {
 
 /**
  *
- * Get the deep value path from T
+ * Get the deep value path from T.
  * @example
  * ```ts
  *  interface Props {
@@ -90,7 +90,7 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
 */
 
 /**
- * Pick by Condition (value)
+ * Pick by Condition (value).
  * @example
  * ```ts
  *  interface Props {
@@ -350,7 +350,7 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
   )
 
 /**
- * From T remove properties that exist in U
+ * From T remove properties that exist in U.
  * @example
  * ```ts
  * interface Props {

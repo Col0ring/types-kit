@@ -4,7 +4,7 @@
 
 ## OptionalKeys type
 
-Get optional property keys of T
+Get optional property keys of T.
 
 <b>Signature:</b>
 

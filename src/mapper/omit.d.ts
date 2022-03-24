@@ -5,7 +5,7 @@ import { ConditionalKeys, DeepKeys, Keys } from './key'
 
 /**
  *
- * Strict version of Omit
+ * Strict version of Omit.
  * @example
  * ```ts
  * interface Props = { a: 1, b: 2, c: 3 }
@@ -28,7 +28,7 @@ export type StrictOmit<T, K extends Keys<T>> = {
 
 /**
  *
- * Remove the deep value path from T
+ * Remove the deep value path from T.
  * @example
  * ```ts
  *  interface Props {
@@ -101,7 +101,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
     }
 
 /**
- * Omit by Condition (value)
+ * Omit by Condition (value).
  * @example
  * ```ts
  *  interface Props {

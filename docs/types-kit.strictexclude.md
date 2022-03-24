@@ -4,7 +4,7 @@
 
 ## StrictExclude type
 
-Strict version of Exclude
+Strict version of Exclude.
 
 <b>Signature:</b>
 

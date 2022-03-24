@@ -4,7 +4,7 @@
 
 ## DeepValueOf type
 
-Get deep values of T
+Get deep values of T.
 
 <b>Signature:</b>
 
