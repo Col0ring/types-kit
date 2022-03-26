@@ -76,7 +76,7 @@ export type Get<T, K extends Keys<T>> = T[K]
     }
  *
  *  // Expect: (()=> void) | number | string
- *  type PropValues = Get<Props, 'a.d' | 'b'>
+ *  type PropValues = DeepGet<Props, 'a.d' | 'b'>
  * ```
  */
 export type DeepGet<

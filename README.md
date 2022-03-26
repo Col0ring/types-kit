@@ -22,6 +22,4 @@ yarn add types-kit -D
 
 ## License
 
----
-
 MIT

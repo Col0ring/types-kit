@@ -44,6 +44,6 @@ export type DeepGet<
     }
 
  // Expect: (()=> void) | number | string
- type PropValues = Get<Props, 'a.d' | 'b'>
+ type PropValues = DeepGet<Props, 'a.d' | 'b'>
 ```
 
