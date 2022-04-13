@@ -69,6 +69,7 @@
 |  [IterableValue](./types-kit.iterablevalue.md) | Get the value type of an Iterable / AsyncIterable. |
 |  [Keys](./types-kit.keys.md) | Get keys of T. |
 |  [LastInUnion](./types-kit.lastinunion.md) | Get the last type in a union type (important!: the result is random when you are using tsc, the correct type can only be obtained through the editor environment). |
+|  [LiteralToPrimitive](./types-kit.literaltoprimitive.md) | Given a literal type return the Primitive it belongs to, or never if it's not a primitive. eg: Working with generic types that may be literal types. |
 |  [LiteralUnion](./types-kit.literalunion.md) | Allows creating a union type by combining primitive types and literal types without sacrificing auto-completion in IDEs for the literal type part of the union. |
 |  [MapEntry](./types-kit.mapentry.md) | return the type of that map's entry. |
 |  [Merge](./types-kit.merge.md) | Merge two types into a new type. Keys of the second type will override keys of the first type. |

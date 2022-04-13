@@ -5,6 +5,7 @@ import { UnionToIntersection } from './union-to-intersection'
 import { UnionToTuple } from './union-to-tuple'
 import { OtherToString } from './other-to-string'
 import { UrlQueryToObject, UrlParamsToUnion } from './url-to-other'
+import { LiteralToPrimitive } from './literal-to-primitive'
 import { Test, Expect, Group, ExpectMatch } from '../test-utils'
 
 type TestStringToNumber = Expect<StringToNumber<'1'>, 1>
@@ -55,6 +56,8 @@ type TestUrlParamsToUnion = Expect<
   'a' | 'b'
 >
 
+type TestLiteralToPrimitive = Expect<LiteralToPrimitive<'a'>, string>
+
 export type Result = Test<
   [
     TestStringToNumber,
@@ -64,6 +67,7 @@ export type Result = Test<
     TestUnionToTuple,
     TestOtherToString,
     TestUrlQueryToObject,
-    TestUrlParamsToUnion
+    TestUrlParamsToUnion,
+    TestLiteralToPrimitive
   ]
 >
