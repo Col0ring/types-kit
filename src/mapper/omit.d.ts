@@ -113,7 +113,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
  *  // Expect: { b: string }
  *  type NewProps = ConditionalPick<Props, number | boolean>
 *   // Set exact true, expect: { a?: number, b: string }
- *  type NewProps = ConditionalPick<Props, number | boolean, true>
+ *  type NewProps2 = ConditionalPick<Props, number | boolean, true>
  * ```
  */
 export type ConditionalOmit<

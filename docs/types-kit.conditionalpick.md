@@ -29,6 +29,6 @@ export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
  // Expect: { a?: number, c: boolean }
  type NewProps = ConditionalPick<Props, number | boolean>
  // Set exact true, expect: { c: boolean }
- type NewProps = ConditionalPick<Props, number | boolean>
+ type NewProps2 = ConditionalPick<Props, number | boolean, true>
 ```
 
