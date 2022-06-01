@@ -1,9 +1,10 @@
 import { Fill } from '../array'
 import { IsEmptyTypeArray, IsObject } from '../basic'
 import { OtherToString } from '../convert'
-import { StrictExclude } from '../union'
+import { LiteralUnion, StrictExclude } from '../union'
 import { ConditionalKeys, DeepKeys, Keys } from './key'
 import { StrictOmit } from './omit'
+import { OptionalKeys } from './optional'
 
 /**
  *
@@ -69,7 +70,7 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
     : never
 }
 
-/* 
+/*
       // the second way, but the editor prompt is worse
       type DeepPick<T, K extends DeepKeys<T>> = UnionToIntersection<
         K extends `${infer Head}.${infer Tail}`
@@ -110,18 +111,6 @@ export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
   ConditionalKeys<T, Condition, Exact>
 >
 
-// export type RemoveIndexSignature<T> = {
-//   [K in keyof T as K extends Keys<T>
-//     ? string extends K
-//       ? never
-//       : number extends K
-//       ? never
-//       : symbol extends K
-//       ? never
-//       : K
-//     : never]: T[K]
-// }
-
 type InternalReplacePickValue<
   Key,
   Current,
@@ -146,9 +135,9 @@ type InternalReplacePickValue<
       b?: number
       c: number
    }
-   
+
    // Expect: { readonly a?: number, b?: number, c: string }
-   // ['a.d','c'] means the keys to replace, [string, string] means the values to map 
+   // ['a.d','c'] means the keys to replace, [string, string] means the values to map
    type new Props = DeepReplacePick<Props, ['a','c'], [number, string]>
  * ```
  */
@@ -252,9 +241,9 @@ type InternalDeepReplacePick<
       b?: number
       c: number
    }
-   
+
    // Expect: { readonly a?: { d?: string }, b?: number, c: string }
-   // ['a.d','c'] means the keys to replace, [string, string] means the values to map 
+   // ['a.d','c'] means the keys to replace, [string, string] means the values to map
    type new Props = DeepReplacePick<Props, ['a.d','c'], [string, string]>
  * ```
  */
@@ -364,3 +353,31 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
  * ```
  */
 export type DiffPick<T, U> = Pick<T, Exclude<Keys<T>, Keys<U>>>
+
+/**
+ * Create a type that contains T, and uses the IndexSignatureType type as the index signature.
+ * @example
+ * ```ts
+ *  interface Props {
+      a: number
+      b: number
+    }
+    // ExpectMatch: { a:number, b:number, [key: PropertyKey]: string } (the above code will report an error if define it directly.)
+    type NewProps = WithIndexSignature<Props, string>
+ * ```
+ */
+export type WithIndexSignature<T, IndexSignatureType> =
+  // all keys are optional
+  | (Keys<T> extends OptionalKeys<T>
+      ? {
+          [P in LiteralUnion<Keys<T>, PropertyKey>]?: P extends Keys<T>
+            ? T[P]
+            : IndexSignatureType
+        }
+      :
+          | {
+              [P in LiteralUnion<Keys<T>, PropertyKey>]: P extends Keys<T>
+                ? T[P]
+                : IndexSignatureType
+            })
+  | T

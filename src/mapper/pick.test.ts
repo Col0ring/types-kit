@@ -8,8 +8,9 @@ import {
   ReplacePick,
   DeepReplacePick,
   DiffPick,
+  WithIndexSignature,
 } from './pick'
-import { Expect, Group, Test } from '../test-utils'
+import { Expect, ExpectMatch, Group, Test } from '../test-utils'
 
 type TestSimplify = Expect<Simplify<{ a: 1 } & { b: 2 }>, { a: 1; b: 2 }>
 
@@ -253,6 +254,15 @@ type TestDiffPick = Expect<
   }
 >
 
+type TestWithIndexSignature = ExpectMatch<
+  WithIndexSignature<{ a: number; b: number }, string>,
+  | {
+      a: number
+      b: number
+    }
+  | Record<PropertyKey, string>
+>
+
 export type Result = Test<
   [
     TestSimplify,
@@ -263,6 +273,7 @@ export type Result = Test<
     TestPickAllOrNone,
     TestReplacePick,
     TestDeepReplacePickGroup,
-    TestDiffPick
+    TestDiffPick,
+    TestWithIndexSignature
   ]
 >

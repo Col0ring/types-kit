@@ -120,5 +120,6 @@
 |  [UrlParamsToUnion](./types-kit.urlparamstounion.md) | Parser the params of a url into a union type |
 |  [UrlQueryToObject](./types-kit.urlquerytoobject.md) | Parser the querystring of a url into an object type |
 |  [ValueOf](./types-kit.valueof.md) | Get values of T. |
+|  [WithIndexSignature](./types-kit.withindexsignature.md) | Create a type that contains T, and uses the IndexSignatureType type as the index signature. |
 |  [Without](./types-kit.without.md) |  |
 
