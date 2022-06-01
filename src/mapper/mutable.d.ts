@@ -34,10 +34,10 @@ export type Mutable<T> = {
      readonly c: number;
    };
    // Expect: {  a: number; b: number; readonly c: number; }
-   type NewProps = setMutable<Props, 'a' | 'b'>;
+   type NewProps = SetMutable<Props, 'a' | 'b'>;
  * ```
  */
-export type setMutable<T, K extends Keys<T>> = Simplify<
+export type SetMutable<T, K extends Keys<T>> = Simplify<
   StrictOmit<T, K> & Mutable<Pick<T, K>>
 >
 
@@ -78,7 +78,7 @@ export type MutableDeep<T> = {
 }
 
 /**
-  * 
+  *
   * Make some properties (includes deep properties) in T readonly (add readonly decorator)..
   * @example
   * ```ts
@@ -100,10 +100,10 @@ export type MutableDeep<T> = {
      //   }
      //   readonly e: number
      // }
-     type NewProps = setMutableDeepPick<Props, 'a' | 'a.c'>
+     type NewProps = SetMutableDeepPick<Props, 'a' | 'a.c'>
   * ```
   */
-export type setMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<
+export type SetMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<
   Extract<K, Keys<T>>
 > extends true
   ? // for tuple when not match the first level properties
@@ -111,7 +111,7 @@ export type setMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<
       [P in keyof T]: T[P] extends infer V
         ? V extends V
           ? IsObject<V> extends true
-            ? setMutableDeepPick<
+            ? SetMutableDeepPick<
                 V,
                 // distributed condition type
                 K extends `${infer Head}.${infer Tail}`
@@ -140,7 +140,7 @@ export type setMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? setMutableDeepPick<
+              ? SetMutableDeepPick<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`
@@ -167,7 +167,7 @@ export type setMutableDeepPick<T, K extends DeepKeys<T>> = IsNever<
         >]: T[P] extends infer V
           ? V extends V
             ? IsObject<V> extends true
-              ? setMutableDeepPick<
+              ? SetMutableDeepPick<
                   V,
                   // distributed condition type
                   K extends `${infer Head}.${infer Tail}`

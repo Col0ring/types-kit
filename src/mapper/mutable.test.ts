@@ -1,9 +1,9 @@
 import {
   Mutable,
-  setMutable,
+  SetMutable,
   MutableDeep,
   MutableKeys,
-  setMutableDeepPick,
+  SetMutableDeepPick,
 } from './mutable'
 import { Expect, Group, Test } from '../test-utils'
 
@@ -21,7 +21,7 @@ type TestMutable = Expect<
 >
 
 type TestMutablePick = Expect<
-  setMutable<
+  SetMutable<
     {
       readonly a: number
       readonly b: number
@@ -63,7 +63,7 @@ type TestMutableDeep = Expect<
 >
 
 type TestMutableDeepPick = Expect<
-  setMutableDeepPick<
+  SetMutableDeepPick<
     {
       readonly a: {
         b?: number
@@ -87,7 +87,7 @@ type TestMutableDeepPick = Expect<
 >
 
 type TestMutableDeepPick2 = Expect<
-  setMutableDeepPick<
+  SetMutableDeepPick<
     [{ readonly a: 1; readonly b: 2 }, { readonly a: 1; readonly b: 2 }],
     '0.a' | '1.b'
   >,

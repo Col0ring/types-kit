@@ -10,20 +10,20 @@ Given a literal type return the Primitive it belongs to, or never if it's not a 
 
 ```typescript
 export type LiteralToPrimitive<T> = T extends number
-	? number
-	: T extends bigint
-	? bigint
-	: T extends string
-	? string
-	: T extends boolean
-	? boolean
-	: T extends symbol
-	? symbol
-	: T extends null
-	? null
-	: T extends undefined
-	? undefined
-	: never;
+  ? number
+  : T extends bigint
+  ? bigint
+  : T extends string
+  ? string
+  : T extends boolean
+  ? boolean
+  : T extends symbol
+  ? symbol
+  : T extends null
+  ? null
+  : T extends undefined
+  ? undefined
+  : never
 ```
 
 ## Example

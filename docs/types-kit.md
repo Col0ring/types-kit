@@ -97,8 +97,8 @@
 |  [RequiredKeys](./types-kit.requiredkeys.md) | Get required property keys of T. |
 |  [Reverse](./types-kit.reverse.md) | Reverses an array. |
 |  [SetEntry](./types-kit.setentry.md) | return the type of that set's entry. |
-|  [setMutable](./types-kit.setmutable.md) | Make some properties in T mutable (remove readonly decorator). |
-|  [setMutableDeepPick](./types-kit.setmutabledeeppick.md) | Make some properties (includes deep properties) in T readonly (add readonly decorator).. |
+|  [SetMutable](./types-kit.setmutable.md) | Make some properties in T mutable (remove readonly decorator). |
+|  [SetMutableDeepPick](./types-kit.setmutabledeeppick.md) | Make some properties (includes deep properties) in T readonly (add readonly decorator).. |
 |  [SetOptional](./types-kit.setoptional.md) | Make some properties in T optional. |
 |  [SetOptionalDeep](./types-kit.setoptionaldeep.md) | Make some properties (includes deep properties) in T optional. |
 |  [SetReadonly](./types-kit.setreadonly.md) | Make some properties in T readonly (add readonly decorator). |
