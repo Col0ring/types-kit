@@ -36,12 +36,12 @@ export type DeepGet<
 
 ```ts
  interface Props {
-      a: {
-        d: () => void
-      }
-      b: string
-      c: boolean
-    }
+   a: {
+     d: () => void
+   }
+   b: string
+   c: boolean
+}
 
  // Expect: (()=> void) | number | string
  type PropValues = DeepGet<Props, 'a.d' | 'b'>

@@ -23,6 +23,7 @@
 |  [DeepOmit](./types-kit.deepomit.md) | Remove the deep value path from T. |
 |  [DeepPick](./types-kit.deeppick.md) | Get the deep value path from T. |
 |  [DeepReplacePick](./types-kit.deepreplacepick.md) | Create a type that replace the values in the corresponding deep keys. |
+|  [DeepTupleGet](./types-kit.deeptupleget.md) | Get the deep specified value by tuple from T. |
 |  [DeepValueOf](./types-kit.deepvalueof.md) | Get deep values of T. |
 |  [Diff](./types-kit.diff.md) | Set difference of union and intersection of given union types A and B. |
 |  [DiffPick](./types-kit.diffpick.md) | From T remove properties that exist in U. |
@@ -48,11 +49,13 @@
 |  [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md) |  |
 |  [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md) |  |
 |  [InternalDeepReplacePickValue](./types-kit.internaldeepreplacepickvalue.md) |  |
+|  [InternalDeepTupleGet](./types-kit.internaldeeptupleget.md) |  |
 |  [InternalFill](./types-kit.internalfill.md) |  |
 |  [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md) |  |
 |  [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md) |  |
 |  [InternalSlice](./types-kit.internalslice.md) |  |
 |  [InternalStringToNumber](./types-kit.internalstringtonumber.md) |  |
+|  [InternalTupleGet](./types-kit.internaltupleget.md) |  |
 |  [InternalUrlParamsToUnion](./types-kit.internalurlparamstounion.md) |  |
 |  [InternalUrlQueryToObject](./types-kit.internalurlquerytoobject.md) |  |
 |  [IsAny](./types-kit.isany.md) | If T is any, return true, else return false. |
@@ -114,6 +117,7 @@
 |  [SubArray](./types-kit.subarray.md) |  |
 |  [Switch](./types-kit.switch.md) | Switch for types. |
 |  [Tuple](./types-kit.tuple.md) | Create a tuple. |
+|  [TupleGet](./types-kit.tupleget.md) | Get the specified value by tuple from T. |
 |  [TupleKeys](./types-kit.tuplekeys.md) | Get keys of tuple T. |
 |  [TupleToObject](./types-kit.tupletoobject.md) | Convert a tuple to an object, it can pass in a tag to modify the key value. |
 |  [TupleToUnion](./types-kit.tupletounion.md) | Convert a tuple to union type. |
@@ -123,6 +127,7 @@
 |  [UrlParamsToUnion](./types-kit.urlparamstounion.md) | Parser the params of a url into a union type |
 |  [UrlQueryToObject](./types-kit.urlquerytoobject.md) | Parser the querystring of a url into an object type |
 |  [ValueOf](./types-kit.valueof.md) | Get values of T. |
+|  [WithConflictingIndexSignature](./types-kit.withconflictingindexsignature.md) | Create a type that contains T, and uses the ConflictingIndexSignatureType type as the index signature. |
 |  [WithIndexSignature](./types-kit.withindexsignature.md) | Create a type that contains T, and uses the IndexSignatureType type as the index signature. |
 |  [Without](./types-kit.without.md) |  |
 

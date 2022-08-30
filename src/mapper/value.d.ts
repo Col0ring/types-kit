@@ -62,18 +62,47 @@ export type DeepValueOf<T> = {
  */
 export type Get<T, K extends Keys<T>> = T[K]
 
+type InternalTupleGet<
+  T,
+  K extends readonly unknown[],
+  R extends readonly unknown[] = []
+> = K extends readonly [infer Item, ...infer Rest]
+  ? InternalTupleGet<
+      T,
+      Rest,
+      [...R, Item extends Keys<T> ? Get<T, Item> : unknown]
+    >
+  : R
+/**
+ *
+ * Get the specified value by tuple from T.
+ * @example
+ * ```ts
+ *  interface Props {
+ *    a: {
+ *      d: () => void
+ *    }
+ *    b: string
+ *    c: boolean
+ * }
+ *
+ *  // Expect: [{ d: () => void }, string]
+ *  type PropValues = TupleGet<Props, ['a', 'b']>
+ * ```
+ */
+export type TupleGet<T, K extends readonly Keys<T>[]> = InternalTupleGet<T, K>
 /**
  *
  * Get the deep specified value from T.
  * @example
  * ```ts
  *  interface Props {
-      a: {
-        d: () => void
-      }
-      b: string
-      c: boolean
-    }
+ *    a: {
+ *      d: () => void
+ *    }
+ *    b: string
+ *    c: boolean
+ * }
  *
  *  // Expect: (()=> void) | number | string
  *  type PropValues = DeepGet<Props, 'a.d' | 'b'>
@@ -98,3 +127,36 @@ export type DeepGet<
   : K extends keyof T
   ? T[K]
   : never
+
+type InternalDeepTupleGet<
+  T,
+  K extends readonly unknown[],
+  R extends readonly unknown[] = []
+> = K extends readonly [infer Item, ...infer Rest]
+  ? InternalDeepTupleGet<
+      T,
+      Rest,
+      [...R, Item extends DeepKeys<T> ? DeepGet<T, Item> : unknown]
+    >
+  : R
+/**
+ *
+ * Get the deep specified value by tuple from T.
+ * @example
+ * ```ts
+ *  interface Props {
+ *    a: {
+ *      d: () => void
+ *    }
+ *    b: string
+ *    c: boolean
+ * }
+ *
+ *  // Expect: [()=> void, string]
+ *  type PropValues = DeepTupleGet<Props, ['a.d', 'b']>
+ * ```
+ */
+export type DeepTupleGet<
+  T,
+  K extends readonly DeepKeys<T>[]
+> = InternalDeepTupleGet<T, K>

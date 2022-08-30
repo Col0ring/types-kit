@@ -1,5 +1,12 @@
 import { Expect, Test } from '../test-utils'
-import { DeepGet, DeepValueOf, Get, ValueOf } from './value'
+import {
+  DeepGet,
+  DeepTupleGet,
+  DeepValueOf,
+  Get,
+  TupleGet,
+  ValueOf,
+} from './value'
 
 type TestValues = Expect<
   ValueOf<{
@@ -39,7 +46,7 @@ type TestGet = Expect<
   | string
 >
 
-type TestDeppGet = Expect<
+type TestDeepGet = Expect<
   DeepGet<
     {
       a?: {
@@ -53,4 +60,39 @@ type TestDeppGet = Expect<
   (() => void) | string | undefined
 >
 
-export type Result = Test<[TestValues, TestDeepValues, TestGet, TestDeppGet]>
+type TestTupleGet = Expect<
+  TupleGet<
+    {
+      a?: number
+      b: string
+      c: boolean
+    },
+    ['a', 'c']
+  >,
+  [number | undefined, boolean]
+>
+
+type TestDeepTupleGet = Expect<
+  DeepTupleGet<
+    {
+      a?: {
+        d: () => void
+      }
+      b: string
+      c: boolean
+    },
+    ['a', 'a.d', 'c']
+  >,
+  [{ d: () => void } | undefined, (() => void) | undefined, boolean]
+>
+
+export type Result = Test<
+  [
+    TestValues,
+    TestDeepValues,
+    TestGet,
+    TestDeepGet,
+    TestTupleGet,
+    TestDeepTupleGet
+  ]
+>
