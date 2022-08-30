@@ -37,6 +37,7 @@
 |  [Flat](./types-kit.flat.md) | Create an array that includes the flatten array type. |
 |  [FlattedArrayItem](./types-kit.flattedarrayitem.md) | Get the flatted item type from an array. |
 |  [Get](./types-kit.get.md) | Get the specified value from T. |
+|  [GetSubTuple](./types-kit.getsubtuple.md) |  |
 |  [If](./types-kit.if.md) | If for types. |
 |  [IfElseIf](./types-kit.ifelseif.md) | If/Else if for types. |
 |  [IfExtends](./types-kit.ifextends.md) | If Condition\[0\] extends Condition\[1\], return Case1, else return Case2. |
@@ -117,6 +118,7 @@
 |  [TupleToObject](./types-kit.tupletoobject.md) | Convert a tuple to an object, it can pass in a tag to modify the key value. |
 |  [TupleToUnion](./types-kit.tupletounion.md) | Convert a tuple to union type. |
 |  [UnionToIntersection](./types-kit.uniontointersection.md) | Convert union type to Intersection type. |
+|  [UnionToSubTupleArray](./types-kit.uniontosubtuplearray.md) | Get all sub tuple array from the passing parameter. |
 |  [UnionToTuple](./types-kit.uniontotuple.md) | Convert union type to a tuple. |
 |  [UrlParamsToUnion](./types-kit.urlparamstounion.md) | Parser the params of a url into a union type |
 |  [UrlQueryToObject](./types-kit.urlquerytoobject.md) | Parser the querystring of a url into an object type |

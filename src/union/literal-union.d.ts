@@ -7,4 +7,9 @@
  * const foo:Foo = '' // You will get auto-completion for `dog` and `cat` literals.
  * ```
  */
-export type LiteralUnion<T extends U, U> = T | (U & {})
+// Omit<U, PropertyKey> => {}
+export type LiteralUnion<T extends U, U> = T | (U & Omit<U, PropertyKey>)
+// /**
+//  * @deprecated see https://github.com/microsoft/TypeScript/pull/49119
+//  */
+// export type LiteralUnion<T extends U, U> = T | (U & {})

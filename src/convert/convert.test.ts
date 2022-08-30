@@ -5,6 +5,7 @@ import { StringToNumber } from './string-to-number'
 import { TupleToObject } from './tuple-to-object'
 import { TupleToUnion } from './tuple-to-union'
 import { UnionToIntersection } from './union-to-intersection'
+import { UnionToSubTupleArray } from './union-to-sub-tuple-array'
 import { UnionToTuple } from './union-to-tuple'
 import { UrlParamsToUnion, UrlQueryToObject } from './url-to-other'
 
@@ -58,6 +59,13 @@ type TestUrlParamsToUnion = Expect<
 
 type TestLiteralToPrimitive = Expect<LiteralToPrimitive<'a'>, string>
 
+type TestUnionToSubTupleArray = Expect<
+  UnionToSubTupleArray<'a' | 'b' | 'c'>,
+  | ['a' | 'b' | 'c']
+  | ['a' | 'b' | 'c', 'a' | 'b' | 'c']
+  | ['a' | 'b' | 'c', 'a' | 'b' | 'c', 'a' | 'b' | 'c']
+>
+
 export type Result = Test<
   [
     TestStringToNumber,
@@ -68,6 +76,7 @@ export type Result = Test<
     TestOtherToString,
     TestUrlQueryToObject,
     TestUrlParamsToUnion,
-    TestLiteralToPrimitive
+    TestLiteralToPrimitive,
+    TestUnionToSubTupleArray
   ]
 >

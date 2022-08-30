@@ -9,7 +9,7 @@ Allows creating a union type by combining primitive types and literal types with
 <b>Signature:</b>
 
 ```typescript
-export type LiteralUnion<T extends U, U> = T | (U & {})
+export type LiteralUnion<T extends U, U> = T | (U & Omit<U, PropertyKey>)
 ```
 
 ## Example
