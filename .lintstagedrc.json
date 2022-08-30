@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx}": ["npm run test", "npm run lint:eslint", "npm run format"],
+  "*.{md,yaml,yml,json,html}": ["npm run format"]
+}
