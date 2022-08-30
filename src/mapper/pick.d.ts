@@ -355,18 +355,18 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
 export type DiffPick<T, U> = Pick<T, Exclude<Keys<T>, Keys<U>>>
 
 /**
- * Create a type that contains T, and uses the IndexSignatureType type as the index signature.
+ * Create a type that contains T, and uses the ConflictingIndexSignatureType type as the index signature.
  * @example
  * ```ts
  *  interface Props {
-      a: number
-      b: number
-    }
-    // ExpectMatch: { a:number, b:number, [key: PropertyKey]: string } (the above code will report an error if define it directly.)
-    type NewProps = WithIndexSignature<Props, string>
+ *    a: number
+ *    b: number
+ *  }
+ *   // ExpectMatch: { a:number, b:number, [key: PropertyKey]: string } (the above code will report an error if define it directly, type 'number' is not assignable to type 'string'.)
+ *   type NewProps = WithConflictingIndexSignature<Props, string>
  * ```
  */
-export type WithIndexSignature<T, IndexSignatureType> =
+export type WithConflictingIndexSignature<T, IndexSignatureType> =
   // all keys are optional
   | (Keys<T> extends OptionalKeys<T>
       ? {
@@ -381,3 +381,21 @@ export type WithIndexSignature<T, IndexSignatureType> =
                 : IndexSignatureType
             })
   | T
+
+/**
+ * Create a type that contains T, and uses the IndexSignatureType type as the index signature.
+ * @example
+ * ```ts
+ *  interface Props {
+ *     a: number
+ *     b: number
+ *  }
+ *  // ExpectMatch: { a:number, b:number, [key: PropertyKey]: any }
+ *  type NewProps = WithIndexSignature<Props, string>
+ * ```
+ */
+export type WithIndexSignature<T, IndexSignatureType> = Record<
+  PropertyKey,
+  IndexSignatureType
+> &
+  T

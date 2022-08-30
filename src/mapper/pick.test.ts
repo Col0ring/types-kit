@@ -9,6 +9,7 @@ import {
   PickExactlyOne,
   ReplacePick,
   Simplify,
+  WithConflictingIndexSignature,
   WithIndexSignature,
 } from './pick'
 
@@ -255,7 +256,16 @@ type TestDiffPick = Expect<
 >
 
 type TestWithIndexSignature = ExpectMatch<
-  WithIndexSignature<{ a: number; b: number }, string>,
+  WithIndexSignature<{ a: number; b: number }, any>,
+  {
+    a: number
+    b: number
+    [x: PropertyKey]: any
+  }
+>
+
+type TestWithConflictingIndexSignature = ExpectMatch<
+  WithConflictingIndexSignature<{ a: number; b: number }, string>,
   | {
       a: number
       b: number
@@ -274,6 +284,7 @@ export type Result = Test<
     TestReplacePick,
     TestDeepReplacePickGroup,
     TestDiffPick,
-    TestWithIndexSignature
+    TestWithIndexSignature,
+    TestWithConflictingIndexSignature
   ]
 >
