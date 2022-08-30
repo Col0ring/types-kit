@@ -1,9 +1,9 @@
 import { IsNever, IsObject } from '../basic'
 import { And, If, IsExtends, Not } from '../control-flow'
-import { ReadonlyKeys } from './readonly'
-import { Simplify } from './pick'
-import { StrictOmit } from './omit'
 import { DeepKeys, Keys } from './key'
+import { StrictOmit } from './omit'
+import { Simplify } from './pick'
+import { ReadonlyKeys } from './readonly'
 
 /**
  *

@@ -1,9 +1,9 @@
+import { Slice } from '../array'
+import { IsObject, IsReadonlyArray } from '../basic'
+import { And, If } from '../control-flow'
+import { Keys } from './key'
 import { StrictOmit } from './omit'
 import { Simplify } from './pick'
-import { Keys } from './key'
-import { And, If } from '../control-flow'
-import { IsObject, IsReadonlyArray } from '../basic'
-import { Slice } from '../array'
 
 /**
  * Merge two tuples, values of the second array will override values of the array type.

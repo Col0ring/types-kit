@@ -10,7 +10,7 @@ import { UnionToIntersection } from '../convert/union-to-intersection'
  * ```
  * if it is necessary to output one type from overload, TS selects the last signature in the overload.
  */
-type LastInUnion<U> = UnionToIntersection<
+export type LastInUnion<U> = UnionToIntersection<
   U extends unknown ? (x: U) => 0 : never
 > extends (x: infer L) => 0
   ? L

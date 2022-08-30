@@ -1,6 +1,6 @@
-import { IsEquals, If, IfExtends, IsExtends } from '../control-flow'
-import { EqualTag, ExtendsTag } from '../utils'
 import { ArrayItem, IsReadonlyArray, IsTuple } from '../basic'
+import { If, IfExtends, IsEquals, IsExtends } from '../control-flow'
+import { EqualTag, ExtendsTag } from '../utils'
 
 /**
  * Create an array that filters / keeps out items of the given type V from T.

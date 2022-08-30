@@ -1,5 +1,5 @@
-import { If } from '../control-flow'
 import { IsReadonlyArray, IsTuple } from '../basic'
+import { If } from '../control-flow'
 
 /**
  * Reverses an array.

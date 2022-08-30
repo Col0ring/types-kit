@@ -1,12 +1,12 @@
+import { Expect, ExpectMatch, Group, Test } from '../test-utils'
+import { LiteralToPrimitive } from './literal-to-primitive'
+import { OtherToString } from './other-to-string'
 import { StringToNumber } from './string-to-number'
 import { TupleToObject } from './tuple-to-object'
 import { TupleToUnion } from './tuple-to-union'
 import { UnionToIntersection } from './union-to-intersection'
 import { UnionToTuple } from './union-to-tuple'
-import { OtherToString } from './other-to-string'
-import { UrlQueryToObject, UrlParamsToUnion } from './url-to-other'
-import { LiteralToPrimitive } from './literal-to-primitive'
-import { Test, Expect, Group, ExpectMatch } from '../test-utils'
+import { UrlParamsToUnion, UrlQueryToObject } from './url-to-other'
 
 type TestStringToNumber = Expect<StringToNumber<'1'>, 1>
 

@@ -2,11 +2,11 @@
  *  Readonly is build-in
  */
 
+import { IsNever, IsObject } from '../basic'
+import { And, If, IsEquals, IsExtends, Not } from '../control-flow'
+import { DeepKeys, Keys } from './key'
 import { StrictOmit } from './omit'
 import { Simplify } from './pick'
-import { IsEquals, If, IsExtends, And, Not } from '../control-flow'
-import { DeepKeys, Keys } from './key'
-import { IsNever, IsObject } from '../basic'
 
 /**
   *

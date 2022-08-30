@@ -1,13 +1,13 @@
-import {
-  IsPrimitive,
-  IsAny,
-  IsUnknown,
-  IsNever,
-  IsFalsy,
-  IsObject,
-  IsTruthy,
-} from './value'
 import { Expect, Group, Test } from '../test-utils'
+import {
+  IsAny,
+  IsFalsy,
+  IsNever,
+  IsObject,
+  IsPrimitive,
+  IsTruthy,
+  IsUnknown,
+} from './value'
 
 type TestIsPrimitive = Expect<IsPrimitive<1>, true>
 type TestIsPrimitive2 = Expect<IsPrimitive<{}>, false>

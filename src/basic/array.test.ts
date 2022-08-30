@@ -1,12 +1,12 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
-  Tuple,
-  IsTuple,
-  IsEmptyTypeArray,
-  IsReadonlyArray,
   ArrayItem,
   FlattedArrayItem,
+  IsEmptyTypeArray,
+  IsReadonlyArray,
+  IsTuple,
+  Tuple,
 } from './array'
-import { Expect, Group, Test } from '../test-utils'
 
 type TestTuple = Expect<
   Tuple<1, number>,

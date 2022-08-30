@@ -1,10 +1,10 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
   RequiredDeep,
   RequiredKeys,
   SetRequired,
   SetRequiredDeep,
 } from './required'
-import { Expect, Group, Test } from '../test-utils'
 
 export type TestSetRequired = Expect<
   SetRequired<

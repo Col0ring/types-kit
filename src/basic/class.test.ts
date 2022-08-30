@@ -1,5 +1,5 @@
 import { Expect, Test } from '../test-utils'
-import { Constructor, Class } from './class'
+import { Class, Constructor } from './class'
 
 type TestConstructor = Expect<
   Constructor<{ a: number; b: string }, [a: number, b: string]>,

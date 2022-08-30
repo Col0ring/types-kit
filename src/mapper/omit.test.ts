@@ -1,10 +1,10 @@
-import {
-  StrictOmit,
-  DeepOmit,
-  ConditionalOmit,
-  RemoveIndexSignature,
-} from './omit'
 import { Expect, Group, Test } from '../test-utils'
+import {
+  ConditionalOmit,
+  DeepOmit,
+  RemoveIndexSignature,
+  StrictOmit,
+} from './omit'
 
 type TestStrictOmit = Expect<
   StrictOmit<{ a: 1; b: 2; c: 3 }, 'a'>,

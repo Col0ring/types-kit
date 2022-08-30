@@ -1,4 +1,4 @@
-import { IsTuple, IsTruthy } from '../basic'
+import { IsTruthy, IsTuple } from '../basic'
 
 /**
  * If Condition[0] extends Condition[1], return Case1, else return Case2.

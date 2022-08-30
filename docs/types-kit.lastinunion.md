@@ -9,7 +9,7 @@ Get the last type in a union type (important!: the result is random when you are
 <b>Signature:</b>
 
 ```typescript
-type LastInUnion<U> = UnionToIntersection<
+export type LastInUnion<U> = UnionToIntersection<
   U extends unknown ? (x: U) => 0 : never
 > extends (x: infer L) => 0
   ? L

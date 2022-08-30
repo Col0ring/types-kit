@@ -1,10 +1,10 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
   ReadonlyDeep,
   ReadonlyKeys,
   SetReadonly,
   SetReadonlyDeep,
 } from './readonly'
-import { Expect, Group, Test } from '../test-utils'
 
 type TestReadonlyDeep = Expect<
   ReadonlyDeep<{

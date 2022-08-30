@@ -1,10 +1,10 @@
-import { If, IfExtends, IfElseIf } from './if'
-import { Switch } from './switch'
+import { Expect, Group, Test } from '../test-utils'
 import { And } from './and'
-import { Or } from './or'
+import { If, IfElseIf, IfExtends } from './if'
 import { Not } from './not'
 import { IsEquals, IsExtends } from './operator'
-import { Expect, Group, Test } from '../test-utils'
+import { Or } from './or'
+import { Switch } from './switch'
 
 type TestIf = Expect<If<false, 1, 2>, 2>
 

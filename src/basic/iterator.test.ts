@@ -1,13 +1,13 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
-  IterableValue,
   ArrayEntry,
-  SetEntry,
+  Entries,
+  Entry,
+  IterableValue,
   MapEntry,
   ObjectEntry,
-  Entry,
-  Entries,
+  SetEntry,
 } from './iterator'
-import { Expect, Group, Test } from '../test-utils'
 function* IterableValueFoo() {
   yield 1
   yield 2

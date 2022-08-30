@@ -9,7 +9,7 @@ Convert union type to a tuple.
 <b>Signature:</b>
 
 ```typescript
-type UnionToTuple<U> = [U] extends [never] // no type
+export type UnionToTuple<U> = [U] extends [never] // no type
   ? []
   : [...UnionToTuple<Exclude<U, LastInUnion<U>>>, LastInUnion<U>]
 ```

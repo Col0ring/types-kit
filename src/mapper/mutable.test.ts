@@ -1,11 +1,11 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
   Mutable,
-  SetMutable,
   MutableDeep,
   MutableKeys,
+  SetMutable,
   SetMutableDeepPick,
 } from './mutable'
-import { Expect, Group, Test } from '../test-utils'
 
 type TestMutable = Expect<
   Mutable<{

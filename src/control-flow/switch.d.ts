@@ -1,7 +1,7 @@
 import { IsEmptyTypeArray, IsTuple } from '../basic'
 import { EqualTag, ExtendsTag } from '../utils'
 import { If, IfExtends } from './if'
-import { IsExtends, IsEquals } from './operator'
+import { IsEquals, IsExtends } from './operator'
 
 /**
  * Switch for types.

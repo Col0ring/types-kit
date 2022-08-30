@@ -1,10 +1,10 @@
+import { Expect, Group, Test } from '../test-utils'
 import {
-  SetOptional,
   OptionalKeys,
   PartialDeep,
+  SetOptional,
   SetOptionalDeep,
 } from './optional'
-import { Expect, Group, Test } from '../test-utils'
 
 export type TestSetOptional = Expect<
   SetOptional<

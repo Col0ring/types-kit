@@ -1,16 +1,16 @@
+import { Expect, ExpectMatch, Group, Test } from '../test-utils'
 import {
-  Simplify,
   ConditionalPick,
   DeepPick,
-  PickAtLeastOne,
-  PickExactlyOne,
-  PickAllOrNone,
-  ReplacePick,
   DeepReplacePick,
   DiffPick,
+  PickAllOrNone,
+  PickAtLeastOne,
+  PickExactlyOne,
+  ReplacePick,
+  Simplify,
   WithIndexSignature,
 } from './pick'
-import { Expect, ExpectMatch, Group, Test } from '../test-utils'
 
 type TestSimplify = Expect<Simplify<{ a: 1 } & { b: 2 }>, { a: 1; b: 2 }>
 

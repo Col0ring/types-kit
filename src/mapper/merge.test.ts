@@ -1,10 +1,10 @@
 import { Expect, Group, Test } from '../test-utils'
 import {
-  MergeTuple,
-  Merge,
-  DeepMergeTuple,
   DeepMerge,
+  DeepMergeTuple,
+  Merge,
   MergeExclusive,
+  MergeTuple,
 } from './merge'
 
 type TestMergeTuple = Expect<

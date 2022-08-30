@@ -10,6 +10,6 @@ import { LastInUnion } from '../union'
  * type Foo = UnionToTuple<'3' | '1' | '2'>
  * ```
  */
-type UnionToTuple<U> = [U] extends [never] // no type
+export type UnionToTuple<U> = [U] extends [never] // no type
   ? []
   : [...UnionToTuple<Exclude<U, LastInUnion<U>>>, LastInUnion<U>]

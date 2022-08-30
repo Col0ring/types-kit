@@ -1,4 +1,4 @@
-import { ArrayItem, IsTuple, IsTruthy } from '../basic'
+import { ArrayItem, IsTruthy, IsTuple } from '../basic'
 import { If } from './if'
 
 /**

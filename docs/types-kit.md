@@ -110,6 +110,7 @@
 |  [StrictExclude](./types-kit.strictexclude.md) | Strict version of Exclude. |
 |  [StrictOmit](./types-kit.strictomit.md) | Strict version of Omit. |
 |  [StringToNumber](./types-kit.stringtonumber.md) | Convert string (<code>${number}</code>) to number |
+|  [SubArray](./types-kit.subarray.md) |  |
 |  [Switch](./types-kit.switch.md) | Switch for types. |
 |  [Tuple](./types-kit.tuple.md) | Create a tuple. |
 |  [TupleKeys](./types-kit.tuplekeys.md) | Get keys of tuple T. |

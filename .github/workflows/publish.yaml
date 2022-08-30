@@ -38,4 +38,3 @@ jobs:
           tag_name: v${{ steps.package-version.outputs.version }}
           release_name: v${{ steps.package-version.outputs.version }}
           prerelease: false
-

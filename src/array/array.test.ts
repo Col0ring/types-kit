@@ -1,10 +1,10 @@
+import { Expect, Group, Test } from '../test-utils'
 import { Fill } from './fill'
 import { Filter } from './filter'
 import { Flat } from './flat'
-import { Reverse } from './reverse'
 import { Includes } from './includes'
+import { Reverse } from './reverse'
 import { Slice } from './slice'
-import { Expect, Group, Test } from '../test-utils'
 
 type TestFill = Expect<Fill<3, number>, [number, number, number]>
 type TestFilter = Expect<Filter<[1, 1, string], number>, [1, 1]>

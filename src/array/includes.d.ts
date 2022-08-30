@@ -1,5 +1,5 @@
-import { IsEquals, IsExtends } from '../control-flow'
 import { ArrayItem, IsTuple } from '../basic'
+import { IsEquals, IsExtends } from '../control-flow'
 import { EqualTag, ExtendsTag } from '../utils'
 
 /**
