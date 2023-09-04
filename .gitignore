@@ -131,10 +131,10 @@ dist
 .pnp.*
 
 # submodule
-  /array
-  /basic
-  /control-flow
-  /convert
-  /mapper
-  /union
-  /utils
+/array
+/basic
+/control-flow
+/convert
+/mapper
+/union
+/utils
