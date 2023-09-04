@@ -9,7 +9,7 @@ import { IsTruthy, IsTuple } from '../basic'
  * ```
  */
 export type IfExtends<Condition extends [unknown, unknown], Case1, Case2> = [
-  Condition[0]
+  Condition[0],
 ] extends [Condition[1]]
   ? Case1
   : Case2
@@ -42,12 +42,12 @@ export type IfElseIf<
   [
     [Condition: unknown, Result: unknown],
     ...[Condition: unknown, Result: unknown][],
-    unknown
-  ]
+    unknown,
+  ],
 > = A extends readonly [
   infer IfExpression,
   ...infer ElseIfExpressions,
-  infer ElseResult
+  infer ElseResult,
 ]
   ? IfExpression extends [infer IfCondition, infer IfResult]
     ? If<
@@ -57,17 +57,17 @@ export type IfElseIf<
           IsTuple<ElseIfExpressions>,
           ElseIfExpressions extends [
             [infer ElseIfCondition, infer ElseIfResult],
-            ...infer OtherElseIfExpressions
+            ...infer OtherElseIfExpressions,
           ]
             ? OtherElseIfExpressions extends [
                 Condition: unknown,
-                Result: unknown
+                Result: unknown,
               ][]
               ? IfElseIf<
                   [
                     [ElseIfCondition, ElseIfResult],
                     ...OtherElseIfExpressions,
-                    ElseResult
+                    ElseResult,
                   ]
                 >
               : If<ElseIfCondition, ElseIfResult, ElseResult>
@@ -75,7 +75,7 @@ export type IfElseIf<
           // empty array or array
           ElseIfExpressions extends [
             infer ElseIfCondition,
-            infer ElseIfResult
+            infer ElseIfResult,
           ][]
             ? If<ElseIfCondition, ElseIfResult, ElseResult>
             : ElseResult

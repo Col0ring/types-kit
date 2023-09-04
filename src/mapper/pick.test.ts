@@ -1,4 +1,5 @@
 import { Expect, ExpectMatch, Group, Test } from '../test-utils'
+
 import {
   ConditionalPick,
   DeepPick,
@@ -221,7 +222,7 @@ type TestDeepReplacePick2 = Expect<
       1,
       {
         readonly a?: number
-      }
+      },
     ],
     [0, '1.a'],
     [2, string]
@@ -230,7 +231,7 @@ type TestDeepReplacePick2 = Expect<
     2,
     {
       readonly a?: string
-    }
+    },
   ]
 >
 
@@ -285,6 +286,6 @@ export type Result = Test<
     TestDeepReplacePickGroup,
     TestDiffPick,
     TestWithIndexSignature,
-    TestWithConflictingIndexSignature
+    TestWithConflictingIndexSignature,
   ]
 >

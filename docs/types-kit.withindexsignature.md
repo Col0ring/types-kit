@@ -6,7 +6,7 @@
 
 Create a type that contains T, and uses the IndexSignatureType type as the index signature.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type WithIndexSignature<T, IndexSignatureType> = Record<

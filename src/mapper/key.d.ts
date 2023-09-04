@@ -10,7 +10,7 @@ import { IsObject } from '../basic'
  */
 export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
   any,
-  ...infer Tail
+  ...infer Tail,
 ]
   ? TupleKeys<Tail> | Tail['length'] | `${Tail['length']}`
   : never

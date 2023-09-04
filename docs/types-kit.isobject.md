@@ -6,7 +6,7 @@
 
 If T is object, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsObject<T> = IfExtends<
@@ -15,7 +15,7 @@ export type IsObject<T> = IfExtends<
   IfExtends<[T, object], IfExtends<[IsAny<T>, true], false, true>, false>
 >
 ```
-<b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
+**References:** [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
 
 ## Example
 

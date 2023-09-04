@@ -6,12 +6,12 @@
 
 Get required property keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type RequiredKeys<T> = Exclude<Keys<T>, OptionalKeys<T>>
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [OptionalKeys](./types-kit.optionalkeys.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [OptionalKeys](./types-kit.optionalkeys.md)
 
 ## Example
 

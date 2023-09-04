@@ -4,14 +4,14 @@
 
 ## GetSubTuple type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type GetSubTuple<
   L extends number,
   V,
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = R['length'] extends L ? [...R, V] : GetSubTuple<L, V, [...R, V]>
 ```
-<b>References:</b> [GetSubTuple](./types-kit.getsubtuple.md)
+**References:** [GetSubTuple](./types-kit.getsubtuple.md)
 

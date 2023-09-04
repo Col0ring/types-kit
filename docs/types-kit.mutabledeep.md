@@ -6,14 +6,14 @@
 
 Make all properties (includes deep properties) in T mutable (remove readonly decorator) .
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type MutableDeep<T> = {
   -readonly [P in keyof T]: MutableDeep<T[P]>
 }
 ```
-<b>References:</b> [MutableDeep](./types-kit.mutabledeep.md)
+**References:** [MutableDeep](./types-kit.mutabledeep.md)
 
 ## Example
 

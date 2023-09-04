@@ -6,7 +6,7 @@
 
 Create a type that requires at least one of the given keys. The remaining keys are kept as is.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type PickAtLeastOne<T, K extends Keys<T>> = StrictOmit<T, K> &
@@ -14,7 +14,7 @@ export type PickAtLeastOne<T, K extends Keys<T>> = StrictOmit<T, K> &
     [P in K]: Required<Pick<T, P>> & Partial<Pick<T, StrictExclude<K, P>>>
   }[K]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [StrictExclude](./types-kit.strictexclude.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [StrictExclude](./types-kit.strictexclude.md)
 
 ## Example
 

@@ -4,14 +4,14 @@
 
 ## InternalReplacePickValue type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalReplacePickValue<
   Key,
   Current,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = Key extends OtherToString<KeysArr[0]>
   ? ValuesArr[0]
   : KeysArr extends [KeysArr[0], ...infer RestKeys]
@@ -20,5 +20,5 @@ type InternalReplacePickValue<
     : Current
   : Current
 ```
-<b>References:</b> [OtherToString](./types-kit.othertostring.md)<!-- -->, [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md)
+**References:** [OtherToString](./types-kit.othertostring.md)<!-- -->, [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md)
 

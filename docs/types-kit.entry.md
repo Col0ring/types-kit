@@ -6,7 +6,7 @@
 
 return the type of that collection's entry.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
@@ -23,7 +23,7 @@ export type Entry<T> = T extends ReadonlyMap<unknown, unknown>
     : never
   : never
 ```
-<b>References:</b> [MapEntry](./types-kit.mapentry.md)<!-- -->, [SetEntry](./types-kit.setentry.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [ObjectEntry](./types-kit.objectentry.md)<!-- -->, [ArrayEntry](./types-kit.arrayentry.md)<!-- -->, [IsObject](./types-kit.isobject.md)
+**References:** [MapEntry](./types-kit.mapentry.md)<!-- -->, [SetEntry](./types-kit.setentry.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [ObjectEntry](./types-kit.objectentry.md)<!-- -->, [ArrayEntry](./types-kit.arrayentry.md)<!-- -->, [IsObject](./types-kit.isobject.md)
 
 ## Example
 

@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import { And } from './and'
 import { If, IfElseIf, IfExtends } from './if'
 import { Not } from './not'
@@ -49,6 +50,6 @@ export type Result = Test<
     TestOr,
     TestNot,
     TestIsEquals,
-    TestIsExtends
+    TestIsExtends,
   ]
 >

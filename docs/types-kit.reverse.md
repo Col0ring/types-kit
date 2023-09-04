@@ -6,7 +6,7 @@
 
 Reverses an array.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Reverse<T extends readonly unknown[]> = T extends T
@@ -25,7 +25,7 @@ export type Reverse<T extends readonly unknown[]> = T extends T
     >
   : never
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [Reverse](./types-kit.reverse.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [Reverse](./types-kit.reverse.md)
 
 ## Example
 

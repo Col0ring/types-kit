@@ -6,14 +6,14 @@
 
 Create a type that has mutually exclusive keys.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type MergeExclusive<T, U> = IsObject<T | U> extends true
   ? (Without<T, U> & U) | (Without<U, T> & T)
   : T | U
 ```
-<b>References:</b> [IsObject](./types-kit.isobject.md)<!-- -->, [Without](./types-kit.without.md)
+**References:** [IsObject](./types-kit.isobject.md)<!-- -->, [Without](./types-kit.without.md)
 
 ## Example
 

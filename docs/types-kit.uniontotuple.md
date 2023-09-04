@@ -6,14 +6,14 @@
 
 Convert union type to a tuple.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type UnionToTuple<U> = [U] extends [never] // no type
   ? []
   : [...UnionToTuple<Exclude<U, LastInUnion<U>>>, LastInUnion<U>]
 ```
-<b>References:</b> [UnionToTuple](./types-kit.uniontotuple.md)<!-- -->, [LastInUnion](./types-kit.lastinunion.md)
+**References:** [UnionToTuple](./types-kit.uniontotuple.md)<!-- -->, [LastInUnion](./types-kit.lastinunion.md)
 
 ## Example
 

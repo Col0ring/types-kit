@@ -4,7 +4,7 @@
 
 ## InternalSlice type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalSlice<
@@ -12,7 +12,7 @@ type InternalSlice<
   Start extends number,
   End extends number,
   N extends readonly unknown[] = [],
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = N['length'] extends End // End > Start => []
   ? R
   : Arr extends readonly [infer H, ...infer T]
@@ -30,5 +30,5 @@ type InternalSlice<
   : // empty
     R
 ```
-<b>References:</b> [InternalSlice](./types-kit.internalslice.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)
+**References:** [InternalSlice](./types-kit.internalslice.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)
 

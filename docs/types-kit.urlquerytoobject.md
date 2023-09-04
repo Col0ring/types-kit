@@ -6,7 +6,7 @@
 
 Parser the querystring of a url into an object type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type UrlQueryToObject<T extends string> =
@@ -14,7 +14,7 @@ export type UrlQueryToObject<T extends string> =
     ? InternalUrlQueryToObject<QueryString>
     : InternalUrlQueryToObject<T>
 ```
-<b>References:</b> [InternalUrlQueryToObject](./types-kit.internalurlquerytoobject.md)
+**References:** [InternalUrlQueryToObject](./types-kit.internalurlquerytoobject.md)
 
 ## Example
 

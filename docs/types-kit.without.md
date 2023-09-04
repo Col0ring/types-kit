@@ -4,12 +4,12 @@
 
 ## Without type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type Without<T, U> = {
   [K in Exclude<Keys<T>, Keys<U>>]?: never
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 

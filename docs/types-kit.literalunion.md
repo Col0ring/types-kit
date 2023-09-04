@@ -6,7 +6,7 @@
 
 Allows creating a union type by combining primitive types and literal types without sacrificing auto-completion in IDEs for the literal type part of the union.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type LiteralUnion<T extends U, U> = T | (U & Omit<U, PropertyKey>)

@@ -19,7 +19,7 @@ export type Filter<
   T extends readonly unknown[],
   V,
   Extends extends boolean = true,
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = T extends T
   ? If<
       IsTuple<T>,
@@ -31,7 +31,7 @@ export type Filter<
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
               >,
-              ...Filter<Rest, V, Extends, Type>
+              ...Filter<Rest, V, Extends, Type>,
             ]
           : [
               ...IfExtends<
@@ -39,7 +39,7 @@ export type Filter<
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
               >,
-              ...Filter<Rest, V, Extends, Type>
+              ...Filter<Rest, V, Extends, Type>,
             ]
         : T extends readonly [...infer Rest, infer Current]
         ? IsReadonlyArray<T> extends true
@@ -49,7 +49,7 @@ export type Filter<
                 [Type, EqualTag],
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
-              >
+              >,
             ]
           : [
               ...Filter<Rest, V, Extends, Type>,
@@ -57,7 +57,7 @@ export type Filter<
                 [Type, EqualTag],
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
-              >
+              >,
             ]
         : never,
       IfExtends<

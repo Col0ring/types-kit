@@ -6,14 +6,14 @@
 
 Make some properties in T mutable (remove readonly decorator).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SetMutable<T, K extends Keys<T>> = Simplify<
   StrictOmit<T, K> & Mutable<Pick<T, K>>
 >
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Mutable](./types-kit.mutable.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Mutable](./types-kit.mutable.md)
 
 ## Example
 

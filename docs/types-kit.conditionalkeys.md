@@ -6,7 +6,7 @@
 
 Get keys by Condition (value).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ConditionalKeys<T, Condition, Exact extends boolean = false> = {
@@ -21,7 +21,7 @@ export type ConditionalKeys<T, Condition, Exact extends boolean = false> = {
     : never
 }[Keys<T>]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

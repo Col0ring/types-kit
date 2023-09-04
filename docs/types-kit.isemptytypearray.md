@@ -6,14 +6,14 @@
 
 If T is a empty array, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsEmptyTypeArray<T extends readonly unknown[]> = T extends T
   ? IsExtends<T['length'], 0>
   : never
 ```
-<b>References:</b> [IsExtends](./types-kit.isextends.md)
+**References:** [IsExtends](./types-kit.isextends.md)
 
 ## Example
 

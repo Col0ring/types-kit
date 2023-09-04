@@ -1,6 +1,7 @@
 import { IsNever, IsObject } from '../basic'
 import { OtherToString } from '../convert'
 import { StrictExclude } from '../union'
+
 import { ConditionalKeys, DeepKeys, Keys } from './key'
 
 /**
@@ -49,7 +50,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
 > extends true
   ? {
       [P in keyof T]: [Exclude<K, Keys<T>>] extends [
-        `${infer Head}.${infer Tail}`
+        `${infer Head}.${infer Tail}`,
       ]
         ? P extends Head
           ? T[P] extends infer V
@@ -119,7 +120,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
 export type ConditionalOmit<
   T,
   Condition,
-  Exact extends boolean = false
+  Exact extends boolean = false,
 > = StrictOmit<T, ConditionalKeys<T, Condition, Exact>>
 
 /**

@@ -6,12 +6,12 @@
 
 From T remove properties that exist in U.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DiffPick<T, U> = Pick<T, Exclude<Keys<T>, Keys<U>>>
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

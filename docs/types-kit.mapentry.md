@@ -6,7 +6,7 @@
 
 return the type of that map's entry.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type MapEntry<T extends ReadonlyMap<unknown, unknown>> =

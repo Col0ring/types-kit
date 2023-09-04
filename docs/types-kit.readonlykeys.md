@@ -6,7 +6,7 @@
 
 Get readonly property keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ReadonlyKeys<T> = {
@@ -18,7 +18,7 @@ export type ReadonlyKeys<T> = {
   >
 }[Keys<T>]
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Keys](./types-kit.keys.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Keys](./types-kit.keys.md)
 
 ## Example
 

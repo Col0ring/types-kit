@@ -6,14 +6,14 @@
 
 If T is a readonly array, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsReadonlyArray<T extends readonly unknown[]> = T extends T
   ? Not<IsExtends<T, any[]>>
   : never
 ```
-<b>References:</b> [Not](./types-kit.not.md)<!-- -->, [IsExtends](./types-kit.isextends.md)
+**References:** [Not](./types-kit.not.md)<!-- -->, [IsExtends](./types-kit.isextends.md)
 
 ## Example
 

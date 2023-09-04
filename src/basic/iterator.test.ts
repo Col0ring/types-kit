@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   ArrayEntry,
   Entries,
@@ -8,6 +9,7 @@ import {
   ObjectEntry,
   SetEntry,
 } from './iterator'
+
 function* IterableValueFoo() {
   yield 1
   yield 2
@@ -52,6 +54,6 @@ export type Result = Test<
     TestMapEntry,
     TestObjectEntry,
     TestEntry,
-    TestEntries
+    TestEntries,
   ]
 >

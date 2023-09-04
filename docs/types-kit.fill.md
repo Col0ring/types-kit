@@ -6,12 +6,12 @@
 
 Create a tuple filled with V, and the length of the tuple is L.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Fill<L extends number, V> = L extends L ? InternalFill<L, V> : never
 ```
-<b>References:</b> [InternalFill](./types-kit.internalfill.md)
+**References:** [InternalFill](./types-kit.internalfill.md)
 
 ## Example
 

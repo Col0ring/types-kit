@@ -6,7 +6,7 @@
 
 Convert union type to Intersection type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type UnionToIntersection<U> = (

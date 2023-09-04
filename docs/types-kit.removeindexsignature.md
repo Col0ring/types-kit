@@ -6,7 +6,7 @@
 
 Create a type that only has explicitly defined properties, absent of any index signatures.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type RemoveIndexSignature<T> = {
@@ -17,7 +17,7 @@ export type RemoveIndexSignature<T> = {
     : never]: T[K]
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

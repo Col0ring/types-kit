@@ -6,7 +6,7 @@
 
 Create a constructor type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Constructor<T, P extends unknown[] = unknown[]> = new (

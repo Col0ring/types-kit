@@ -1,4 +1,5 @@
 import { Expect, Test } from '../test-utils'
+
 import { Class, Constructor } from './class'
 
 type TestConstructor = Expect<

@@ -4,12 +4,12 @@
 
 ## InternalUrlQueryToObject type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalUrlQueryToObject<
   T extends string,
-  Result extends object = {}
+  Result extends object = {},
 > = T extends `${infer Current}&${infer Rest}`
   ? Current extends `${infer K}=${infer V}`
     ? InternalUrlQueryToObject<
@@ -26,5 +26,5 @@ type InternalUrlQueryToObject<
   ? Result
   : InternalAddUrlQueryValueToResult<Result, T, undefined>
 ```
-<b>References:</b> [InternalUrlQueryToObject](./types-kit.internalurlquerytoobject.md)<!-- -->, [InternalAddUrlQueryValueToResult](./types-kit.internaladdurlqueryvaluetoresult.md)
+**References:** [InternalUrlQueryToObject](./types-kit.internalurlquerytoobject.md)<!-- -->, [InternalAddUrlQueryValueToResult](./types-kit.internaladdurlqueryvaluetoresult.md)
 

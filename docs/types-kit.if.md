@@ -6,7 +6,7 @@
 
 If for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type If<Condition, Case1, Case2> = IfExtends<
@@ -15,7 +15,7 @@ export type If<Condition, Case1, Case2> = IfExtends<
   Case2
 >
 ```
-<b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)
+**References:** [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)
 
 ## Example
 

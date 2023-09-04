@@ -6,7 +6,7 @@
 
 Get the deep value path from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepPick<T, K extends DeepKeys<T>> = {
@@ -41,7 +41,7 @@ export type DeepPick<T, K extends DeepKeys<T>> = {
     : never
 }
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepPick](./types-kit.deeppick.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepPick](./types-kit.deeppick.md)
 
 ## Example
 

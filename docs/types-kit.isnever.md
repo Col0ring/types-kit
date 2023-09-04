@@ -6,12 +6,12 @@
 
 If T is never, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsNever<T> = IsExtends<T, never>
 ```
-<b>References:</b> [IsExtends](./types-kit.isextends.md)
+**References:** [IsExtends](./types-kit.isextends.md)
 
 ## Example
 

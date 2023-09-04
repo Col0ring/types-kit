@@ -6,14 +6,14 @@
 
 Create an array that filters / keeps out items of the given type V from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Filter<
   T extends readonly unknown[],
   V,
   Extends extends boolean = true,
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = T extends T
   ? If<
       IsTuple<T>,
@@ -25,7 +25,7 @@ export type Filter<
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
               >,
-              ...Filter<Rest, V, Extends, Type>
+              ...Filter<Rest, V, Extends, Type>,
             ]
           : [
               ...IfExtends<
@@ -33,7 +33,7 @@ export type Filter<
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
               >,
-              ...Filter<Rest, V, Extends, Type>
+              ...Filter<Rest, V, Extends, Type>,
             ]
         : T extends readonly [...infer Rest, infer Current]
         ? IsReadonlyArray<T> extends true
@@ -43,7 +43,7 @@ export type Filter<
                 [Type, EqualTag],
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
-              >
+              >,
             ]
           : [
               ...Filter<Rest, V, Extends, Type>,
@@ -51,7 +51,7 @@ export type Filter<
                 [Type, EqualTag],
                 IfExtends<[IsEquals<Current, V>, Extends], [Current], []>,
                 IfExtends<[IsExtends<Current, V>, Extends], [Current], []>
-              >
+              >,
             ]
         : never,
       IfExtends<
@@ -70,7 +70,7 @@ export type Filter<
     >
   : never
 ```
-<b>References:</b> [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Filter](./types-kit.filter.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+**References:** [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Filter](./types-kit.filter.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
 
 ## Example
 

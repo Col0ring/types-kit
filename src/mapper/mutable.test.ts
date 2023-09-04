@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   Mutable,
   MutableDeep,
@@ -102,6 +103,6 @@ export type Result = Test<
     TestMutablePick,
     TestMutableKeys,
     TestMutableDeep,
-    TestMutableDeepGroup
+    TestMutableDeepGroup,
   ]
 >

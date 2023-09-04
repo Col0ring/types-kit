@@ -6,7 +6,7 @@
 
 return the type of that object's entry.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ObjectEntry<T extends object> = [
@@ -17,10 +17,10 @@ export type ObjectEntry<T extends object> = [
         : never
       : K
     : never,
-  T[Keys<T>]
+  T[Keys<T>],
 ]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

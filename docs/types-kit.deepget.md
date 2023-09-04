@@ -6,12 +6,12 @@
 
 Get the deep specified value from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepGet<
   T,
-  K extends DeepKeys<T>
+  K extends DeepKeys<T>,
 > = K extends `${infer Head}.${infer Tail}`
   ? Head extends Keys<T>
     ? T[Head] extends infer V
@@ -29,7 +29,7 @@ export type DeepGet<
   ? T[K]
   : never
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepGet](./types-kit.deepget.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepGet](./types-kit.deepget.md)
 
 ## Example
 

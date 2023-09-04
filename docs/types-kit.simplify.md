@@ -6,7 +6,7 @@
 
 Flatten the type output to improve type hints shown in editors.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Simplify<T> = {

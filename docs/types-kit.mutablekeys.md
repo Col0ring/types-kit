@@ -6,12 +6,12 @@
 
 Get mutable property keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type MutableKeys<T> = Exclude<Keys<T>, ReadonlyKeys<T>>
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [ReadonlyKeys](./types-kit.readonlykeys.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [ReadonlyKeys](./types-kit.readonlykeys.md)
 
 ## Example
 

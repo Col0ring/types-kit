@@ -6,7 +6,7 @@
 
 if A extends B (no distributed condition type), return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsExtends<A, B> = [A] extends [B] ? true : false

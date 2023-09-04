@@ -4,17 +4,17 @@
 
 ## InternalStringToNumber type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalStringToNumber<
   S extends string,
-  T extends readonly unknown[] = []
+  T extends readonly unknown[] = [],
 > = S extends `${number}`
   ? S extends `${T['length']}`
     ? T['length']
     : InternalStringToNumber<S, [...T, '']>
   : never
 ```
-<b>References:</b> [InternalStringToNumber](./types-kit.internalstringtonumber.md)
+**References:** [InternalStringToNumber](./types-kit.internalstringtonumber.md)
 

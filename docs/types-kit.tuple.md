@@ -6,7 +6,7 @@
 
 Create a tuple.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Tuple<T = unknown, R = T> =

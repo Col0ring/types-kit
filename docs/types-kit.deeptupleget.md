@@ -6,15 +6,15 @@
 
 Get the deep specified value by tuple from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepTupleGet<
   T,
-  K extends readonly DeepKeys<T>[]
+  K extends readonly DeepKeys<T>[],
 > = InternalDeepTupleGet<T, K>
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [InternalDeepTupleGet](./types-kit.internaldeeptupleget.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [InternalDeepTupleGet](./types-kit.internaldeeptupleget.md)
 
 ## Example
 

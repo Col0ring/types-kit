@@ -6,7 +6,7 @@
 
 Convert a tuple to an object, it can pass in a tag to modify the key value.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TupleToObject<
@@ -16,7 +16,7 @@ export type TupleToObject<
     | 'Lowercase'
     | 'Capitalize'
     | 'Uncapitalize'
-    | 'default' = 'default'
+    | 'default' = 'default',
 > = T extends readonly any[]
   ? {
       [P in T[number] as Switch<
@@ -26,13 +26,13 @@ export type TupleToObject<
           ['Lowercase', Lowercase<P>],
           ['Capitalize', Capitalize<P>],
           ['Uncapitalize', Uncapitalize<P>],
-          P
+          P,
         ]
       >]: P
     }
   : never
 ```
-<b>References:</b> [Switch](./types-kit.switch.md)
+**References:** [Switch](./types-kit.switch.md)
 
 ## Example
 

@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   ArrayItem,
   FlattedArrayItem,
@@ -32,6 +33,6 @@ export type Result = Test<
     TestIsEmptyTypeArray,
     TestIsReadonlyArray,
     TestArrayItem,
-    TestFlattedArrayItem
+    TestFlattedArrayItem,
   ]
 >

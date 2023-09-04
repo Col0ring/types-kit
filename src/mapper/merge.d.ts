@@ -1,6 +1,7 @@
 import { Slice } from '../array'
 import { IsObject, IsReadonlyArray } from '../basic'
 import { And, If } from '../control-flow'
+
 import { Keys } from './key'
 import { StrictOmit } from './omit'
 import { Simplify } from './pick'
@@ -18,7 +19,7 @@ import { Simplify } from './pick'
  */
 export type MergeTuple<
   A extends readonly unknown[],
-  B extends readonly unknown[]
+  B extends readonly unknown[],
 > = If<
   IsReadonlyArray<B>,
   readonly [...B, ...Slice<A, B['length']>],
@@ -59,7 +60,7 @@ export type Merge<A, B> = A extends readonly unknown[]
 type InternalDeepMergeTupleValue<
   A extends readonly unknown[],
   B extends readonly unknown[],
-  Result extends readonly unknown[] = []
+  Result extends readonly unknown[] = [],
 > = B extends [B[0], ...infer RestB]
   ? A extends [A[0], ...infer RestA]
     ? B[0] extends infer V
@@ -69,7 +70,7 @@ type InternalDeepMergeTupleValue<
             RestB,
             [
               ...Result,
-              If<And<[IsObject<V>, IsObject<A[0]>]>, DeepMerge<A[0], V>, V>
+              If<And<[IsObject<V>, IsObject<A[0]>]>, DeepMerge<A[0], V>, V>,
             ]
           >
         : never
@@ -89,7 +90,7 @@ type InternalDeepMergeTupleValue<
  */
 export type DeepMergeTuple<
   A extends readonly unknown[],
-  B extends readonly unknown[]
+  B extends readonly unknown[],
 > = If<
   IsReadonlyArray<B>,
   readonly [...InternalDeepMergeTupleValue<A, B>, ...Slice<A, B['length']>],

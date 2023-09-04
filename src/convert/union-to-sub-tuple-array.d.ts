@@ -1,10 +1,11 @@
 import { TupleKeys } from '../mapper'
+
 import { UnionToTuple } from './union-to-tuple'
 
 type GetSubTuple<
   L extends number,
   V,
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = R['length'] extends L ? [...R, V] : GetSubTuple<L, V, [...R, V]>
 
 /**

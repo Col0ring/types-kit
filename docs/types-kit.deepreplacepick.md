@@ -6,16 +6,16 @@
 
 Create a type that replace the values in the corresponding deep keys.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepReplacePick<
   T,
   KeysArr extends readonly DeepKeys<T>[],
-  ValuesArr extends Fill<KeysArr['length'], unknown>
+  ValuesArr extends Fill<KeysArr['length'], unknown>,
 > = InternalDeepReplacePick<T, KeysArr, ValuesArr>
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [Fill](./types-kit.fill.md)<!-- -->, [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [Fill](./types-kit.fill.md)<!-- -->, [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md)
 
 ## Example
 

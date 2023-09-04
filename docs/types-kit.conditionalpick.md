@@ -6,7 +6,7 @@
 
 Pick by Condition (value).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
@@ -14,7 +14,7 @@ export type ConditionalPick<T, Condition, Exact extends boolean = false> = Pick<
   ConditionalKeys<T, Condition, Exact>
 >
 ```
-<b>References:</b> [ConditionalKeys](./types-kit.conditionalkeys.md)
+**References:** [ConditionalKeys](./types-kit.conditionalkeys.md)
 
 ## Example
 

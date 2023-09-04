@@ -6,7 +6,7 @@
 
 Get deep values of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepValueOf<T> = {
@@ -19,7 +19,7 @@ export type DeepValueOf<T> = {
     : never
 }[Keys<T>]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepValueOf](./types-kit.deepvalueof.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepValueOf](./types-kit.deepvalueof.md)
 
 ## Example
 

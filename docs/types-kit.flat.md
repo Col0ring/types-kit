@@ -6,7 +6,7 @@
 
 Create an array that includes the flatten array type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Flat<T extends readonly unknown[]> = T extends T
@@ -38,7 +38,7 @@ export type Flat<T extends readonly unknown[]> = T extends T
     : FlattedArrayItem<T>[]
   : never
 ```
-<b>References:</b> [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [Flat](./types-kit.flat.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [FlattedArrayItem](./types-kit.flattedarrayitem.md)
+**References:** [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [Flat](./types-kit.flat.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [FlattedArrayItem](./types-kit.flattedarrayitem.md)
 
 ## Example
 

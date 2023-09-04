@@ -6,16 +6,16 @@
 
 Omit by Condition (value).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ConditionalOmit<
   T,
   Condition,
-  Exact extends boolean = false
+  Exact extends boolean = false,
 > = StrictOmit<T, ConditionalKeys<T, Condition, Exact>>
 ```
-<b>References:</b> [StrictOmit](./types-kit.strictomit.md)<!-- -->, [ConditionalKeys](./types-kit.conditionalkeys.md)
+**References:** [StrictOmit](./types-kit.strictomit.md)<!-- -->, [ConditionalKeys](./types-kit.conditionalkeys.md)
 
 ## Example
 

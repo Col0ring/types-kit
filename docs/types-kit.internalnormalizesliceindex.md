@@ -4,13 +4,13 @@
 
 ## InternalNormalizeSliceIndex type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalNormalizeSliceIndex<
   A extends readonly unknown[],
   I extends number,
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = I extends R['length']
   ? I
   : `-${R['length']}` extends `${I}`
@@ -22,5 +22,5 @@ type InternalNormalizeSliceIndex<
   ? 0
   : R['length']
 ```
-<b>References:</b> [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md)
+**References:** [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md)
 

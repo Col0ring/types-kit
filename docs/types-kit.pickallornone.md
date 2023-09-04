@@ -6,7 +6,7 @@
 
 Create a type that requires all of the given keys or none of the given keys. The remaining keys are kept as is.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
@@ -17,7 +17,7 @@ export type PickAllOrNone<T, K extends Keys<T>> = StrictOmit<T, K> &
       }>
   )
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)
 
 ## Example
 

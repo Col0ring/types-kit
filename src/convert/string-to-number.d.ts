@@ -1,6 +1,6 @@
 type InternalStringToNumber<
   S extends string,
-  T extends readonly unknown[] = []
+  T extends readonly unknown[] = [],
 > = S extends `${number}`
   ? S extends `${T['length']}`
     ? T['length']

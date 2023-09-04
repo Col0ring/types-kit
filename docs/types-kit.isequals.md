@@ -6,11 +6,11 @@
 
 if A equals B, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsEquals<A, B> = (<T>() => T extends A ? 1 : 2) extends <
-  T
+  T,
 >() => T extends B ? 1 : 2
   ? true
   : false

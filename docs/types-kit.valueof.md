@@ -6,12 +6,12 @@
 
 Get values of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ValueOf<T> = T[Keys<T>]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import { ConditionalKeys, DeepKeys, Keys, TupleKeys } from './key'
 
 type TestTupleKeys = Expect<TupleKeys<[1, 2, 3]>, 0 | 1 | 2 | '0' | '1' | '2'>
@@ -38,7 +39,7 @@ type TestDeepKeys2 = Expect<
         b?: {
           c: number
         }
-      }
+      },
     ]
   >,
   0 | 1 | '0' | '1' | '1.a' | '1.b' | '1.b.c'

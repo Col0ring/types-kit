@@ -6,7 +6,7 @@
 
 Get the item type from an array.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ArrayItem<T extends readonly unknown[]> = T extends ReadonlyArray<

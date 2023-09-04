@@ -3,7 +3,7 @@ import { IsEmptyTypeArray, IsReadonlyArray, IsTuple } from '../basic'
 type InternalNormalizeSliceIndex<
   A extends readonly unknown[],
   I extends number,
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = I extends R['length']
   ? I
   : `-${R['length']}` extends `${I}`
@@ -20,7 +20,7 @@ type InternalSlice<
   Start extends number,
   End extends number,
   N extends readonly unknown[] = [],
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = N['length'] extends End // End > Start => []
   ? R
   : Arr extends readonly [infer H, ...infer T]
@@ -52,7 +52,7 @@ type InternalSlice<
 export type Slice<
   Arr extends readonly unknown[],
   Start extends number = 0,
-  End extends number = Arr['length']
+  End extends number = Arr['length'],
 > = Arr extends Arr
   ? true extends IsTuple<Arr>
     ? true extends IsReadonlyArray<Arr>

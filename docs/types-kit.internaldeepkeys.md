@@ -4,7 +4,7 @@
 
 ## InternalDeepKeys type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepKeys<T, P extends string = ''> = keyof {
@@ -30,5 +30,5 @@ type InternalDeepKeys<T, P extends string = ''> = keyof {
     : never]: never
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [PathKey](./types-kit.pathkey.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [InternalDeepKeys](./types-kit.internaldeepkeys.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [PathKey](./types-kit.pathkey.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [InternalDeepKeys](./types-kit.internaldeepkeys.md)
 

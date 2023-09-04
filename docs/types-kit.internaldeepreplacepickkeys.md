@@ -4,7 +4,7 @@
 
 ## InternalDeepReplacePickKeys type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepReplacePickKeys<
@@ -12,7 +12,7 @@ type InternalDeepReplacePickKeys<
   KeysArr extends readonly unknown[],
   ValuesArr extends readonly unknown[],
   ResultKeys extends readonly unknown[] = [],
-  ResultValues extends readonly unknown[] = []
+  ResultValues extends readonly unknown[] = [],
 > = KeysArr extends [KeysArr[0], ...infer RestKeys]
   ? ValuesArr extends [ValuesArr[0], ...infer RestValues]
     ? KeysArr[0] extends `${infer Head}.${infer Tail}`
@@ -42,5 +42,5 @@ type InternalDeepReplacePickKeys<
     : [ResultKeys, ResultValues]
   : [ResultKeys, ResultValues]
 ```
-<b>References:</b> [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md)
+**References:** [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md)
 

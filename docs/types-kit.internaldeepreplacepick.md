@@ -4,13 +4,13 @@
 
 ## InternalDeepReplacePick type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepReplacePick<
   T,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = {
   [P in keyof T]: InternalDeepReplacePickValue<
     P,
@@ -25,7 +25,7 @@ type InternalDeepReplacePick<
         ? // get filter keys and values
           InternalDeepReplacePickKeys<P, KeysArr, ValuesArr> extends [
             infer ResultKeys,
-            infer ResultValues
+            infer ResultValues,
           ]
           ? ResultKeys extends readonly unknown[]
             ? ResultValues extends readonly unknown[]
@@ -40,5 +40,5 @@ type InternalDeepReplacePick<
     : never
 }
 ```
-<b>References:</b> [InternalDeepReplacePickValue](./types-kit.internaldeepreplacepickvalue.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md)
+**References:** [InternalDeepReplacePickValue](./types-kit.internaldeepreplacepickvalue.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [InternalDeepReplacePickKeys](./types-kit.internaldeepreplacepickkeys.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [InternalDeepReplacePick](./types-kit.internaldeepreplacepick.md)
 

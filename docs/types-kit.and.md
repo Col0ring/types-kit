@@ -6,7 +6,7 @@
 
 And operator for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type And<A extends readonly unknown[]> = If<
@@ -35,7 +35,7 @@ export type And<A extends readonly unknown[]> = If<
   IsTruthy<ArrayItem<A>>
 >
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [Or](./types-kit.or.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [Or](./types-kit.or.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
 
 ## Example
 

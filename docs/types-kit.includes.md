@@ -6,13 +6,13 @@
 
 If V is a member of T, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Includes<
   T extends readonly unknown[],
   V,
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = T extends T
   ? true extends IsTuple<T>
     ? T extends readonly [infer Current, ...infer Rest]
@@ -37,7 +37,7 @@ export type Includes<
     : IsExtends<ArrayItem<T>, V>
   : never
 ```
-<b>References:</b> [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Includes](./types-kit.includes.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+**References:** [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Includes](./types-kit.includes.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
 
 ## Example
 

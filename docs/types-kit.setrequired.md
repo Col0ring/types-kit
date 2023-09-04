@@ -6,14 +6,14 @@
 
 Make some properties in T required.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SetRequired<T, K extends Keys<T>> = Simplify<
   StrictOmit<T, K> & Required<Pick<T, K>>
 >
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)
 
 ## Example
 

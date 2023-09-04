@@ -2,6 +2,7 @@ import { Fill } from '../array'
 import { IsEmptyTypeArray, IsObject } from '../basic'
 import { OtherToString } from '../convert'
 import { LiteralUnion, StrictExclude } from '../union'
+
 import { ConditionalKeys, DeepKeys, Keys } from './key'
 import { StrictOmit } from './omit'
 import { OptionalKeys } from './optional'
@@ -115,7 +116,7 @@ type InternalReplacePickValue<
   Key,
   Current,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = Key extends OtherToString<KeysArr[0]>
   ? ValuesArr[0]
   : KeysArr extends [KeysArr[0], ...infer RestKeys]
@@ -144,7 +145,7 @@ type InternalReplacePickValue<
 export type ReplacePick<
   T,
   KeysArr extends readonly Keys<T>[],
-  ValuesArr extends Fill<KeysArr['length'], unknown>
+  ValuesArr extends Fill<KeysArr['length'], unknown>,
 > = {
   [P in keyof T]: InternalReplacePickValue<P, T[P], KeysArr, ValuesArr>
 }
@@ -153,7 +154,7 @@ type InternalDeepReplacePickValue<
   Key,
   Current,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = Key extends OtherToString<KeysArr[0]>
   ? [true, ValuesArr[0]]
   : KeysArr extends [KeysArr[0], ...infer RestKeys]
@@ -167,7 +168,7 @@ type InternalDeepReplacePickKeys<
   KeysArr extends readonly unknown[],
   ValuesArr extends readonly unknown[],
   ResultKeys extends readonly unknown[] = [],
-  ResultValues extends readonly unknown[] = []
+  ResultValues extends readonly unknown[] = [],
 > = KeysArr extends [KeysArr[0], ...infer RestKeys]
   ? ValuesArr extends [ValuesArr[0], ...infer RestValues]
     ? KeysArr[0] extends `${infer Head}.${infer Tail}`
@@ -200,7 +201,7 @@ type InternalDeepReplacePickKeys<
 type InternalDeepReplacePick<
   T,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = {
   [P in keyof T]: InternalDeepReplacePickValue<
     P,
@@ -215,7 +216,7 @@ type InternalDeepReplacePick<
         ? // get filter keys and values
           InternalDeepReplacePickKeys<P, KeysArr, ValuesArr> extends [
             infer ResultKeys,
-            infer ResultValues
+            infer ResultValues,
           ]
           ? ResultKeys extends readonly unknown[]
             ? ResultValues extends readonly unknown[]
@@ -250,7 +251,7 @@ type InternalDeepReplacePick<
 export type DeepReplacePick<
   T,
   KeysArr extends readonly DeepKeys<T>[],
-  ValuesArr extends Fill<KeysArr['length'], unknown>
+  ValuesArr extends Fill<KeysArr['length'], unknown>,
 > = InternalDeepReplacePick<T, KeysArr, ValuesArr>
 
 /**
@@ -374,12 +375,11 @@ export type WithConflictingIndexSignature<T, IndexSignatureType> =
             ? T[P]
             : IndexSignatureType
         }
-      :
-          | {
-              [P in LiteralUnion<Keys<T>, PropertyKey>]: P extends Keys<T>
-                ? T[P]
-                : IndexSignatureType
-            })
+      : {
+          [P in LiteralUnion<Keys<T>, PropertyKey>]: P extends Keys<T>
+            ? T[P]
+            : IndexSignatureType
+        })
   | T
 
 /**

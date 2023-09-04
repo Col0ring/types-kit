@@ -6,7 +6,7 @@
 
 Merge two types into a new type. Keys of the second type will override keys of the first type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Merge<A, B> = A extends readonly unknown[]
@@ -23,7 +23,7 @@ export type Merge<A, B> = A extends readonly unknown[]
       }
     >
 ```
-<b>References:</b> [MergeTuple](./types-kit.mergetuple.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Keys](./types-kit.keys.md)
+**References:** [MergeTuple](./types-kit.mergetuple.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Keys](./types-kit.keys.md)
 
 ## Example
 

@@ -6,7 +6,7 @@
 
 Parser the params of a url into a union type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type UrlParamsToUnion<T extends string> =
@@ -14,7 +14,7 @@ export type UrlParamsToUnion<T extends string> =
     ? InternalUrlParamsToUnion<Pathname>
     : InternalUrlParamsToUnion<T>
 ```
-<b>References:</b> [InternalUrlParamsToUnion](./types-kit.internalurlparamstounion.md)
+**References:** [InternalUrlParamsToUnion](./types-kit.internalurlparamstounion.md)
 
 ## Example
 

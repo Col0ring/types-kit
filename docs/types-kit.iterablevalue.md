@@ -6,7 +6,7 @@
 
 Get the value type of an Iterable / AsyncIterable.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IterableValue<T> = T extends Iterable<infer U>

@@ -6,14 +6,14 @@
 
 Make all properties (includes deep properties) in T required.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type RequiredDeep<T> = {
   [P in keyof T]-?: RequiredDeep<T[P]>
 }
 ```
-<b>References:</b> [RequiredDeep](./types-kit.requireddeep.md)
+**References:** [RequiredDeep](./types-kit.requireddeep.md)
 
 ## Example
 

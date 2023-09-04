@@ -6,12 +6,12 @@
 
 Not operator for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Not<T> = If<IsFalsy<T>, true, false>
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsFalsy](./types-kit.isfalsy.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsFalsy](./types-kit.isfalsy.md)
 
 ## Example
 

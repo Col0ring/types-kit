@@ -6,7 +6,7 @@
 
 Strict version of Omit.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type StrictOmit<T, K extends Keys<T>> = {
@@ -22,7 +22,7 @@ export type StrictOmit<T, K extends Keys<T>> = {
     : never]: T[P]
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [StrictExclude](./types-kit.strictexclude.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [StrictExclude](./types-kit.strictexclude.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)
 
 ## Example
 

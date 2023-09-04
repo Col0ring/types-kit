@@ -6,14 +6,14 @@
 
 If T is a tuple, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsTuple<T extends readonly unknown[]> = T extends T
   ? IsExtends<T, Tuple>
   : never
 ```
-<b>References:</b> [IsExtends](./types-kit.isextends.md)<!-- -->, [Tuple](./types-kit.tuple.md)
+**References:** [IsExtends](./types-kit.isextends.md)<!-- -->, [Tuple](./types-kit.tuple.md)
 
 ## Example
 

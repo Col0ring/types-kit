@@ -4,7 +4,7 @@
 
 ## InternalUrlParamsToUnion type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalUrlParamsToUnion<T extends string> =
@@ -14,5 +14,5 @@ type InternalUrlParamsToUnion<T extends string> =
     ? K
     : never
 ```
-<b>References:</b> [InternalUrlParamsToUnion](./types-kit.internalurlparamstounion.md)
+**References:** [InternalUrlParamsToUnion](./types-kit.internalurlparamstounion.md)
 

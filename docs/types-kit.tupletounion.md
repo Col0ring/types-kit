@@ -6,7 +6,7 @@
 
 Convert a tuple to union type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TupleToUnion<T> = T extends readonly unknown[] ? T[number] : never

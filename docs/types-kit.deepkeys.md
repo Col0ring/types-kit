@@ -6,12 +6,12 @@
 
 Get deep keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepKeys<T> = InternalDeepKeys<T>
 ```
-<b>References:</b> [InternalDeepKeys](./types-kit.internaldeepkeys.md)
+**References:** [InternalDeepKeys](./types-kit.internaldeepkeys.md)
 
 ## Example
 

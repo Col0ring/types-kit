@@ -6,7 +6,7 @@
 
 If T is a primitive value, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsPrimitive<T> = IfExtends<
@@ -15,7 +15,7 @@ export type IsPrimitive<T> = IfExtends<
   IfExtends<[T, Primitive], IfExtends<[IsAny<T>, true], false, true>, false>
 >
 ```
-<b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [Primitive](./types-kit.primitive.md)<!-- -->, [IsAny](./types-kit.isany.md)
+**References:** [IfExtends](./types-kit.ifextends.md)<!-- -->, [Primitive](./types-kit.primitive.md)<!-- -->, [IsAny](./types-kit.isany.md)
 
 ## Example
 

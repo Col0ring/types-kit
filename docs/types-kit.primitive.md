@@ -6,7 +6,7 @@
 
 Matches any primitive value.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Primitive =

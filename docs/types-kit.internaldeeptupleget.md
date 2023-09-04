@@ -4,13 +4,13 @@
 
 ## InternalDeepTupleGet type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepTupleGet<
   T,
   K extends readonly unknown[],
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = K extends readonly [infer Item, ...infer Rest]
   ? InternalDeepTupleGet<
       T,
@@ -19,5 +19,5 @@ type InternalDeepTupleGet<
     >
   : R
 ```
-<b>References:</b> [InternalDeepTupleGet](./types-kit.internaldeeptupleget.md)<!-- -->, [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [DeepGet](./types-kit.deepget.md)
+**References:** [InternalDeepTupleGet](./types-kit.internaldeeptupleget.md)<!-- -->, [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [DeepGet](./types-kit.deepget.md)
 

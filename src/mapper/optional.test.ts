@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   OptionalKeys,
   PartialDeep,
@@ -86,6 +87,6 @@ export type Result = Test<
     TestSetOptional,
     TestOptionalKeys,
     TestPartialDeep,
-    TestSetOptionalDeepPickGroup
+    TestSetOptionalDeepPickGroup,
   ]
 >

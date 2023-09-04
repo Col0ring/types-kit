@@ -1,4 +1,5 @@
 import { IsObject } from '../basic'
+
 import { DeepKeys, Keys } from './key'
 
 /**
@@ -65,7 +66,7 @@ export type Get<T, K extends Keys<T>> = T[K]
 type InternalTupleGet<
   T,
   K extends readonly unknown[],
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = K extends readonly [infer Item, ...infer Rest]
   ? InternalTupleGet<
       T,
@@ -110,7 +111,7 @@ export type TupleGet<T, K extends readonly Keys<T>[]> = InternalTupleGet<T, K>
  */
 export type DeepGet<
   T,
-  K extends DeepKeys<T>
+  K extends DeepKeys<T>,
 > = K extends `${infer Head}.${infer Tail}`
   ? Head extends Keys<T>
     ? T[Head] extends infer V
@@ -131,7 +132,7 @@ export type DeepGet<
 type InternalDeepTupleGet<
   T,
   K extends readonly unknown[],
-  R extends readonly unknown[] = []
+  R extends readonly unknown[] = [],
 > = K extends readonly [infer Item, ...infer Rest]
   ? InternalDeepTupleGet<
       T,
@@ -158,5 +159,5 @@ type InternalDeepTupleGet<
  */
 export type DeepTupleGet<
   T,
-  K extends readonly DeepKeys<T>[]
+  K extends readonly DeepKeys<T>[],
 > = InternalDeepTupleGet<T, K>

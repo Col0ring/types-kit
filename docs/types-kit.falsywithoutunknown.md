@@ -4,7 +4,7 @@
 
 ## FalsyWithoutUnknown type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type FalsyWithoutUnknown = 0 | false | '' | undefined | null | void | never

@@ -6,14 +6,14 @@
 
 Get optional property keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type OptionalKeys<T> = {
   [K in keyof T]-?: {} extends Pick<T, K> ? K : never
 }[Keys<T>]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

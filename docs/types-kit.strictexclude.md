@@ -6,7 +6,7 @@
 
 Strict version of Exclude.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type StrictExclude<T, U extends T> = Exclude<T, U>

@@ -6,7 +6,7 @@
 
 return the type of that set's entry.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SetEntry<T extends ReadonlySet<unknown>> = T extends ReadonlySet<

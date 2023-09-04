@@ -6,20 +6,20 @@
 
 Switch for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Switch<
   T,
   A extends readonly // if/else if/else
   [...Cases: [Case: unknown, Result: unknown][], DefaultResult: unknown],
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = A extends readonly [...infer CaseExpressions, infer DefaultResult]
   ? If<
       IsTuple<CaseExpressions>,
       CaseExpressions extends [
         [infer CurrentCase, infer CurrentResult],
-        ...infer OtherCases
+        ...infer OtherCases,
       ]
         ? IfExtends<
             [Type, EqualTag],
@@ -55,7 +55,7 @@ export type Switch<
     >
   : never
 ```
-<b>References:</b> [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Switch](./types-kit.switch.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)
+**References:** [EqualTag](./types-kit.equaltag.md)<!-- -->, [ExtendsTag](./types-kit.extendstag.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsEquals](./types-kit.isequals.md)<!-- -->, [Switch](./types-kit.switch.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [IsEmptyTypeArray](./types-kit.isemptytypearray.md)
 
 ## Example
 

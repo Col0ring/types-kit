@@ -6,12 +6,12 @@
 
 Set difference of union and intersection of given union types A and B.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Diff<A, B> = StrictExclude<A | B, A & B>
 ```
-<b>References:</b> [StrictExclude](./types-kit.strictexclude.md)
+**References:** [StrictExclude](./types-kit.strictexclude.md)
 
 ## Example
 

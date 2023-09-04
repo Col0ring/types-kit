@@ -4,7 +4,7 @@
 
 ## EqualTag type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type EqualTag = 'equal'

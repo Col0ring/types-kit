@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   ConditionalOmit,
   DeepOmit,
@@ -49,7 +50,7 @@ type TestDeepOmit2 = Expect<
         }
         e: number
       },
-      number
+      number,
     ],
     '0.a.b'
   >,
@@ -60,7 +61,7 @@ type TestDeepOmit2 = Expect<
       }
       e: number
     },
-    number
+    number,
   ]
 >
 
@@ -74,7 +75,7 @@ type TestDeepOmit3 = Expect<
         }
         e: number
       },
-      number
+      number,
     ],
     '0.a.b' | 1
   >,
@@ -145,6 +146,6 @@ export type Result = Test<
     TestStrictOmitGroup,
     TestDeepOmitGroup,
     TestConditionalOmitGroup,
-    TestRemoveIndexSignature
+    TestRemoveIndexSignature,
   ]
 >

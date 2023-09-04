@@ -1,4 +1,5 @@
 import { Expect, Test } from '../test-utils'
+
 import {
   DeepGet,
   DeepTupleGet,
@@ -93,6 +94,6 @@ export type Result = Test<
     TestGet,
     TestDeepGet,
     TestTupleGet,
-    TestDeepTupleGet
+    TestDeepTupleGet,
   ]
 >

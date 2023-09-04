@@ -6,7 +6,7 @@
 
 Make some properties (includes deep properties) in T optional.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SetOptionalDeep<T, K extends DeepKeys<T>> = IsNever<
@@ -95,7 +95,7 @@ export type SetOptionalDeep<T, K extends DeepKeys<T>> = IsNever<
       }
     >
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [IsNever](./types-kit.isnever.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [SetOptionalDeep](./types-kit.setoptionaldeep.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Not](./types-kit.not.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [IsNever](./types-kit.isnever.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [SetOptionalDeep](./types-kit.setoptionaldeep.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsExtends](./types-kit.isextends.md)<!-- -->, [Not](./types-kit.not.md)
 
 ## Example
 

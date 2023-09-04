@@ -4,14 +4,14 @@
 
 ## InternalFill type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalFill<
   L extends number,
   V,
-  Res extends readonly unknown[] = []
+  Res extends readonly unknown[] = [],
 > = Res['length'] extends L ? Res : InternalFill<L, V, [...Res, V]>
 ```
-<b>References:</b> [InternalFill](./types-kit.internalfill.md)
+**References:** [InternalFill](./types-kit.internalfill.md)
 

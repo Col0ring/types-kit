@@ -1,7 +1,7 @@
 type InternalFill<
   L extends number,
   V,
-  Res extends readonly unknown[] = []
+  Res extends readonly unknown[] = [],
 > = Res['length'] extends L ? Res : InternalFill<L, V, [...Res, V]>
 
 /**

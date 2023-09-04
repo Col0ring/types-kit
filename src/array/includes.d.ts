@@ -16,7 +16,7 @@ import { EqualTag, ExtendsTag } from '../utils'
 export type Includes<
   T extends readonly unknown[],
   V,
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = T extends T
   ? true extends IsTuple<T>
     ? T extends readonly [infer Current, ...infer Rest]

@@ -4,7 +4,7 @@ import { Keys } from '../mapper'
 type InternalAddUrlQueryValueToResult<
   Result extends object,
   K extends string,
-  V extends string | undefined
+  V extends string | undefined,
 > = {
   [P in Keys<Result> | K]: P extends K
     ? P extends Keys<Result>
@@ -24,7 +24,7 @@ type InternalAddUrlQueryValueToResult<
 
 type InternalUrlQueryToObject<
   T extends string,
-  Result extends object = {}
+  Result extends object = {},
 > = T extends `${infer Current}&${infer Rest}`
   ? Current extends `${infer K}=${infer V}`
     ? InternalUrlQueryToObject<

@@ -6,7 +6,7 @@
 
 Matches any falsy value.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Falsy = 0 | false | '' | undefined | null | void | never | unknown

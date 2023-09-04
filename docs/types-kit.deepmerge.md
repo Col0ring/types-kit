@@ -6,7 +6,7 @@
 
 Merge two types into a new type. Keys of the second type will assign keys of the first type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepMerge<A, B> = A extends readonly unknown[]
@@ -35,7 +35,7 @@ export type DeepMerge<A, B> = A extends readonly unknown[]
       }
     >
 ```
-<b>References:</b> [DeepMergeTuple](./types-kit.deepmergetuple.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepMerge](./types-kit.deepmerge.md)
+**References:** [DeepMergeTuple](./types-kit.deepmergetuple.md)<!-- -->, [Simplify](./types-kit.simplify.md)<!-- -->, [StrictOmit](./types-kit.strictomit.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepMerge](./types-kit.deepmerge.md)
 
 ## Example
 

@@ -6,12 +6,12 @@
 
 Get the specified value by tuple from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TupleGet<T, K extends readonly Keys<T>[]> = InternalTupleGet<T, K>
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [InternalTupleGet](./types-kit.internaltupleget.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [InternalTupleGet](./types-kit.internaltupleget.md)
 
 ## Example
 

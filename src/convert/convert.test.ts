@@ -1,4 +1,5 @@
 import { Expect, ExpectMatch, Group, Test } from '../test-utils'
+
 import { LiteralToPrimitive } from './literal-to-primitive'
 import { OtherToString } from './other-to-string'
 import { StringToNumber } from './string-to-number'
@@ -77,6 +78,6 @@ export type Result = Test<
     TestUrlQueryToObject,
     TestUrlParamsToUnion,
     TestLiteralToPrimitive,
-    TestUnionToSubTupleArray
+    TestUnionToSubTupleArray,
   ]
 >

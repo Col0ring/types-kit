@@ -6,7 +6,7 @@
 
 return the type of that array's entry.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ArrayEntry<T extends readonly unknown[]> = [number, T[number]]

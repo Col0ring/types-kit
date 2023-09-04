@@ -6,7 +6,7 @@
 
 Given a literal type return the Primitive it belongs to, or never if it's not a primitive. eg: Working with generic types that may be literal types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type LiteralToPrimitive<T> = T extends number

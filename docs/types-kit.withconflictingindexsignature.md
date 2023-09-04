@@ -6,7 +6,7 @@
 
 Create a type that contains T, and uses the ConflictingIndexSignatureType type as the index signature.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type WithConflictingIndexSignature<T, IndexSignatureType> =
@@ -17,15 +17,14 @@ export type WithConflictingIndexSignature<T, IndexSignatureType> =
             ? T[P]
             : IndexSignatureType
         }
-      :
-          | {
-              [P in LiteralUnion<Keys<T>, PropertyKey>]: P extends Keys<T>
-                ? T[P]
-                : IndexSignatureType
-            })
+      : {
+          [P in LiteralUnion<Keys<T>, PropertyKey>]: P extends Keys<T>
+            ? T[P]
+            : IndexSignatureType
+        })
   | T
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [OptionalKeys](./types-kit.optionalkeys.md)<!-- -->, [LiteralUnion](./types-kit.literalunion.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [OptionalKeys](./types-kit.optionalkeys.md)<!-- -->, [LiteralUnion](./types-kit.literalunion.md)
 
 ## Example
 

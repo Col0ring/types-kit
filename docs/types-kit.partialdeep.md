@@ -6,14 +6,14 @@
 
 Make all properties (includes deep properties) in T optional.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type PartialDeep<T> = {
   [P in keyof T]?: PartialDeep<T[P]>
 }
 ```
-<b>References:</b> [PartialDeep](./types-kit.partialdeep.md)
+**References:** [PartialDeep](./types-kit.partialdeep.md)
 
 ## Example
 

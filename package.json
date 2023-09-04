@@ -1,6 +1,6 @@
 {
   "name": "types-kit",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "private": false,
   "description": "a types toolkit",
   "keywords": [
@@ -14,32 +14,39 @@
   },
   "license": "MIT",
   "author": "Col0ring <1561999073@qq.com>",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.d.ts",
+    "./*": "./src/*/index.d.ts"
+  },
+  "types": "./src/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "api-extractor run && npm run docs",
+    "build": "npm run gen:submodule && api-extractor run && npm run docs",
     "clean": "rimraf {dist,temp,docs}",
     "docs": "api-documenter markdown -i temp -o docs",
     "format": "cross-env NODE_ENV=production prettier --write .",
+    "gen:submodule": "tsx ./scripts/generate-submodule-packages.ts",
     "lint": "npm run lint:eslint && npm run format",
     "lint:eslint": "cross-env NODE_ENV=production eslint . --fix",
     "prepare": "husky install",
     "test": "tsc"
   },
   "devDependencies": {
-    "@col0ring/eslint-config": "^0.0.12",
-    "@col0ring/prettier-config": "^0.0.2",
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-angular": "^17.1.0",
-    "@microsoft/api-documenter": "^7.19.7",
-    "@microsoft/api-extractor": "^7.29.5",
+    "@col0ring/eslint-config": "^0.0.14",
+    "@col0ring/prettier-config": "^0.0.3",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-angular": "^17.7.0",
+    "@microsoft/api-documenter": "^7.22.33",
+    "@microsoft/api-extractor": "^7.36.4",
     "cross-env": "^7.0.3",
-    "eslint": "^8.23.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.8.2"
+    "eslint": "^8.48.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "typescript": ">=4.5.0"

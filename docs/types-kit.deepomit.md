@@ -6,7 +6,7 @@
 
 Remove the deep value path from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
@@ -14,7 +14,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
 > extends true
   ? {
       [P in keyof T]: [Exclude<K, Keys<T>>] extends [
-        `${infer Head}.${infer Tail}`
+        `${infer Head}.${infer Tail}`,
       ]
         ? P extends Head
           ? T[P] extends infer V
@@ -65,7 +65,7 @@ export type DeepOmit<T, K extends DeepKeys<T>> = IsNever<
         : never
     }
 ```
-<b>References:</b> [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [IsNever](./types-kit.isnever.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepOmit](./types-kit.deepomit.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)
+**References:** [DeepKeys](./types-kit.deepkeys.md)<!-- -->, [IsNever](./types-kit.isnever.md)<!-- -->, [Keys](./types-kit.keys.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepOmit](./types-kit.deepomit.md)<!-- -->, [OtherToString](./types-kit.othertostring.md)
 
 ## Example
 

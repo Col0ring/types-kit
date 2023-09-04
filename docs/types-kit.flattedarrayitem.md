@@ -6,7 +6,7 @@
 
 Get the flatted item type from an array.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type FlattedArrayItem<T extends readonly unknown[]> =
@@ -16,7 +16,7 @@ export type FlattedArrayItem<T extends readonly unknown[]> =
       : Item
     : never
 ```
-<b>References:</b> [FlattedArrayItem](./types-kit.flattedarrayitem.md)
+**References:** [FlattedArrayItem](./types-kit.flattedarrayitem.md)
 
 ## Example
 

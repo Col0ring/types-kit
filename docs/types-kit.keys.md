@@ -6,7 +6,7 @@
 
 Get keys of T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Keys<T> = T extends readonly unknown[]
@@ -18,7 +18,7 @@ export type Keys<T> = T extends readonly unknown[]
     : never
   : keyof T
 ```
-<b>References:</b> [TupleKeys](./types-kit.tuplekeys.md)
+**References:** [TupleKeys](./types-kit.tuplekeys.md)
 
 ## Example
 

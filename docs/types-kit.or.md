@@ -6,7 +6,7 @@
 
 Or operator for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Or<A extends readonly unknown[]> = If<
@@ -19,7 +19,7 @@ export type Or<A extends readonly unknown[]> = If<
   IsTruthy<ArrayItem<A>>
 >
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [Or](./types-kit.or.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [Or](./types-kit.or.md)<!-- -->, [IsTruthy](./types-kit.istruthy.md)<!-- -->, [ArrayItem](./types-kit.arrayitem.md)
 
 ## Example
 

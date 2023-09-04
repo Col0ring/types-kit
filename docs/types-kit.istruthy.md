@@ -6,12 +6,12 @@
 
 If T is a truthy value, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsTruthy<T> = IfExtends<[IsFalsy<T>, true], false, true>
 ```
-<b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsFalsy](./types-kit.isfalsy.md)
+**References:** [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsFalsy](./types-kit.isfalsy.md)
 
 ## Example
 

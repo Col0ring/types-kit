@@ -6,12 +6,12 @@
 
 Convert string (`${number}`<!-- -->) to number
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type StringToNumber<S extends string> = InternalStringToNumber<S>
 ```
-<b>References:</b> [InternalStringToNumber](./types-kit.internalstringtonumber.md)
+**References:** [InternalStringToNumber](./types-kit.internalstringtonumber.md)
 
 ## Example
 

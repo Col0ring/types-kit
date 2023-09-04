@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   IsAny,
   IsFalsy,
@@ -45,6 +46,6 @@ export type Result = Test<
     TestIsNeverGroup,
     TestIsFalsyGroup,
     TestIsObjectGroup,
-    TestIsTruthyGroup
+    TestIsTruthyGroup,
   ]
 >

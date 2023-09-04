@@ -6,18 +6,18 @@
 
 Create a type that replace the values in the corresponding keys.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ReplacePick<
   T,
   KeysArr extends readonly Keys<T>[],
-  ValuesArr extends Fill<KeysArr['length'], unknown>
+  ValuesArr extends Fill<KeysArr['length'], unknown>,
 > = {
   [P in keyof T]: InternalReplacePickValue<P, T[P], KeysArr, ValuesArr>
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [Fill](./types-kit.fill.md)<!-- -->, [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [Fill](./types-kit.fill.md)<!-- -->, [InternalReplacePickValue](./types-kit.internalreplacepickvalue.md)
 
 ## Example
 

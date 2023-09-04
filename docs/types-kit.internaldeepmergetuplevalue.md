@@ -4,13 +4,13 @@
 
 ## InternalDeepMergeTupleValue type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepMergeTupleValue<
   A extends readonly unknown[],
   B extends readonly unknown[],
-  Result extends readonly unknown[] = []
+  Result extends readonly unknown[] = [],
 > = B extends [B[0], ...infer RestB]
   ? A extends [A[0], ...infer RestA]
     ? B[0] extends infer V
@@ -20,7 +20,7 @@ type InternalDeepMergeTupleValue<
             RestB,
             [
               ...Result,
-              If<And<[IsObject<V>, IsObject<A[0]>]>, DeepMerge<A[0], V>, V>
+              If<And<[IsObject<V>, IsObject<A[0]>]>, DeepMerge<A[0], V>, V>,
             ]
           >
         : never
@@ -28,5 +28,5 @@ type InternalDeepMergeTupleValue<
     : [...Result, ...B]
   : Result
 ```
-<b>References:</b> [InternalDeepMergeTupleValue](./types-kit.internaldeepmergetuplevalue.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepMerge](./types-kit.deepmerge.md)
+**References:** [InternalDeepMergeTupleValue](./types-kit.internaldeepmergetuplevalue.md)<!-- -->, [If](./types-kit.if.md)<!-- -->, [And](./types-kit.and.md)<!-- -->, [IsObject](./types-kit.isobject.md)<!-- -->, [DeepMerge](./types-kit.deepmerge.md)
 

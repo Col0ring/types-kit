@@ -6,11 +6,11 @@
 
 If Condition\[0\] extends Condition\[1\], return Case1, else return Case2.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IfExtends<Condition extends [unknown, unknown], Case1, Case2> = [
-  Condition[0]
+  Condition[0],
 ] extends [Condition[1]]
   ? Case1
   : Case2

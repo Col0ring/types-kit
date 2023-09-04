@@ -1,4 +1,5 @@
 import { Keys } from '../mapper'
+
 import { IsTuple } from './array'
 import { IsNever, IsObject } from './value'
 
@@ -67,7 +68,7 @@ export type ObjectEntry<T extends object> = [
         : never
       : K
     : never,
-  T[Keys<T>]
+  T[Keys<T>],
 ]
 /**
  * return the type of that set's entry.

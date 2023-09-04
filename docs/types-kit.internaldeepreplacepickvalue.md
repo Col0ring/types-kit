@@ -4,14 +4,14 @@
 
 ## InternalDeepReplacePickValue type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalDeepReplacePickValue<
   Key,
   Current,
   KeysArr extends readonly unknown[],
-  ValuesArr extends readonly unknown[]
+  ValuesArr extends readonly unknown[],
 > = Key extends OtherToString<KeysArr[0]>
   ? [true, ValuesArr[0]]
   : KeysArr extends [KeysArr[0], ...infer RestKeys]
@@ -20,5 +20,5 @@ type InternalDeepReplacePickValue<
     : [false, Current]
   : [false, Current]
 ```
-<b>References:</b> [OtherToString](./types-kit.othertostring.md)<!-- -->, [InternalDeepReplacePickValue](./types-kit.internaldeepreplacepickvalue.md)
+**References:** [OtherToString](./types-kit.othertostring.md)<!-- -->, [InternalDeepReplacePickValue](./types-kit.internaldeepreplacepickvalue.md)
 

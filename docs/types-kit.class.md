@@ -6,12 +6,12 @@
 
 Create a class type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Class<T, P extends unknown[] = unknown[]> = Constructor<T, P> & {
   prototype: T
 }
 ```
-<b>References:</b> [Constructor](./types-kit.constructor.md)
+**References:** [Constructor](./types-kit.constructor.md)
 

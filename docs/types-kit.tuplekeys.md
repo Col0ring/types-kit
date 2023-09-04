@@ -6,17 +6,17 @@
 
 Get keys of tuple T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TupleKeys<T extends readonly unknown[]> = T extends readonly [
   any,
-  ...infer Tail
+  ...infer Tail,
 ]
   ? TupleKeys<Tail> | Tail['length'] | `${Tail['length']}`
   : never
 ```
-<b>References:</b> [TupleKeys](./types-kit.tuplekeys.md)
+**References:** [TupleKeys](./types-kit.tuplekeys.md)
 
 ## Example
 

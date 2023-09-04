@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   DeepMerge,
   DeepMergeTuple,
@@ -39,7 +40,7 @@ type TestDeepMergeTuple = Expect<
           }
         }
       },
-      2
+      2,
     ],
     [
       {
@@ -51,7 +52,7 @@ type TestDeepMergeTuple = Expect<
         }
       },
       1,
-      3
+      3,
     ]
   >,
   [
@@ -65,7 +66,7 @@ type TestDeepMergeTuple = Expect<
       }
     },
     1,
-    3
+    3,
   ]
 >
 
@@ -139,6 +140,6 @@ export type Result = Test<
     TestMerge,
     TestMergeExclusive,
     TestDeepMergeTuple,
-    TestDeppMergeGroup
+    TestDeppMergeGroup,
   ]
 >

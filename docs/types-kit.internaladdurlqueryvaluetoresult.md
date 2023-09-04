@@ -4,13 +4,13 @@
 
 ## InternalAddUrlQueryValueToResult type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type InternalAddUrlQueryValueToResult<
   Result extends object,
   K extends string,
-  V extends string | undefined
+  V extends string | undefined,
 > = {
   [P in Keys<Result> | K]: P extends K
     ? P extends Keys<Result>
@@ -28,5 +28,5 @@ type InternalAddUrlQueryValueToResult<
     : never
 }
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)<!-- -->, [IsEquals](./types-kit.isequals.md)
+**References:** [Keys](./types-kit.keys.md)<!-- -->, [IsEquals](./types-kit.isequals.md)
 

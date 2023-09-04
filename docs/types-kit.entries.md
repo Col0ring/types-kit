@@ -6,7 +6,7 @@
 
 return the type of that collection's entries.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Entries<T> = Entry<T> extends infer E
@@ -15,7 +15,7 @@ export type Entries<T> = Entry<T> extends infer E
     : E[]
   : never
 ```
-<b>References:</b> [Entry](./types-kit.entry.md)<!-- -->, [IsNever](./types-kit.isnever.md)
+**References:** [Entry](./types-kit.entry.md)<!-- -->, [IsNever](./types-kit.isnever.md)
 
 ## Example
 

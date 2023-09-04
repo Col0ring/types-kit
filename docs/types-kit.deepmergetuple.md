@@ -6,19 +6,19 @@
 
 Merge two tuples, values of the second array will assign values of the array type.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type DeepMergeTuple<
   A extends readonly unknown[],
-  B extends readonly unknown[]
+  B extends readonly unknown[],
 > = If<
   IsReadonlyArray<B>,
   readonly [...InternalDeepMergeTupleValue<A, B>, ...Slice<A, B['length']>],
   [...InternalDeepMergeTupleValue<A, B>, ...Slice<A, B['length']>]
 >
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [InternalDeepMergeTupleValue](./types-kit.internaldeepmergetuplevalue.md)<!-- -->, [Slice](./types-kit.slice.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [InternalDeepMergeTupleValue](./types-kit.internaldeepmergetuplevalue.md)<!-- -->, [Slice](./types-kit.slice.md)
 
 ## Example
 

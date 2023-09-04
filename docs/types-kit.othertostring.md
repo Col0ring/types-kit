@@ -6,7 +6,7 @@
 
 Stringify other types
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type OtherToString<T> = T extends

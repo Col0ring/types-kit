@@ -6,13 +6,13 @@
 
 Create a subarray of Arr from index Start to End. Indexes with negative numbers will be counted from reversely.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Slice<
   Arr extends readonly unknown[],
   Start extends number = 0,
-  End extends number = Arr['length']
+  End extends number = Arr['length'],
 > = Arr extends Arr
   ? true extends IsTuple<Arr>
     ? true extends IsReadonlyArray<Arr>
@@ -31,7 +31,7 @@ export type Slice<
     : Arr
   : never
 ```
-<b>References:</b> [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [InternalSlice](./types-kit.internalslice.md)<!-- -->, [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md)
+**References:** [IsTuple](./types-kit.istuple.md)<!-- -->, [IsReadonlyArray](./types-kit.isreadonlyarray.md)<!-- -->, [InternalSlice](./types-kit.internalslice.md)<!-- -->, [InternalNormalizeSliceIndex](./types-kit.internalnormalizesliceindex.md)
 
 ## Example
 

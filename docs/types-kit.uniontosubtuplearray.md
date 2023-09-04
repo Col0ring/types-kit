@@ -6,7 +6,7 @@
 
 Get all sub tuple array from the passing parameter.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type UnionToSubTupleArray<T> = TupleKeys<UnionToTuple<T>> extends infer V
@@ -15,7 +15,7 @@ export type UnionToSubTupleArray<T> = TupleKeys<UnionToTuple<T>> extends infer V
     : never
   : never
 ```
-<b>References:</b> [TupleKeys](./types-kit.tuplekeys.md)<!-- -->, [UnionToTuple](./types-kit.uniontotuple.md)<!-- -->, [GetSubTuple](./types-kit.getsubtuple.md)
+**References:** [TupleKeys](./types-kit.tuplekeys.md)<!-- -->, [UnionToTuple](./types-kit.uniontotuple.md)<!-- -->, [GetSubTuple](./types-kit.getsubtuple.md)
 
 ## Example
 

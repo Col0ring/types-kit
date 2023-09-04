@@ -6,14 +6,14 @@
 
 Make all properties (includes deep properties) in T readonly (add readonly decorator).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ReadonlyDeep<T> = {
   readonly [P in keyof T]: ReadonlyDeep<T[P]>
 }
 ```
-<b>References:</b> [ReadonlyDeep](./types-kit.readonlydeep.md)
+**References:** [ReadonlyDeep](./types-kit.readonlydeep.md)
 
 ## Example
 

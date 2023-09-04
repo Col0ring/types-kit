@@ -14,8 +14,6 @@ export type Tuple<T = unknown, R = T> =
   | readonly [T, ...R[]]
   | readonly [...R[], T]
 
-export type SubArray = () => void
-
 /**
  *  If T is a tuple, return true, else return false.
  * @example

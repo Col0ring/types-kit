@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import { Fill } from './fill'
 import { Filter } from './filter'
 import { Flat } from './flat'
@@ -41,6 +42,6 @@ export type Result = Test<
     TestFlat,
     TestIncludesGroup,
     TestReverse,
-    TestSliceGroup
+    TestSliceGroup,
   ]
 >

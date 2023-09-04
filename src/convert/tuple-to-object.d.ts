@@ -17,7 +17,7 @@ export type TupleToObject<
     | 'Lowercase'
     | 'Capitalize'
     | 'Uncapitalize'
-    | 'default' = 'default'
+    | 'default' = 'default',
 > = T extends readonly any[]
   ? {
       [P in T[number] as Switch<
@@ -27,7 +27,7 @@ export type TupleToObject<
           ['Lowercase', Lowercase<P>],
           ['Capitalize', Capitalize<P>],
           ['Uncapitalize', Uncapitalize<P>],
-          P
+          P,
         ]
       >]: P
     }

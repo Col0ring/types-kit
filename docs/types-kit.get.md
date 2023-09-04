@@ -6,12 +6,12 @@
 
 Get the specified value from T.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Get<T, K extends Keys<T>> = T[K]
 ```
-<b>References:</b> [Keys](./types-kit.keys.md)
+**References:** [Keys](./types-kit.keys.md)
 
 ## Example
 

@@ -6,12 +6,12 @@
 
 If T is any, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsAny<T> = IsExtends<number, 0 & T>
 ```
-<b>References:</b> [IsExtends](./types-kit.isextends.md)
+**References:** [IsExtends](./types-kit.isextends.md)
 
 ## Example
 

@@ -1,4 +1,5 @@
 import { Expect, Group, Test } from '../test-utils'
+
 import {
   RequiredDeep,
   RequiredKeys,
@@ -86,6 +87,6 @@ export type Result = Test<
     TestSetRequired,
     TestRequiredKeys,
     TestRequiredDeep,
-    TestSetRequiredDeppGroup
+    TestSetRequiredDeppGroup,
   ]
 >

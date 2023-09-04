@@ -6,7 +6,7 @@
 
 Get the last type in a union type (important!: the result is random when you are using tsc, the correct type can only be obtained through the editor environment).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type LastInUnion<U> = UnionToIntersection<
@@ -15,7 +15,7 @@ export type LastInUnion<U> = UnionToIntersection<
   ? L
   : never
 ```
-<b>References:</b> [UnionToIntersection](./types-kit.uniontointersection.md)
+**References:** [UnionToIntersection](./types-kit.uniontointersection.md)
 
 ## Example
 

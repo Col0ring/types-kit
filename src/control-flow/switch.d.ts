@@ -1,5 +1,6 @@
 import { IsEmptyTypeArray, IsTuple } from '../basic'
 import { EqualTag, ExtendsTag } from '../utils'
+
 import { If, IfExtends } from './if'
 import { IsEquals, IsExtends } from './operator'
 
@@ -18,13 +19,13 @@ export type Switch<
   T,
   A extends readonly // if/else if/else
   [...Cases: [Case: unknown, Result: unknown][], DefaultResult: unknown],
-  Type extends EqualTag | ExtendsTag = ExtendsTag
+  Type extends EqualTag | ExtendsTag = ExtendsTag,
 > = A extends readonly [...infer CaseExpressions, infer DefaultResult]
   ? If<
       IsTuple<CaseExpressions>,
       CaseExpressions extends [
         [infer CurrentCase, infer CurrentResult],
-        ...infer OtherCases
+        ...infer OtherCases,
       ]
         ? IfExtends<
             [Type, EqualTag],

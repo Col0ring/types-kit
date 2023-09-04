@@ -6,7 +6,7 @@
 
 If T is unknown, return true, else return false.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IsUnknown<T> = IfExtends<
@@ -15,7 +15,7 @@ export type IsUnknown<T> = IfExtends<
   false
 >
 ```
-<b>References:</b> [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
+**References:** [IfExtends](./types-kit.ifextends.md)<!-- -->, [IsAny](./types-kit.isany.md)
 
 ## Example
 

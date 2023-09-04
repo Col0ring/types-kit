@@ -6,7 +6,7 @@
 
 If/Else if for types.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type IfElseIf<
@@ -14,12 +14,12 @@ export type IfElseIf<
   [
     [Condition: unknown, Result: unknown],
     ...[Condition: unknown, Result: unknown][],
-    unknown
-  ]
+    unknown,
+  ],
 > = A extends readonly [
   infer IfExpression,
   ...infer ElseIfExpressions,
-  infer ElseResult
+  infer ElseResult,
 ]
   ? IfExpression extends [infer IfCondition, infer IfResult]
     ? If<
@@ -29,17 +29,17 @@ export type IfElseIf<
           IsTuple<ElseIfExpressions>,
           ElseIfExpressions extends [
             [infer ElseIfCondition, infer ElseIfResult],
-            ...infer OtherElseIfExpressions
+            ...infer OtherElseIfExpressions,
           ]
             ? OtherElseIfExpressions extends [
                 Condition: unknown,
-                Result: unknown
+                Result: unknown,
               ][]
               ? IfElseIf<
                   [
                     [ElseIfCondition, ElseIfResult],
                     ...OtherElseIfExpressions,
-                    ElseResult
+                    ElseResult,
                   ]
                 >
               : If<ElseIfCondition, ElseIfResult, ElseResult>
@@ -47,7 +47,7 @@ export type IfElseIf<
           // empty array or array
           ElseIfExpressions extends [
             infer ElseIfCondition,
-            infer ElseIfResult
+            infer ElseIfResult,
           ][]
             ? If<ElseIfCondition, ElseIfResult, ElseResult>
             : ElseResult
@@ -57,7 +57,7 @@ export type IfElseIf<
       ElseResult
   : never
 ```
-<b>References:</b> [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IfElseIf](./types-kit.ifelseif.md)
+**References:** [If](./types-kit.if.md)<!-- -->, [IsTuple](./types-kit.istuple.md)<!-- -->, [IfElseIf](./types-kit.ifelseif.md)
 
 ## Example
 
